@@ -36,18 +36,18 @@ jobs:
           mkdir -p dist
 
           # Lekmap
-          mkdir -p "dist/Lekmap v${{ steps.lekmap_ver.outputs.version }}/Lekmap v${{ steps.lekmap_ver.outputs.version }}"
-          cp -r Lekmap/* "dist/Lekmap v${{ steps.lekmap_ver.outputs.version }}/Lekmap v${{ steps.lekmap_ver.outputs.version }}/"
+          mkdir -p "dist/Lekmap v${{ steps.lekmap_ver.outputs.version }}/"
+          cp -r Lekmap/* "dist/Lekmap v${{ steps.lekmap_ver.outputs.version }}/"
 
           # LEKMOD
-          mkdir -p "dist/LEKMOD_v${{ steps.lekmod_ver.outputs.version }}/LEKMOD_v${{ steps.lekmod_ver.outputs.version }}"
-          cp -r LEKMOD/* "dist/LEKMOD_v${{ steps.lekmod_ver.outputs.version }}/LEKMOD_v${{ steps.lekmod_ver.outputs.version }}/"
+          mkdir -p "dist/LEKMOD_v${{ steps.lekmod_ver.outputs.version }}/"
+          cp -r LEKMOD/* "dist/LEKMOD_v${{ steps.lekmod_ver.outputs.version }}/"
 
       - name: Create archives
         run: |
           cd dist
 
-          zip -r "Lekmap-v${{ steps.lekmap_ver.outputs.version }}.zip" "Lekmap v${{ steps.lekmap_ver.outputs.version }}"
+          zip -r "Lekmap v${{ steps.lekmap_ver.outputs.version }}.zip" "Lekmap v${{ steps.lekmap_ver.outputs.version }}"
           zip -r "LEKMOD_v${{ steps.lekmod_ver.outputs.version }}.zip" "LEKMOD_v${{ steps.lekmod_ver.outputs.version }}"
 
       - name: Upload artifacts (downloadable in Actions)
@@ -62,6 +62,7 @@ jobs:
           tag_name: latest
           files: dist/*.zip
           draft: ${{ github.ref != 'refs/heads/main' }}
+          make_latest: ${{ github.ref != 'refs/heads/main' }}
           overwrite_files: true
           generate_release_notes: true
 
