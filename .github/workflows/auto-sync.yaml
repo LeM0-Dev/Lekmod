@@ -32,8 +32,7 @@ jobs:
 
       - name: Add upstream remote
         run: |
-          # TODO: change this to the original repo URL you forked from
-          git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPO.git
+          git remote add upstream hhttps://github.com/EnormousApplePie/Lekmod.git
           git fetch upstream
           git fetch origin
 
