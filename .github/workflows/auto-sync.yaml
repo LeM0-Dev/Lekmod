@@ -38,7 +38,8 @@ jobs:
 
       - name: Update main from upstream
         run: |
-          git checkout main
+          # always base local main on origin/main, not upstream/main
+          git checkout -B main origin/main
 
           # Option A: safe merge (keeps any local commits on your main)
           git merge --ff-only upstream/main || git merge upstream/main
