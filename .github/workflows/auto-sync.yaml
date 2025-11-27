@@ -1,34 +1,120 @@
-# .github/workflows/auto-sync.yml (only on sync-bot)
+name: Auto Sync + open branch sync PRs
 
-name: Auto Sync
 on:
+  # auto-sync + PRs, adjust schedule as you like
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "0 */15 * * *"  # every 15 minutes
+  # allow manual run from Actions tab (on default branch)
   workflow_dispatch:
   push:
     branches:
       - sync-bot
 
+# allow the workflow to push & create PRs using GITHUB_TOKEN
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
-  sync:
+  sync-and-pr:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout fork
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set upstream
+      - name: Configure git
         run: |
-          git remote add upstream https://github.com/EnormousApplePie/Lekmod.git
-          git fetch upstream
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync main
+      - name: Add upstream remote
+        run: |
+          # TODO: change this to the original repo URL you forked from
+          git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPO.git
+          git fetch upstream
+          git fetch origin
+
+      - name: Update main from upstream
         run: |
           git checkout main
-          git merge upstream/main || true
 
-      - name: Push
-        run: git push origin main
+          # Option A: safe merge (keeps any local commits on your main)
+          git merge --ff-only upstream/main || git merge upstream/main
+
+          # If you want your main to be a pure mirror of upstream, use instead:
+          # git reset --hard upstream/main
+
+          git push origin main
+
+      - name: Open sync PRs from main into other branches
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          OWNER="${GITHUB_REPOSITORY%%/*}"
+          REPO="${GITHUB_REPOSITORY#*/}"
+
+          # list all origin/* branches except main and HEAD
+          BRANCHES=$(git for-each-ref refs/remotes/origin --format='%(refname:strip=3)' \
+            | grep -v '^main$' \
+            | grep -v '^HEAD$' || true)
+
+          if [ -z "$BRANCHES" ]; then
+            echo "No non-main branches on origin; nothing to do."
+            exit 0
+          fi
+
+          # ensure jq is available for JSON parsing
+          if ! command -v jq >/dev/null 2>&1; then
+            sudo apt-get update -y
+            sudo apt-get install -y jq
+          fi
+
+          for BR in $BRANCHES; do
+            echo "::group::Checking branch $BR"
+
+            # get the branch locally
+            git checkout -B "$BR" "origin/$BR"
+
+            # if main is already fully merged into BR, skip
+            if git merge-base --is-ancestor main "$BR"; then
+              echo "Branch $BR already contains main; skipping."
+              echo "::endgroup::"
+              continue
+            fi
+
+            # check if there is already an open PR main -> BR
+            EXISTING=$(
+              curl -sS \
+                -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+                -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/${OWNER}/${REPO}/pulls?state=open&base=${BR}&head=${OWNER}:main"
+            )
+
+            if echo "$EXISTING" | jq 'length > 0' | grep -q true; then
+              echo "Existing open PR from main into $BR; skipping."
+              echo "::endgroup::"
+              continue
+            fi
+
+            echo "Creating PR: main -> $BR"
+
+            curl -sS -X POST \
+              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${OWNER}/${REPO}/pulls" \
+              -d @- <<EOF
+{
+  "title": "Sync main into ${BR}",
+  "body": "Automated PR to sync \`main\` into \`${BR}\`.",
+  "head": "main",
+  "base": "${BR}"
+}
+EOF
+
+            echo "::endgroup::"
+          done
