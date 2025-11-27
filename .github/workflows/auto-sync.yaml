@@ -32,7 +32,7 @@ jobs:
 
       - name: Add upstream remote
         run: |
-          git remote add upstream hhttps://github.com/EnormousApplePie/Lekmod.git
+          git remote add upstream https://github.com/EnormousApplePie/Lekmod.git
           git fetch upstream
           git fetch origin
 
