@@ -108,13 +108,13 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               "https://api.github.com/repos/${OWNER}/${REPO}/pulls" \
               -d @- <<EOF
-{
-  "title": "Sync main into ${BR}",
-  "body": "Automated PR to sync \`main\` into \`${BR}\`.",
-  "head": "main",
-  "base": "${BR}"
-}
-EOF
+              {
+                "title": "Sync main into ${BR}",
+                "body": "Automated PR to sync \`main\` into \`${BR}\`.",
+                "head": "main",
+                "base": "${BR}"
+              }
+              EOF
 
             echo "::endgroup::"
           done
