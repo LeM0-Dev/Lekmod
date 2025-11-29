@@ -56,6 +56,7 @@ This will copy the necessary UI files based on your current UI setup. (UI / EUI 
 
 ##### 5. Launch the game. You should see "LEKMOD" in your multiplayer lobby.
 
+
 #### B. LEKMOD v32 and lower - No specific UI support
 ##### 1. Download the version you wish to install
 ##### 2. Extract the contents of the zip file
@@ -66,6 +67,7 @@ To find your game folder, right click Civilization V in your Steam library, sele
 The final path should look like this:
 `...\Sid Meier's Civilization V\Assets\DLC\LEKMODvXX_X\`
 ##### 4. Launch the game. You should see "LEKMOD" in your multiplayer lobby.
+
 
 ### Linux (Currently Unavailable)
 #### A. LEKMOD v33 and higher - EUI and Standard UI support
@@ -97,7 +99,7 @@ The final path should look like this:
 ---
 ## Troubleshooting
 ### Common Issues
-- **LEKMOD/Lekmap not showing in multiplayer lobby**: Ensure that you have copied the files to the correct DLC folder. The final path should be double nested as shown in the installation instructions. eg.: `...\Sid Meier's Civilization V\Assets\DLC\LEKMODvXX_X\LEKMODvXX_X\` / `...\Sid Meier's Civilization V\Assets\Maps\Lekmap vX_X\Lekmap vX_X\`
+- **LEKMOD/Lekmap not showing in multiplayer lobby**: Ensure that you have copied the files to the correct DLC folder. The final path should be as shown in the installation instructions. eg.: `...\Sid Meier's Civilization V\Assets\DLC\LEKMODvXX_X\` / `...\Sid Meier's Civilization V\Assets\Maps\Lekmap vX_X\`
 - **UI issues**: If you are using EUI, ensure you are using a supported version (v1.29 and higher is NOT SUPPORTED). Run the ui_check.bat (Windows) or linux_ui_check.sh (Linux) to ensure the correct UI files are in place.
 
 
