@@ -9484,7 +9484,7 @@ Many individual cacicazgos have been studied in colonial Mexico, showing that en
 		</Replace>
 		<!-- Trait tags -->
 		<Replace Tag="TXT_KEY_TRAIT_LEADER_HIRAM_SHORT">
-			<Text>Skillful Traders</Text>
+			<Text>Colonizers of the Mediterranean</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_LEADER_HIRAM">
 			<Text>Upon the discovery of [ICON_TECH_SAILING] Sailing, receive a free Square Sail Ship. After the Discovery of [ICON_TECH_OPTICS] Optics, newly found cities start with +1 [ICON_CITIZEN] Population and award 50 [ICON_GOLD] Gold.</Text>
