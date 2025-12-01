@@ -46735,7 +46735,6 @@
 			<GoldMaintenance>3</GoldMaintenance> 
 			<Cost>500</Cost>
 			<ConquestProb>100</ConquestProb> 
-			<CultureRateModifier>15</CultureRateModifier> 
 			<PrereqTech>TECH_RADIO</PrereqTech> 
 			<GreatWorkSlotType>GREAT_WORK_SLOT_MUSIC</GreatWorkSlotType> 
 			<GreatWorkCount>1</GreatWorkCount> 
@@ -48738,7 +48737,6 @@
 			<Cost>1250</Cost> 
 			<HurryCostModifier>-1</HurryCostModifier>
 			<ConquestProb>100</ConquestProb> 
-			<CultureRateModifier>50</CultureRateModifier> 
 			<FreePolicies>1</FreePolicies> 
 			<PrereqTech>TECH_ECOLOGY</PrereqTech> 
 			<GreatWorkSlotType>GREAT_WORK_SLOT_MUSIC</GreatWorkSlotType> 
@@ -97444,11 +97442,11 @@
 		</Row>
 		<Row> 
 			<Name>FRIENDS_CULTURE_BONUS_AMOUNT_MEDIEVAL</Name> 
-			<Value>6</Value> 
+			<Value>5</Value> 
 		</Row>
 		<Row> 
 			<Name>FRIENDS_CULTURE_BONUS_AMOUNT_INDUSTRIAL</Name> 
-			<Value>12</Value> 
+			<Value>10</Value> 
 		</Row>
 		<Row> 
 			<Name>ALLIES_CULTURE_BONUS_AMOUNT_ANCIENT</Name> 
@@ -97456,11 +97454,11 @@
 		</Row>
 		<Row> 
 			<Name>ALLIES_CULTURE_BONUS_AMOUNT_MEDIEVAL</Name> 
-			<Value>6</Value> 
+			<Value>5</Value> 
 		</Row>
 		<Row> 
 			<Name>ALLIES_CULTURE_BONUS_AMOUNT_INDUSTRIAL</Name> 
-			<Value>12</Value> 
+			<Value>10</Value> 
 		</Row>
 		<Row> 
 			<Name>FRIENDS_CAPITAL_FOOD_BONUS_AMOUNT_PRE_RENAISSANCE</Name> 
@@ -97556,11 +97554,11 @@
 		</Row>
 		<Row> 
 			<Name>FRIENDS_FAITH_FLAT_BONUS_AMOUNT_INDUSTRIAL</Name> 
-			<Value>8</Value> 
+			<Value>12</Value> 
 		</Row>
 		<Row> 
 			<Name>FRIENDS_FAITH_FLAT_BONUS_AMOUNT_RENAISSANCE</Name> 
-			<Value>6</Value> 
+			<Value>8</Value> 
 		</Row>
 		<Row> 
 			<Name>FRIENDS_FAITH_FLAT_BONUS_AMOUNT_MEDIEVAL</Name> 
@@ -97576,11 +97574,11 @@
 		</Row>
 		<Row> 
 			<Name>ALLIES_FAITH_FLAT_BONUS_AMOUNT_INDUSTRIAL</Name> 
-			<Value>8</Value> 
+			<Value>12</Value> 
 		</Row>
 		<Row> 
 			<Name>ALLIES_FAITH_FLAT_BONUS_AMOUNT_RENAISSANCE</Name> 
-			<Value>6</Value> 
+			<Value>8</Value> 
 		</Row>
 		<Row> 
 			<Name>ALLIES_FAITH_FLAT_BONUS_AMOUNT_MEDIEVAL</Name> 
@@ -97892,7 +97890,7 @@
 		</Row>
 		<Row> 
 			<Name>QUEST_DISABLED_BULLY_CITY_STATE</Name> 
-			<Value>1</Value> 
+			<Value>0</Value> 
 		</Row>
 		<Row> 
 			<Name>QUEST_DISABLED_DENOUNCE_MAJOR</Name> 
@@ -226451,7 +226449,10 @@
 	<!-- NOTE: Units defined to be given by the Trait, when also defined here, appear on the capital plot. Cargo Ships and Caravans do so regardless -->
 	<Trait_UnitClassForceCapitalSpawn>
         <Delete />
-
+		<Row>
+			<TraitType>TRAIT_LEADER_HIRAM</TraitType>
+			<UnitClassType>UNITCLASS_TRIREME</UnitClassType>
+		</Row>
 	</Trait_UnitClassForceCapitalSpawn>
 
 	<Table name="Trait_PuppetYieldModifiers">
@@ -227512,7 +227513,7 @@
 			<ShortDescription>TXT_KEY_TRAIT_BY_REASON_SHORT</ShortDescription>
 			<FreeUnit>UNITCLASS_GREAT_ADMIRAL</FreeUnit> 
 			<FreeUnitPrereqTech>TECH_COMPASS</FreeUnitPrereqTech>
-			<!-- Trait_NoBuildImprovement NOTE:Drydock is not in the table, probably should be? -->
+			<!-- Trait_NoBuildImprovement -->
 			<!-- Trait_FreePromotionUnitCombats -->
 		</Row>
 		<Row> 
@@ -282110,6 +282111,10 @@
 		<Row> 
 			<UnitType>UNIT_MAYAN_ATLATLIST</UnitType> 
 			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType> 
+		</Row>
+		<Row> 
+			<UnitType>UNIT_MC_OMANI_BAGHLAH</UnitType> 
+			<PromotionType>PROMOTION_OCEAN_IMPASSABLE</PromotionType> 
 		</Row>
 		<Row> 
 			<UnitType>UNIT_MC_OMANI_BAGHLAH</UnitType> 
