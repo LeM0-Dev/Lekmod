@@ -46094,7 +46094,7 @@
 			<HurryCostModifier>25</HurryCostModifier>
 			<Espionage>true</Espionage> 
 			<EspionageModifier>-25</EspionageModifier> 
-			<PrereqTech>TECH_BANKING</PrereqTech> 
+			<PrereqTech>TECH_CHIVALRY</PrereqTech> 
 			<ArtDefineTag>COLESSEUM</ArtDefineTag> 
 			<PortraitIndex>12</PortraitIndex> 
 			<IconAtlas>EXPANSION_BW_ATLAS_1</IconAtlas> 
@@ -178687,11 +178687,10 @@
 			<ID>58</ID> 
 			<Type>MISSION_RETRAIN</Type> 
 			<Description>TXT_KEY_MISSION_RETRAIN</Description> 
-			<Help>TXT_KEY_MISSION_RETRAIN_HELP</Help> 
-			<HotKey>KB_S</HotKey> 
+			<Help>TXT_KEY_MISSION_RETRAIN_HELP</Help>
 			<HotKeyPriority>0</HotKeyPriority> 
 			<HotKeyPriorityAlt>0</HotKeyPriorityAlt> 
-			<OrderPriority>198</OrderPriority> 
+			<OrderPriority>50</OrderPriority> 
 			<AltDown>false</AltDown> 
 			<AltDownAlt>false</AltDownAlt> 
 			<ShiftDown>false</ShiftDown> 
