@@ -12,25 +12,25 @@
 	<Language_en_US>
 		<!-- Version Number, Leave at top -->
 		<Row Tag="TXT_KEY_LEKMOD_VERSION">
-			<Text>LEKMOD v34.9</Text>
+			<Text>LEKMOD v34.11</Text>
 		</Row>
 		<Replace Tag="TXT_KEY_MULTIPLAYER_STAGING_ROOM"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]LEKMOD v34.9[ENDCOLOR]
+				[COLOR_POSITIVE_TEXT]LEKMOD v34.11[ENDCOLOR]
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_AD_SETUP_ADVANCED_OPTIONS"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]LEKMOD v34.9[ENDCOLOR]  
+				[COLOR_POSITIVE_TEXT]LEKMOD v34.11[ENDCOLOR]  
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_GAME_SELECTION_SCREEN"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]LEKMOD v34.9[ENDCOLOR] 
+				[COLOR_POSITIVE_TEXT]LEKMOD v34.11[ENDCOLOR] 
 			</Text>
 		</Replace>
 		<Row Tag="TXT_KEY_GAME_OPTION_SCUFFED_VERSION_CHECKER">
-			<Text>[COLOR_POSITIVE_TEXT]LEKMOD v34.9[ENDCOLOR]</Text>
+			<Text>[COLOR_POSITIVE_TEXT]LEKMOD v34.11[ENDCOLOR]</Text>
 		</Row>
 		<!-- END VERSION -->
 
@@ -1306,16 +1306,16 @@
 			<Text>+33% [ICON_STRENGTH] Combat Strength VS [COLOR_POSITIVE_TEXT]Gunpowder[ENDCOLOR] units</Text>
 		</Row>
 		<Row Tag="TXT_KEY_ANTINAVAL_PROMO_HELI_HELP">
-			<Text>+33% [ICON_STRENGTH] Combat Strength VS [COLOR_POSITIVE_TEXT]Naval[ENDCOLOR] units</Text>
+			<Text>+25% [ICON_STRENGTH] Combat Strength VS [COLOR_POSITIVE_TEXT]Naval[ENDCOLOR] units</Text>
 		</Row>
 		<Row Tag="TXT_KEY_ANTINAVAL_PROMO_HELI_1">
-			<Text>Naval Targeting I (25)</Text>
+			<Text>Naval Targeting I</Text>
 		</Row>
 		<Row Tag="TXT_KEY_ANTINAVAL_PROMO_HELI_2">
-			<Text>Naval Targeting II (25)</Text>
+			<Text>Naval Targeting II</Text>
 		</Row>
 		<Row Tag="TXT_KEY_ANTINAVAL_PROMO_HELI_3">
-			<Text>Naval Targeting III (25)</Text>
+			<Text>Naval Targeting III</Text>
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_HELP_CAROLEAN">
 			<Text>Unique Swedish Unit. Replaces the Musketman. Comes with the March promotion and one addition [ICON_MOVEMENT] Movement.</Text>
@@ -6472,6 +6472,9 @@ Many individual cacicazgos have been studied in colonial Mexico, showing that en
 		</Row>
 		<Row Tag="TXT_KEY_ANTINAVAL_PROMO_3">
 			<Text>Naval Targeting III</Text>
+		</Row>
+		<Row Tag="TXT_KEY_ANTINAVAL_PROMO_3_HELP">
+			<Text>+34% [ICON_STRENGTH] Combat Strength VS [COLOR_POSITIVE_TEXT]Naval[ENDCOLOR] units.</Text>
 		</Row>
 	<!-- New options -->
 	<!-- version checker -->
@@ -17623,7 +17626,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_HELP_CONVICT_PENITENTIARY"> 
 			<Text>
-				Replaces the [ICON_BUILDING_CONSTABLE] [COLOR_YELLOW]Constabulary[ENDCOLOR]. It is available earlier, and provides +5% [ICON_PRODUCTION] Production and +5% [ICON_GOLD] Gold. Reduces enemy [ICON_SPY] Spy stealing rate by 25% and increases [ICON_SPY] Counterspy level by 1.
+				Replaces the [ICON_BUILDING_CONSTABLE] [COLOR_YELLOW]Constabulary[ENDCOLOR]. It is available at [ICON_TECH_MACHINERY] [COLOR_CYAN]Machinery[ENDCOLOR], rather than at [ICON_TECH_CHIVALRY] [COLOR_CYAN]Chivalry[ENDCOLOR], and provides +1 [ICON_PRODUCTION] Production and +1 [ICON_GOLD] Gold and +5% [ICON_PRODUCTION] Production and +5% [ICON_GOLD] Gold. Reduces enemy [ICON_SPY] Spy stealing rate by 25% and increases [ICON_SPY] Counterspy level by 1.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_COTHON"> 
@@ -18080,7 +18083,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_GREAT_LIGHTHOUSE_STRATEGY"> 
 			<Text>
-				The Great Lighthouse increases the movement and sight of all military naval units by +1. It also provides +1 [ICON_CULTURE] Culture and +1 Great Merchant point. Obviously, this is an extremely useful for any naval-oriented civilization, especially in a game with a lot of islands or small continents.
+				The [ICON_WONDER_GREAT_LIGHTHOUSE] [COLOR_YELLOW]Great Lighthouse[ENDCOLOR] increases the movement and sight of all military naval units by +1. It also provides +1 [ICON_CULTURE] Culture and +1 Great Merchant point. Obviously, this is an extremely useful for any naval-oriented civilization, especially in a game with a lot of islands or small continents.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_GREAT_WALL"> 
@@ -20694,13 +20697,12 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILD_MOTTE_BAILEY_HELP"> 
 			<Text>
-				+25% [ICON_STRENGTH] Defensive Strength for any Unit stationed in this Tile. Requires [ICON_TECH_ENGINEERING] [COLOR_CYAN]Engineering[ENDCOLOR] to build. May not be constructed adjacent to another Motte and Bailey. May be constructed on Resources, but does not Connect them to the Empire's Trade Network.
-				[NEWLINE][NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production, upon discovering [ICON_TECH_FLIGHT] [COLOR_CYAN]Flight[ENDCOLOR] the Motte and Bailey gains an additional +2 [ICON_CULTURE] Culture.
+				Constructs a Motte and Bailey which increases the [ICON_FOOD] and [ICON_PRODUCTION] yield of the tile. Also provides +2 [ICON_CULTURE] Culture after [COLOR_CYAN]Flight[ENDCOLOR] is researched. May not be adjacent to another Motte and Bailey.[NEWLINE]25% [ICON_STRENGTH] Defensive Strength for any Unit stationed in this Tile.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILD_MOTTE_BAILEY_REC"> 
 			<Text>
-				It will improve the [ICON_STRENGTH] Defense of any military unit stationed in this tile and cause damage to enemy units that end their turn adjacent.
+				It will increases the [ICON_FOOD]and [ICON_PRODUCTION] yield of the tile (and [ICON_CULTURE] after Flight is researched).[NEWLINE]It will also improve the [ICON_STRENGTH] Defense of any military unit stationed in this tile.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILD_NUM_TURNS"> 
@@ -21175,7 +21177,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_CULTURE"> 
 			<Text>
-				{1_Num: number \"'+'##;'[COLOR_RED]-'##\"} [ICON_CULTURE] Culture per turn
+				{1_Num: number "'+'##.##;'[COLOR_RED]-'##.##"} [ICON_CULTURE] Culture per turn
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_DOMAIN_SEA_MODIFIER"> 
@@ -21185,17 +21187,17 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_FAITH"> 
 			<Text>
-				{1_Num: number \"'+'##;'[COLOR_RED]-'##\"} [ICON_] Faith per turn
+				{1_Num: number "'+'##.##;'[COLOR_RED]-'##.##"} [ICON_] Faith per turn
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_FOOD"> 
 			<Text>
-				{1_Num: number \"'+'##;'[COLOR_RED]-'##\"} [ICON_FOOD] Food per turn
+				{1_Num: number "'+'##.##;'[COLOR_RED]-'##.##"} [ICON_FOOD] Food per turn
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_GOLD"> 
 			<Text>
-				{1_Num: number \"'+'##;'[COLOR_RED]-'##\"} [ICON_GOLD] Gold per turn
+				{1_Num: number "'+'##.##;'[COLOR_RED]-'##.##"} [ICON_GOLD] Gold per turn
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_GPT_THEM"> 
@@ -21210,7 +21212,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_PRODUCTION"> 
 			<Text>
-				{1_Num: number \"'+'##;'[COLOR_RED]-'##\"} [ICON_PRODUCTION] Production per turn
+				{1_Num: number "'+'##.##;'[COLOR_RED]-'##.##"} [ICON_PRODUCTION] Production per turn
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_RELIGIOUS_PRESSURE"> 
@@ -21220,7 +21222,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_SCIENCE"> 
 			<Text>
-				{1_Num: number \"'+'##;'[COLOR_RED]-'##\"} [ICON_RESEARCH] Science per turn
+				{1_Num: number "'+'##.##;'[COLOR_RED]-'##.##"} [ICON_RESEARCH] Science per turn
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_BASE"> 
@@ -43909,7 +43911,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_CIV5_IMPROVEMENTS_MOTTE_BAILEY_TEXT"> 
 			<Text>
-				A design first attributed to the Normans in the 10th century, the motte-and-bailey was a type of elevated castle built on top of a raised earthwork mound. The Motte was formed by digging a trench around the prospective castle site. The leftover fill-dirt was then used to construct an artificial hill or mound, upon which the castle itself was built. The "Bailey" refers to the lower courtyard, typically enclosed by a large wall, containing a barracks, servants' quarters, and storage buildings. Any unit stationed within a Motte and Bailey receives a 100% defensive strength bonus. Additionally, any enemy unit which ends its turn next to a Motte and Bailey takes 3 damage.
+				A design first attributed to the Normans in the 10th century, the motte-and-bailey was a type of elevated castle built on top of a raised earthwork mound. The Motte was formed by digging a trench around the prospective castle site. The leftover fill-dirt was then used to construct an artificial hill or mound, upon which the castle itself was built. The "Bailey" refers to the lower courtyard, typically enclosed by a large wall, containing a barracks, servants' quarters, and storage buildings.[NEWLINE][NEWLINE]A Motte and Bailey may be built on any tile, but does not connect Resources to the Empire's Trade Network. It may not be adjacent to another Motte and Bailey. It provides +1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production.  Any unit stationed within a Motte and Bailey receives a 25% [ICON_STRENGTH] Defensive Strength bonus. Upon discovering [ICON_TECH_FLIGHT] [COLOR_CYAN]Flight[ENDCOLOR] the Motte and Bailey gains an additional +2 [ICON_CULTURE] Culture. Must be built in Norman territory.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_CIV5_IMPROVEMENTS_OFFSHOREPLATFORM"> 
@@ -117429,7 +117431,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POPUP_ANNEX_PUPPET"> 
 			<Text>
-				Do you want to annex the puppet of {@1_CityName} into your empire? It will allow you to choose Production, but will increase your [ICON_HAPPINESS_4] Unhappiness and slow your acquisition of new Policies and Great People. You will not be able to reverse this.
+				Do you want to annex the puppet of {@1_CityName} into your empire? It will allow you to choose Production, but will increase your [ICON_HAPPINESS_4] Unhappiness and slow your acquisition of new Policies. You will not be able to reverse this.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POPUP_ARE_YOU_SURE"> 
@@ -119000,7 +119002,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_AIR_TARGETING_1"> 
 			<Text>
-				Air Targetting I
+				Air Targeting I
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_AIR_TARGETING_1_HELP"> 
@@ -119010,7 +119012,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_AIR_TARGETING_2"> 
 			<Text>
-				Air Targetting II
+				Air Targeting II
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_AIR_TARGETING_3"> 
@@ -119018,6 +119020,11 @@ The ship has weather'd every rack; the prize we sought is won."
 				Air Targeting III
 			</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PROMOTION_AIR_TARGETING_3_HELP"> 
+			<Text>
+				+34% [ICON_STRENGTH] Combat Strength VS [COLOR_POSITIVE_TEXT]Naval[ENDCOLOR] units.
+			</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PROMOTION_ALLWATER_EMBARKATION"> 
 			<Text>
 				Embarkation with Ocean Movement
@@ -120055,7 +120062,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_GREAT_LIGHTHOUSE"> 
 			<Text>
-				Great Lighthouse
+				[ICON_WONDER_GREAT_LIGHTHOUSE] [COLOR_YELLOW]Great Lighthouse[ENDCOLOR]
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_GREAT_LIGHTHOUSE_HELP"> 
@@ -120160,12 +120167,17 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_HELI_AMBUSH_1"> 
 			<Text>
-				Bonus vs Armored (25)
+				Air Ambush I
 			</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_PROMOTION_HELI_AMBUSH_1_HELP">
+			<Text>
+				+25% [ICON_STRENGTH] Combat Strength VS [COLOR_POSITIVE_TEXT]Armor[ENDCOLOR] units.
+			</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_PROMOTION_HELI_AMBUSH_2"> 
 			<Text>
-				Bonus vs Armored (25)
+				Air Ambush II
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_PROMOTION_HEROISM"> 
@@ -138301,7 +138313,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_UNIT_CARTHAGINIAN_QUINQUEREME_STRATEGY"> 
 			<Text>
-				Only the Carthaginians may build this unit. It is a stronger version of the Trireme, including in Combat Strength. Like the Trireme it is a melee attack unit, engaging units at sea or cities (but it has no ranged attack). The Quinquereme cannot enter Deep Ocean tiles outside of the city borders.
+				Recieved for free upon building the [ICON_WONDER_GREAT_LIGHTHOUSE] [COLOR_YELLOW]Great Lighthouse[ENDCOLOR], the Quinquereme is a powerful ealy exploration unit that can use it's abiliy to cross Deep Ocean to discover lands that would otherwise be inaccessible, or to deal a decisive blow in early naval wars.[NEWLINE]You only get one, so use it wisely!
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNIT_CATAPULT"> 
@@ -138950,7 +138962,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_UNIT_HELP_CARTHAGINIAN_QUINQUEREME"> 
 			<Text>
-				Strong Classical Era Naval Melee Unit used to dominate the seas through melee attacks on naval units and cities.
+				May not be constructed, instead is only created upon building the [ICON_WONDER_GREAT_LIGHTHOUSE] [COLOR_YELLOW]Great Lighthouse[ENDCOLOR]. Strong exploation unit that may enter Deep Ocean tiles. May not pillage tile Improvements or plunder [ICON_INTERNATIONAL_TRADE] Trade Routes.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNIT_HELP_QUINQ"> 
@@ -139510,7 +139522,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_UNIT_HELP_WORKBOAT"> 
 			<Text>
-				Creates Improvements on water resources like [ICON_RES_FISH] Fish. The Work Boat is consumed in the process. It is defenseless, and will be killed if it comes into contact with an enemy.
+				May only be contructed by AI players. Creates Improvements on water resources like [ICON_RES_FISH] Fish. The Work Boat is consumed in the process. It is defenseless, and will be killed if it comes into contact with an enemy.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_UNIT_HELP_WORKER"> 
@@ -140459,6 +140471,11 @@ The ship has weather'd every rack; the prize we sought is won."
 				Ski Infantry
 			</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_UNIT_SKINFANTRY_HELP"> 
+			<Text>
+				Strong, front-line land Unit of the mid-game that specializes in operating in Snow, Tundra and Hills. Arrives Trained with [ICON_PROMOTION_DRILL_1] [COLOR_GREEN]Drill I[ENDCOLOR] and [ICON_PROMOTION_DRILL_2] [COLOR_GREEN]Drill II[ENDCOLOR]. Only Norway may build it. Replaces the [ICON_UNIT_GREAT_WAR_INFANTRY] [COLOR_YELLOW]Great War Infantry[ENDCOLOR].
+			</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_UNIT_SKY_FORTRESS"> 
 			<Text>
 				Sky Fortress
@@ -142330,7 +142347,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_GREAT_LIGHTHOUSE_HELP"> 
 			<Text>
-				All military naval units receive +1 [ICON_MOVES] movement and +1 sight. Provides +1 [ICON_GOLD] from all water tiles in the city and a free Lighthouse in the city in which it is built.[NEWLINE][NEWLINE]City must be built on the coast.
+				All military naval units receive +1 [ICON_MOVES] movement and +1 sight, and +1 [ICON_GOLD] from all water tiles worked by this city. Provides a free [ICON_BUILDING_LIGHTHOUSE] [COLOR_YELLOW]Lighthouse[ENDCOLOR] and a [ICON_UNIT_CARTHAGINIAN_QUINQUEREME] [COLOR_YELLOW]Quinquereme[ENDCOLOR] in the city the wonder was built.[NEWLINE][NEWLINE]City must be built on the coast.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_GREAT_WALL_HELP"> 
