@@ -9,6 +9,44 @@
 
 
 <GameData>
+	<Table name="Terrain_MountainYieldChanges">
+		<Column name="TerrainType" type="text"  />
+		<Column name="YieldType" type="text"  />
+		<Column name="Yield" type="integer"  default="0"/>
+	</Table> 
+	<Terrain_MountainYieldChanges>
+		<Delete />
+		<Row> 
+			<TerrainType>TERRAIN_GRASS</TerrainType> 
+			<YieldType>YIELD_FOOD</YieldType> 
+			<Yield>-2</Yield> 
+		</Row>
+		<Row> 
+			<TerrainType>TERRAIN_PLAINS</TerrainType> 
+			<YieldType>YIELD_FOOD</YieldType> 
+			<Yield>-1</Yield> 
+		</Row>
+		<Row> 
+			<TerrainType>TERRAIN_PLAINS</TerrainType> 
+			<YieldType>YIELD_PRODUCTION</YieldType> 
+			<Yield>-1</Yield> 
+		</Row>
+		<Row> 
+			<TerrainType>TERRAIN_TUNDRA</TerrainType> 
+			<YieldType>YIELD_FOOD</YieldType> 
+			<Yield>-1</Yield> 
+		</Row>
+	</Terrain_MountainYieldChanges>
+
+	<Table name="Feature_MountainYieldChanges">
+		<Column name="FeatureType" type="text"  />
+		<Column name="YieldType" type="text"  />
+		<Column name="Yield" type="integer"  default="0"/>
+	</Table> 
+	<Feature_MountainYieldChanges>
+		<Delete />
+	</Feature_MountainYieldChanges>
+
 
 	<Table name="UnitPromotions_YieldsFromFollowerConversion">
 		<Column name="PromotionType" type="text" reference="UnitPromotions(Type)"/>
@@ -16,7 +54,6 @@
 		<Column name="Amount" type="integer" default="0"/>
 		<Column name="OnlyMajority" type="boolean" default="false"/>
   	</Table>
-
 	<UnitPromotions_YieldsFromFollowerConversion>
 		<Row>
 			<PromotionType>PROMOTION_CONVERSION_PAYOUT</PromotionType>
@@ -37190,18 +37227,6 @@
 		<!-- Armenian Darbas -->
 		<Row> 
 			<BuildingType>BUILDING_ARMENIA_OBSERVATORY</BuildingType> 
-			<FeatureType>FEATURE_ARARAT_MOUNTAIN</FeatureType> 
-			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>5</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_ARMENIA_OBSERVATORY</BuildingType> 
-			<FeatureType>FEATURE_ARARAT_MOUNTAIN</FeatureType> 
-			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>2</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_ARMENIA_OBSERVATORY</BuildingType> 
 			<FeatureType>FEATURE_FUJI</FeatureType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
 			<Yield>5</Yield> 
@@ -37359,12 +37384,6 @@
 			<Yield>1</Yield> 
 		</Row>
 		<!-- Observatory -->
-		<Row> 
-			<BuildingType>BUILDING_OBSERVATORY</BuildingType> 
-			<FeatureType>FEATURE_ARARAT_MOUNTAIN</FeatureType> 
-			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>5</Yield> 
-		</Row>
 		<Row> 
 			<BuildingType>BUILDING_OBSERVATORY</BuildingType> 
 			<FeatureType>FEATURE_CRATER</FeatureType> 
@@ -41579,7 +41598,36 @@
 	</Table> 
 	<Building_TerrainYieldChanges>
 		<Delete />
-
+		<Row> 
+			<BuildingType>BUILDING_ARMENIA_OBSERVATORY</BuildingType> 
+			<TerrainType>TERRAIN_MOUNTAIN</TerrainType> 
+			<YieldType>YIELD_SCIENCE</YieldType> 
+			<Yield>5</Yield> 
+		</Row>
+		<Row> 
+			<BuildingType>BUILDING_ARMENIA_OBSERVATORY</BuildingType> 
+			<TerrainType>TERRAIN_MOUNTAIN</TerrainType> 
+			<YieldType>YIELD_CULTURE</YieldType> 
+			<Yield>2</Yield> 
+		</Row>
+		<Row> 
+			<BuildingType>BUILDING_ARMENIA_OBSERVATORY</BuildingType> 
+			<TerrainType>TERRAIN_TUNDRA</TerrainType> 
+			<YieldType>YIELD_SCIENCE</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<BuildingType>BUILDING_OBSERVATORY</BuildingType> 
+			<TerrainType>TERRAIN_MOUNTAIN</TerrainType> 
+			<YieldType>YIELD_SCIENCE</YieldType> 
+			<Yield>5</Yield> 
+		</Row>
+		<Row> 
+			<BuildingType>BUILDING_OBSERVATORY</BuildingType> 
+			<TerrainType>TERRAIN_TUNDRA</TerrainType> 
+			<YieldType>YIELD_SCIENCE</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
 		<Row> 
 			<BuildingType>BUILDING_PETRA</BuildingType> 
 			<TerrainType>TERRAIN_DESERT</TerrainType> 
@@ -41608,18 +41656,6 @@
 			<BuildingType>BUILDING_FALU_GRUVA</BuildingType> 
 			<TerrainType>TERRAIN_HILL</TerrainType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_OBSERVATORY</BuildingType> 
-			<TerrainType>TERRAIN_TUNDRA</TerrainType> 
-			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_ARMENIA_OBSERVATORY</BuildingType> 
-			<TerrainType>TERRAIN_TUNDRA</TerrainType> 
-			<YieldType>YIELD_SCIENCE</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
 		<Row> 
@@ -44118,7 +44154,6 @@
 		<Column name="ArtInfoCulturalVariation" type="boolean" default="0" />
 		<Column name="ArtInfoEraVariation" type="boolean" default="0" />
 		<Column name="ArtInfoRandomVariation" type="boolean" default="0" />
-		<Column name="MountainScienceYield" type="INTEGER" default="0" /> <!-- Change to the Yield of mountain tiles by X science. Does not effect Natural Wonders -->
 		<Column name="CityStateTradeRouteGoldModifier" type="INTEGER" default="0" /> <!-- Changes the Gold output of the city this is in for Each international trade connection to a City-State -->
 		<Column name="FreeFlatFaith" type="INTEGER" default="0" /> <!-- Instant change in the player's collected faith -->
 		<Column name="LocalPopulationChange" type="INTEGER" default="0" /> <!-- Instant Population change in this city. -->
@@ -77859,7 +77894,7 @@
 			<ArtStylePrefix>ASIAN</ArtStylePrefix> 
 			<PortraitIndex>0</PortraitIndex>
 			<IconAtlas>VIETNAM_ICON</IconAtlas> 
-			<AlphaIconAtlas>LEK_WHITE_ATLAS</AlphaIconAtlas> 
+			<AlphaIconAtlas>VIETNAM_ALPHA</AlphaIconAtlas> 
 			<MapImage>generic_map.dds</MapImage> 
 			<DawnOfManQuote>TXT_KEY_CIV5_DAWN_CHINA_TEXT</DawnOfManQuote> 
 			<DawnOfManImage>generic_DoM.dds</DawnOfManImage> 
@@ -107726,43 +107761,6 @@
 		</Row>
 		<Row> 
 			<ID>7</ID> 
-			<Type>FEATURE_ARARAT_MOUNTAIN</Type> 
-			<Description>Mountain</Description> 
-			<Civilopedia>Mountain</Civilopedia> 
-			<Help>Mountain</Help> 
-			<StartingLocationWeight>0</StartingLocationWeight> 
-			<Movement>1</Movement> 
-			<SeeThrough>0</SeeThrough> 
-			<Defense>0</Defense> 
-			<InfluenceCost>0</InfluenceCost> 
-			<AppearanceProbability>0</AppearanceProbability> 
-			<DisappearanceProbability>0</DisappearanceProbability> 
-			<Growth>0</Growth> 
-			<TurnDamage>0</TurnDamage> 
-			<FirstFinderGold>0</FirstFinderGold> 
-			<InBorderHappiness>0</InBorderHappiness> 
-			<OccurrenceFrequency>0</OccurrenceFrequency> 
-			<YieldNotAdditive>false</YieldNotAdditive> 
-			<NoCoast>false</NoCoast> 
-			<NoRiver>false</NoRiver> 
-			<NoAdjacent>false</NoAdjacent> 
-			<RequiresFlatlands>false</RequiresFlatlands> 
-			<RequiresRiver>false</RequiresRiver> 
-			<AddsFreshWater>false</AddsFreshWater> 
-			<Impassable>false</Impassable> 
-			<NoCity>false</NoCity> 
-			<NoImprovement>false</NoImprovement> 
-			<VisibleAlways>false</VisibleAlways> 
-			<NukeImmune>false</NukeImmune> 
-			<NaturalWonder>false</NaturalWonder> 
-			<Rough>false</Rough> 
-			<EffectProbability>0</EffectProbability> 
-			<AdvancedStartRemoveCost>0</AdvancedStartRemoveCost> 
-			<PortraitIndex>8</PortraitIndex> 
-			<IconAtlas>NW_ATLAS</IconAtlas> 
-		</Row>
-		<Row> 
-			<ID>8</ID> 
 			<Type>FEATURE_CRATER</Type> 
 			<Description>TXT_KEY_FEATURE_CRATER</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_BARRINGER_TEXT</Civilopedia> 
@@ -107799,7 +107797,7 @@
 			<IconAtlas>NW_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>9</ID> 
+			<ID>8</ID> 
 			<Type>FEATURE_FUJI</Type> 
 			<Description>TXT_KEY_FEATURE_MT_FUJI</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_FUJI_TEXT</Civilopedia> 
@@ -107836,7 +107834,7 @@
 			<IconAtlas>NW_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>10</ID> 
+			<ID>9</ID> 
 			<Type>FEATURE_MESA</Type> 
 			<Description>TXT_KEY_FEATURE_MESA</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_GRANDMESA_TEXT</Civilopedia> 
@@ -107873,7 +107871,7 @@
 			<IconAtlas>NW_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>11</ID> 
+			<ID>10</ID> 
 			<Type>FEATURE_REEF</Type> 
 			<Description>TXT_KEY_FEATURE_REEF</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_GREATBARRIERREEF_TEXT</Civilopedia> 
@@ -107910,7 +107908,7 @@
 			<IconAtlas>NW_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>12</ID> 
+			<ID>11</ID> 
 			<Type>FEATURE_VOLCANO</Type> 
 			<Description>TXT_KEY_FEATURE_VOLCANO</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_KRAKATOA_TEXT</Civilopedia> 
@@ -107947,7 +107945,7 @@
 			<IconAtlas>NW_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>13</ID> 
+			<ID>12</ID> 
 			<Type>FEATURE_GIBRALTAR</Type> 
 			<Description>TXT_KEY_FEATURE_GIBRALTAR</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_GIBRALTER_TEXT</Civilopedia> 
@@ -107984,7 +107982,7 @@
 			<IconAtlas>NW_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>14</ID> 
+			<ID>13</ID> 
 			<Type>FEATURE_GEYSER</Type> 
 			<Description>TXT_KEY_FEATURE_GEYSER</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_OLDFAITHFUL_TEXT</Civilopedia> 
@@ -108021,7 +108019,7 @@
 			<IconAtlas>NW_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>15</ID> 
+			<ID>14</ID> 
 			<Type>FEATURE_FOUNTAIN_YOUTH</Type> 
 			<Description>TXT_KEY_FEATURE_FOUNTAIN_YOUTH</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_FOUNTAIN_YOUTH_TEXT</Civilopedia> 
@@ -108060,7 +108058,7 @@
 			<IconAtlas>NW_ATLAS_DLC</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>16</ID> 
+			<ID>15</ID> 
 			<Type>FEATURE_POTOSI</Type> 
 			<Description>TXT_KEY_FEATURE_POTOSI</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_POTOSI_TEXT</Civilopedia> 
@@ -108097,7 +108095,7 @@
 			<IconAtlas>NW_ATLAS_DLC</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>17</ID> 
+			<ID>16</ID> 
 			<Type>FEATURE_EL_DORADO</Type> 
 			<Description>TXT_KEY_FEATURE_EL_DORADO</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_EL_DORADO_TEXT</Civilopedia> 
@@ -108135,7 +108133,7 @@
 			<IconAtlas>NW_ATLAS_DLC</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>18</ID> 
+			<ID>17</ID> 
 			<Type>FEATURE_ATOLL</Type> 
 			<Description>TXT_KEY_FEATURE_ATOLL</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_ATOLL_TEXT</Civilopedia> 
@@ -108172,7 +108170,7 @@
 			<IconAtlas>NEW_TERRAIN_ATLAS_DLC</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>19</ID> 
+			<ID>18</ID> 
 			<Type>FEATURE_SRI_PADA</Type> 
 			<Description>TXT_KEY_FEATURE_SRI_PADA</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_SRI_PADA_TEXT</Civilopedia> 
@@ -108209,7 +108207,7 @@
 			<IconAtlas>EXPANSION_BW_ATLAS_2</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>20</ID> 
+			<ID>19</ID> 
 			<Type>FEATURE_MT_SINAI</Type> 
 			<Description>TXT_KEY_FEATURE_MT_SINAI</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_MT_SINAI_TEXT</Civilopedia> 
@@ -108246,7 +108244,7 @@
 			<IconAtlas>EXPANSION_BW_ATLAS_2</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>21</ID> 
+			<ID>20</ID> 
 			<Type>FEATURE_MT_KAILASH</Type> 
 			<Description>TXT_KEY_FEATURE_MT_KAILASH</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_MT_KAILASH_TEXT</Civilopedia> 
@@ -108283,7 +108281,7 @@
 			<IconAtlas>EXPANSION_BW_ATLAS_2</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>22</ID> 
+			<ID>21</ID> 
 			<Type>FEATURE_ULURU</Type> 
 			<Description>TXT_KEY_FEATURE_ULURU</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_ULURU_TEXT</Civilopedia> 
@@ -108320,7 +108318,7 @@
 			<IconAtlas>EXPANSION_BW_ATLAS_2</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>23</ID> 
+			<ID>22</ID> 
 			<Type>FEATURE_LAKE_VICTORIA</Type> 
 			<Description>TXT_KEY_FEATURE_LAKE_VICTORIA</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_LAKE_VICTORIA_TEXT</Civilopedia> 
@@ -108357,7 +108355,7 @@
 			<IconAtlas>EXPANSION2_WONDER_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>24</ID> 
+			<ID>23</ID> 
 			<Type>FEATURE_KILIMANJARO</Type> 
 			<Description>TXT_KEY_FEATURE_KILIMANJARO</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_KILIMANJARO_TEXT</Civilopedia> 
@@ -108396,7 +108394,7 @@
 			<IconAtlas>EXPANSION2_WONDER_ATLAS</IconAtlas> 
 		</Row>
 		<Row> 
-			<ID>25</ID> 
+			<ID>24</ID> 
 			<Type>FEATURE_SOLOMONS_MINES</Type> 
 			<Description>TXT_KEY_FEATURE_SOLOMONS_MINES</Description> 
 			<Civilopedia>TXT_KEY_CIV5_FEATURES_SOLOMONS_MINES_TEXT</Civilopedia> 
@@ -136482,12 +136480,6 @@
 	</Table> 
 	<Improvement_HillsYields>
 		<Delete />
-
-		<Row> 
-			<ImprovementType>IMPROVEMENT_MINE</ImprovementType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>0</Yield> 
-		</Row>
 	</Improvement_HillsYields> 
 
 	<Table name="Improvement_PrereqNatureYields">
@@ -138283,12 +138275,6 @@
 			<Yield>1</Yield> 
 		</Row>
 		<Row> 
-			<ImprovementType>IMPROVEMENT_FARM</ImprovementType> 
-			<TechType>TECH_CIVIL_DUMMY</TechType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
 			<ImprovementType>IMPROVEMENT_TERRACE_FARM</ImprovementType> 
 			<TechType>TECH_CIVIL_SERVICE</TechType> 
 			<YieldType>YIELD_FOOD</YieldType> 
@@ -138314,12 +138300,6 @@
 		<Row> 
 			<ImprovementType>IMPROVEMENT_TERRACE_FARM</ImprovementType> 
 			<TechType>TECH_FERTILIZER</TechType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<ImprovementType>IMPROVEMENT_FARM</ImprovementType> 
-			<TechType>TECH_BOER</TechType> 
 			<YieldType>YIELD_FOOD</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
@@ -205497,7 +205477,6 @@
 			<TourismPerWonder>0</TourismPerWonder> 
 			<InternalTradeRouteGoldChange>0</InternalTradeRouteGoldChange>
 			<ExtraTerritoryClaim>0</ExtraTerritoryClaim>
-			<IdeologyPressureUnhappinessModifier>-50</IdeologyPressureUnhappinessModifier>
 		</Row>
 		<Row> 
 			<ID>127</ID> 
@@ -206771,11 +206750,6 @@
 		<Row> 
 			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_FACTORY</BuildingClassType> 
 			<ProductionModifier>15</ProductionModifier> 
 		</Row>
 		<!-- Turkey Trait -->
@@ -220393,118 +220367,6 @@
 			<AudioIntroHeader>AS2D_HEADING_TECH_FUTURE_TECH</AudioIntroHeader> 
 			<PolicyDiscountPercent>0</PolicyDiscountPercent> 
 		</Row>
-		<Row> 
-			<ID>81</ID> 
-			<Type>TECH_BOER</Type> 
-			<Description>TXT_KEY_TECH_BOER</Description> 
-			<Civilopedia>TXT_KEY_TECH_BOER</Civilopedia> 
-			<Help>TXT_KEY_TECH_BOER</Help> 
-			<AIWeight>0</AIWeight> 
-			<AITradeModifier>0</AITradeModifier> 
-			<Cost>65535</Cost> 
-			<AdvancedStartCost>-1</AdvancedStartCost> 
-			<Era>ERA_ANCIENT</Era> 
-			<FeatureProductionModifier>0</FeatureProductionModifier> 
-			<UnitFortificationModifier>0</UnitFortificationModifier> 
-			<UnitBaseHealModifier>0</UnitBaseHealModifier> 
-			<WorkerSpeedModifier>0</WorkerSpeedModifier> 
-			<FirstFreeTechs>0</FirstFreeTechs> 
-			<EmbarkedMoveChange>0</EmbarkedMoveChange> 
-			<InternationalTradeRoutesChange>0</InternationalTradeRoutesChange> 
-			<InfluenceSpreadModifier>0</InfluenceSpreadModifier> 
-			<ExtraVotesPerDiplomat>0</ExtraVotesPerDiplomat> 
-			<EndsGame>false</EndsGame> 
-			<AllowsEmbarking>false</AllowsEmbarking> 
-			<AllowsDefensiveEmbarking>false</AllowsDefensiveEmbarking> 
-			<EmbarkedAllWaterPassage>false</EmbarkedAllWaterPassage> 
-			<AllowsBarbarianBoats>false</AllowsBarbarianBoats> 
-			<Repeat>false</Repeat> 
-			<Trade>false</Trade> 
-			<Disable>true</Disable> 
-			<GoodyTech>false</GoodyTech> 
-			<ExtraWaterSeeFrom>false</ExtraWaterSeeFrom> 
-			<MapCentering>false</MapCentering> 
-			<MapVisible>false</MapVisible> 
-			<MapTrading>false</MapTrading> 
-			<TechTrading>false</TechTrading> 
-			<GoldTrading>false</GoldTrading> 
-			<AllowEmbassyTradingAllowed>false</AllowEmbassyTradingAllowed> 
-			<OpenBordersTradingAllowed>false</OpenBordersTradingAllowed> 
-			<DefensivePactTradingAllowed>false</DefensivePactTradingAllowed> 
-			<ResearchAgreementTradingAllowed>false</ResearchAgreementTradingAllowed> 
-			<TradeAgreementTradingAllowed>false</TradeAgreementTradingAllowed> 
-			<PermanentAllianceTradingAllowed>false</PermanentAllianceTradingAllowed> 
-			<BridgeBuilding>false</BridgeBuilding> 
-			<WaterWork>false</WaterWork> 
-			<TriggersArchaeologicalSites>false</TriggersArchaeologicalSites> 
-			<AllowsWorldCongress>false</AllowsWorldCongress> 
-			<GridX>0</GridX> 
-			<GridY>-20</GridY> 
-			<Quote>TXT_KEY_TECH_AGRICULTURE_QUOTE</Quote> 
-			<PortraitIndex>0</PortraitIndex> 
-			<ScenarioTechButton>-1</ScenarioTechButton> 
-			<IconAtlas>TECH_ATLAS_1</IconAtlas> 
-			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro> 
-			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader> 
-			<PolicyDiscountPercent>0</PolicyDiscountPercent>
-			<DisableTechSteal>true</DisableTechSteal>
-		</Row>
-		<Row> 
-			<ID>83</ID> 
-			<Type>TECH_CIVIL_DUMMY</Type> 
-			<Description>TXT_KEY_TECH_AGRICULTURE_TITLE</Description> 
-			<Civilopedia>TXT_KEY_TECH_AGRICULTURE_DESC</Civilopedia> 
-			<Help>TXT_KEY_TECH_AGRICULTURE_HELP</Help>  
-			<AIWeight>0</AIWeight> 
-			<AITradeModifier>0</AITradeModifier> 
-			<Cost>65535</Cost> 
-			<AdvancedStartCost>-1</AdvancedStartCost> 
-			<Era>ERA_ANCIENT</Era> 
-			<FeatureProductionModifier>0</FeatureProductionModifier> 
-			<UnitFortificationModifier>0</UnitFortificationModifier> 
-			<UnitBaseHealModifier>0</UnitBaseHealModifier> 
-			<WorkerSpeedModifier>0</WorkerSpeedModifier> 
-			<FirstFreeTechs>0</FirstFreeTechs> 
-			<EmbarkedMoveChange>0</EmbarkedMoveChange> 
-			<InternationalTradeRoutesChange>0</InternationalTradeRoutesChange> 
-			<InfluenceSpreadModifier>0</InfluenceSpreadModifier> 
-			<ExtraVotesPerDiplomat>0</ExtraVotesPerDiplomat> 
-			<EndsGame>false</EndsGame> 
-			<AllowsEmbarking>false</AllowsEmbarking> 
-			<AllowsDefensiveEmbarking>false</AllowsDefensiveEmbarking> 
-			<EmbarkedAllWaterPassage>false</EmbarkedAllWaterPassage> 
-			<AllowsBarbarianBoats>false</AllowsBarbarianBoats> 
-			<Repeat>false</Repeat> 
-			<Trade>false</Trade> 
-			<Disable>true</Disable> 
-			<GoodyTech>false</GoodyTech> 
-			<ExtraWaterSeeFrom>false</ExtraWaterSeeFrom> 
-			<MapCentering>false</MapCentering> 
-			<MapVisible>false</MapVisible> 
-			<MapTrading>false</MapTrading> 
-			<TechTrading>false</TechTrading> 
-			<GoldTrading>false</GoldTrading> 
-			<AllowEmbassyTradingAllowed>false</AllowEmbassyTradingAllowed> 
-			<OpenBordersTradingAllowed>false</OpenBordersTradingAllowed> 
-			<DefensivePactTradingAllowed>false</DefensivePactTradingAllowed> 
-			<ResearchAgreementTradingAllowed>false</ResearchAgreementTradingAllowed> 
-			<TradeAgreementTradingAllowed>false</TradeAgreementTradingAllowed> 
-			<PermanentAllianceTradingAllowed>false</PermanentAllianceTradingAllowed> 
-			<BridgeBuilding>false</BridgeBuilding> 
-			<WaterWork>false</WaterWork> 
-			<TriggersArchaeologicalSites>false</TriggersArchaeologicalSites> 
-			<AllowsWorldCongress>false</AllowsWorldCongress> 
-			<GridX>0</GridX> 
-			<GridY>-21</GridY> 
-			<Quote>TXT_KEY_TECH_AGRICULTURE_QUOTE</Quote> 
-			<PortraitIndex>0</PortraitIndex> 
-			<ScenarioTechButton>-1</ScenarioTechButton> 
-			<IconAtlas>TECH_ATLAS_1</IconAtlas> 
-			<AudioIntro>AS2D_TECH_AGRICULTURE</AudioIntro> 
-			<AudioIntroHeader>AS2D_HEADING_TECH_AGRICULTURE</AudioIntroHeader> 
-			<PolicyDiscountPercent>0</PolicyDiscountPercent>
-			<DisableTechSteal>true</DisableTechSteal>
-		</Row>
 		<!--
 		<Row> 
 			<ID>84</ID> 
@@ -223422,7 +223284,7 @@
         </Row>
         <Row>
             <TraitType>TRAIT_STRATEGIC_RICHES</TraitType>
-            <BuildType>BUILD_OFFSHORE_PLATFORM</BuildType>
+            <BuildType>BUILD_OFFSHORE_PLATFORM_WORKER</BuildType>
             <Time>0</Time>
             <ResourceClassRequired>RESOURCECLASS_MODERN</ResourceClassRequired>
         </Row>
@@ -224426,13 +224288,22 @@
 	</Trait_FreeResourceFirstXCities> 
 
 	<Table name="Trait_ImprovementYieldChanges">
-		<Column name="TraitType" type="text"  />
-		<Column name="ImprovementType" type="text"  />
-		<Column name="YieldType" type="text"  />
-		<Column name="Yield" type="integer"  />
+		<Column name="TraitType" type="text" reference="Traits(Type)" />
+		<Column name="ImprovementType" type="text" reference="Improvements(Type)" />
+		<Column name="YieldType" type="text" reference="Yields(Type)" />
+		<Column name="Yield" type="integer" default="0" />
+		<Column name="FreshWaterYield" type="integer" default="0" />
+		<Column name="NonFreshWaterYield" type="integer" default="0" />
 	</Table> 
 	<Trait_ImprovementYieldChanges>
 		<Delete />
+		<!-- Nabataea -->
+		<Row> 
+			<TraitType>TRAIT_FOOD_FOR_TOUGHT</TraitType> 
+			<ImprovementType>IMPROVEMENT_FARM</ImprovementType> 
+			<YieldType>YIELD_FOOD</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
 		<!-- Japan -->
 		<Row> 
 			<TraitType>TRAIT_FIGHT_WELL_DAMAGED</TraitType> 
@@ -225066,7 +224937,7 @@
 		<Column name="Yield" type="integer" />
         <Column name="AllowImprovement" type="boolean"/>
 	</Table> 
-    <!-- NOTE: FEATURE_ARARAT_MOUNTAIN = REGULAR MOUNTAIN; FEATURE_ICE = LAKE since Lakes are dumb and stupid -->
+    <!-- FEATURE_ICE = LAKE since Lakes are dumb and stupid -->
 	<!-- NOTE: AllowImprovement BOOL when false will remove the yield bonus if the tile aquires an Improvement -->
 	<Trait_FeatureYieldChanges>
 		<Delete />
@@ -225087,27 +224958,6 @@
             <AllowImprovement>true</AllowImprovement>
         </Row>
         <!-- Armenia -->
-		<Row> 
-			<TraitType>TRAIT_ARMENIA</TraitType> 
-			<FeatureType>FEATURE_ARARAT_MOUNTAIN</FeatureType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>1</Yield> 
-			<AllowImprovement>false</AllowImprovement>
-		</Row>
-		<Row> 
-			<TraitType>TRAIT_ARMENIA</TraitType> 
-			<FeatureType>FEATURE_ARARAT_MOUNTAIN</FeatureType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>2</Yield> 
-			<AllowImprovement>false</AllowImprovement>
-		</Row>
-		<Row> 
-			<TraitType>TRAIT_ARMENIA</TraitType> 
-			<FeatureType>FEATURE_ARARAT_MOUNTAIN</FeatureType> 
-			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
-			<AllowImprovement>false</AllowImprovement>
-		</Row>
 		<Row> 
 			<TraitType>TRAIT_ARMENIA</TraitType> 
 			<FeatureType>FEATURE_FUJI</FeatureType> 
@@ -226452,6 +226302,10 @@
 			<TraitType>TRAIT_LEADER_HIRAM</TraitType>
 			<UnitClassType>UNITCLASS_TRIREME</UnitClassType>
 		</Row>
+		<Row>
+			<TraitType>TRAIT_BY_REASON</TraitType>
+			<UnitClassType>UNITCLASS_GREAT_ADMIRAL</UnitClassType>
+		</Row>
 	</Trait_UnitClassForceCapitalSpawn>
 
 	<Table name="Trait_PuppetYieldModifiers">
@@ -226488,7 +226342,24 @@
 	</Table>
 	<Trait_TerrainYieldChanges>
 		<Delete />
-			
+		<Row> 
+			<TraitType>TRAIT_ARMENIA</TraitType> 
+			<TerrainType>TERRAIN_MOUNTAIN</TerrainType> 
+			<YieldType>YIELD_FOOD</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_ARMENIA</TraitType> 
+			<TerrainType>TERRAIN_MOUNTAIN</TerrainType> 
+			<YieldType>YIELD_PRODUCTION</YieldType> 
+			<Yield>2</Yield> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_ARMENIA</TraitType> 
+			<TerrainType>TERRAIN_MOUNTAIN</TerrainType> 
+			<YieldType>YIELD_GOLD</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
 		<Row> 
 			<TraitType>TRAIT_NORDIC_BOUNTY</TraitType>
 			<TerrainType>TERRAIN_SNOW</TerrainType> 
@@ -227561,7 +227432,9 @@
 			<Type>TRAIT_FOOD_FOR_TOUGHT</Type>
 			<Description>TXT_KEY_TRAIT_FOOD_FOR_TOUGHT</Description>
 			<ShortDescription>TXT_KEY_TRAIT_FOOD_FOR_TOUGHT_SHORT</ShortDescription>
-			<!-- Uses a Dummy Tech "TECH_CIVIL_DUMMY" -->
+			<PrereqTech>TECH_MATHEMATICS</PrereqTech>
+			<ObsoleteTech>TECH_CIVIL_SERVICE</ObsoleteTech>
+			<!-- Trait_ImprovementYieldChanges -->
 			<!-- Has Code in Lua\Civilizations\Lekmod_nabatea.lua -->
 		</Row>
 		<Row> 
@@ -238164,7 +238037,7 @@
 			<ID>65</ID> 
 			<Type>PROMOTION_HELI_AMBUSH_1</Type> 
 			<Description>TXT_KEY_PROMOTION_HELI_AMBUSH_1</Description> 
-			<Help>TXT_KEY_PROMOTION_HELI_AMBUSH_1</Help> 
+			<Help>TXT_KEY_PROMOTION_HELI_AMBUSH_1_HELP</Help> 
 			<PortraitIndex>3</PortraitIndex> 
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas> 
 			<HotKeyPriority>0</HotKeyPriority> 
@@ -238296,7 +238169,7 @@
 			<ID>66</ID> 
 			<Type>PROMOTION_HELI_AMBUSH_2</Type> 
 			<Description>TXT_KEY_PROMOTION_HELI_AMBUSH_2</Description> 
-			<Help>TXT_KEY_PROMOTION_HELI_AMBUSH_2</Help> 
+			<Help>TXT_KEY_PROMOTION_HELI_AMBUSH_1_HELP</Help> 
 			<PortraitIndex>4</PortraitIndex> 
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas> 
 			<HotKeyPriority>0</HotKeyPriority> 
@@ -263711,7 +263584,7 @@
 			<ID>270</ID> 
 			<Type>PROMOTION_AIR_TARGETING_3</Type> 
 			<Description>TXT_KEY_PROMOTION_AIR_TARGETING_3</Description> 
-			<Help>TXT_KEY_PROMOTION_AIR_TARGETING_1_HELP</Help> 
+			<Help>TXT_KEY_PROMOTION_AIR_TARGETING_3_HELP</Help> 
 			<PortraitIndex>54</PortraitIndex> 
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas> 
 			<HotKey>KB_A</HotKey> 
@@ -263836,7 +263709,7 @@
 			<Sapper>false</Sapper> 
 			<HeavyCharge>false</HeavyCharge> 
 			<PediaType>PEDIA_AIR</PediaType> 
-			<PediaEntry>TXT_KEY_PROMOTION_AIR_TARGETING_2</PediaEntry> 
+			<PediaEntry>TXT_KEY_PROMOTION_AIR_TARGETING_3</PediaEntry> 
 			<GreatGeneralOnOrAdjacentConfersMovement>0</GreatGeneralOnOrAdjacentConfersMovement> 
 			<EmbarkedUnitReceivesMovement>false</EmbarkedUnitReceivesMovement> 
 			<HeavyChargeDownhill>0</HeavyChargeDownhill> 
@@ -263969,7 +263842,7 @@
 			<Sapper>false</Sapper> 
 			<HeavyCharge>false</HeavyCharge> 
 			<PediaType>PEDIA_RANGED</PediaType> 
-			<PediaEntry>PROMOTION_ANTI_NAVAL_1</PediaEntry> 
+			<PediaEntry>TXT_KEY_ANTINAVAL_PROMO_1</PediaEntry> 
 			<GreatGeneralOnOrAdjacentConfersMovement>0</GreatGeneralOnOrAdjacentConfersMovement> 
 			<EmbarkedUnitReceivesMovement>false</EmbarkedUnitReceivesMovement> 
 			<HeavyChargeDownhill>0</HeavyChargeDownhill> 
@@ -264102,7 +263975,7 @@
 			<Sapper>false</Sapper> 
 			<HeavyCharge>false</HeavyCharge> 
 			<PediaType>PEDIA_RANGED</PediaType> 
-			<PediaEntry>TXT_KEY_PROMOTION_ANTI_NAVAL_2</PediaEntry> 
+			<PediaEntry>TXT_KEY_ANTINAVAL_PROMO_2</PediaEntry> 
 			<GreatGeneralOnOrAdjacentConfersMovement>0</GreatGeneralOnOrAdjacentConfersMovement> 
 			<EmbarkedUnitReceivesMovement>false</EmbarkedUnitReceivesMovement> 
 			<HeavyChargeDownhill>0</HeavyChargeDownhill> 
@@ -264111,7 +263984,7 @@
 			<ID>273</ID> 
 			<Type>PROMOTION_ANTI_NAVAL_3</Type> 
 			<Description>TXT_KEY_ANTINAVAL_PROMO_3</Description> 
-			<Help>TXT_KEY_ANTINAVAL_PROMO_HELP</Help> 
+			<Help>TXT_KEY_ANTINAVAL_PROMO_3_HELP</Help> 
 			<PortraitIndex>54</PortraitIndex> 
 			<IconAtlas>PROMOTION_ATLAS</IconAtlas> 
 			<HotKeyPriority>0</HotKeyPriority> 
@@ -264235,7 +264108,7 @@
 			<Sapper>false</Sapper> 
 			<HeavyCharge>false</HeavyCharge> 
 			<PediaType>PEDIA_RANGED</PediaType> 
-			<PediaEntry>TXT_KEY_PROMOTION_ANIT_NAVAL_3</PediaEntry> 
+			<PediaEntry>TXT_KEY_ANTINAVAL_PROMO_3</PediaEntry> 
 			<GreatGeneralOnOrAdjacentConfersMovement>0</GreatGeneralOnOrAdjacentConfersMovement> 
 			<EmbarkedUnitReceivesMovement>false</EmbarkedUnitReceivesMovement> 
 			<HeavyChargeDownhill>0</HeavyChargeDownhill> 
@@ -269783,8 +269656,8 @@
 			<GoldenAgeValueFromKills>0</GoldenAgeValueFromKills> 
 			<Sapper>false</Sapper> 
 			<HeavyCharge>false</HeavyCharge> 
-			<PediaType>PEDIA_RANGED</PediaType> 
-			<PediaEntry>PROMOTION_ANTI_NAVAL_HELI_1</PediaEntry> 
+			<PediaType>PEDIA_AIR</PediaType> 
+			<PediaEntry>TXT_KEY_ANTINAVAL_PROMO_HELI_1</PediaEntry> 
 			<GreatGeneralOnOrAdjacentConfersMovement>0</GreatGeneralOnOrAdjacentConfersMovement> 
 			<EmbarkedUnitReceivesMovement>false</EmbarkedUnitReceivesMovement> 
 			<HeavyChargeDownhill>0</HeavyChargeDownhill> 
@@ -269916,8 +269789,8 @@
 			<GoldenAgeValueFromKills>0</GoldenAgeValueFromKills> 
 			<Sapper>false</Sapper> 
 			<HeavyCharge>false</HeavyCharge> 
-			<PediaType>PEDIA_RANGED</PediaType>
-			<PediaEntry>PROMOTION_ANTI_NAVAL_HELI_2</PediaEntry> 
+			<PediaType>PEDIA_AIR</PediaType>
+			<PediaEntry>TXT_KEY_ANTINAVAL_PROMO_HELI_2</PediaEntry> 
 			<GreatGeneralOnOrAdjacentConfersMovement>0</GreatGeneralOnOrAdjacentConfersMovement> 
 			<EmbarkedUnitReceivesMovement>false</EmbarkedUnitReceivesMovement> 
 			<HeavyChargeDownhill>0</HeavyChargeDownhill> 
@@ -270049,8 +269922,8 @@
 			<GoldenAgeValueFromKills>0</GoldenAgeValueFromKills> 
 			<Sapper>false</Sapper> 
 			<HeavyCharge>false</HeavyCharge> 
-			<PediaType>PEDIA_RANGED</PediaType> 
-			<PediaEntry>PROMOTION_ANTI_NAVAL_HELI_3</PediaEntry>
+			<PediaType>PEDIA_AIR</PediaType> 
+			<PediaEntry>TXT_KEY_ANTINAVAL_PROMO_HELI_3</PediaEntry>
 			<GreatGeneralOnOrAdjacentConfersMovement>0</GreatGeneralOnOrAdjacentConfersMovement> 
 			<EmbarkedUnitReceivesMovement>false</EmbarkedUnitReceivesMovement> 
 			<HeavyChargeDownhill>0</HeavyChargeDownhill> 
@@ -271937,6 +271810,10 @@
 			<PromotionType>PROMOTION_SIEGE</PromotionType>
 			<PrerequisitePromotion>PROMOTION_BARRAGE_1</PrerequisitePromotion>
 		</Row>
+		<Row>
+			<PromotionType>PROMOTION_SIEGE</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_1</PrerequisitePromotion>
+		</Row>
 		<!-- Volley -->
 		<Row>
 			<PromotionType>PROMOTION_VOLLEY</PromotionType>
@@ -271945,6 +271822,10 @@
 		<Row>
 			<PromotionType>PROMOTION_VOLLEY</PromotionType>
 			<PrerequisitePromotion>PROMOTION_BARRAGE_1</PrerequisitePromotion>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_VOLLEY</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_1</PrerequisitePromotion>
 		</Row>
 		<!-- Medic -->
 		<Row>
@@ -271994,29 +271875,12 @@
 			<PrerequisitePromotion>PROMOTION_BARRAGE_1</PrerequisitePromotion>
 		</Row>
 		<Row>
+			<PromotionType>PROMOTION_COVER_1</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_1</PrerequisitePromotion>
+		</Row>
+		<Row>
 			<PromotionType>PROMOTION_COVER_2</PromotionType>
 			<PrerequisitePromotion>PROMOTION_COVER_1</PrerequisitePromotion>
-		</Row>
-		<!-- Indirect Fire -->
-		<Row>
-			<PromotionType>PROMOTION_INDIRECT_FIRE</PromotionType>
-			<PrerequisitePromotion>PROMOTION_TARGETING_2</PrerequisitePromotion>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_INDIRECT_FIRE</PromotionType>
-			<PrerequisitePromotion>PROMOTION_BOMBARDMENT_2</PrerequisitePromotion>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_INDIRECT_FIRE</PromotionType>
-			<PrerequisitePromotion>PROMOTION_ACCURACY_3</PrerequisitePromotion>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_INDIRECT_FIRE</PromotionType>
-			<PrerequisitePromotion>PROMOTION_BARRAGE_3</PrerequisitePromotion>
-		</Row>
-		<Row>
-			<PromotionType>PROMOTION_INDIRECT_FIRE</PromotionType>
-			<PrerequisitePromotion>PROMOTION_BOMBARDMENT_NAVAL_2</PrerequisitePromotion>
 		</Row>
 		<!-- Charge -->
 		<Row>
@@ -272077,6 +271941,10 @@
 			<PromotionType>PROMOTION_MARCH</PromotionType>
 			<PrerequisitePromotion>PROMOTION_BARRAGE_2</PrerequisitePromotion>
 		</Row>
+		<Row>
+			<PromotionType>PROMOTION_MARCH</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_2</PrerequisitePromotion>
+		</Row>
 		<!-- Blitz -->
 		<Row>
 			<PromotionType>PROMOTION_BLITZ</PromotionType>
@@ -272103,6 +271971,10 @@
 		<Row>
 			<PromotionType>PROMOTION_LOGISTICS</PromotionType>
 			<PrerequisitePromotion>PROMOTION_BARRAGE_3</PrerequisitePromotion>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_LOGISTICS</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_3</PrerequisitePromotion>
 		</Row>
 		<Row>
 			<PromotionType>PROMOTION_LOGISTICS</PromotionType>
@@ -272139,6 +272011,10 @@
 		</Row>
 		<Row>
 			<PromotionType>PROMOTION_RANGE</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_3</PrerequisitePromotion>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_RANGE</PromotionType>
 			<PrerequisitePromotion>PROMOTION_TARGETING_2</PrerequisitePromotion>
 		</Row>
 		<Row>
@@ -272165,6 +272041,10 @@
 		<Row>
 			<PromotionType>PROMOTION_MOBILITY</PromotionType>
 			<PrerequisitePromotion>PROMOTION_BARRAGE_2</PrerequisitePromotion>
+		</Row>
+		<Row>
+			<PromotionType>PROMOTION_MOBILITY</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_2</PrerequisitePromotion>
 		</Row>
 		<Row>
 			<PromotionType>PROMOTION_MOBILITY</PromotionType>
@@ -272792,7 +272672,7 @@
 		<Row> 
 			<PromotionType>PROMOTION_ANTI_NAVAL_3</PromotionType> 
 			<DomainType>DOMAIN_SEA</DomainType> 
-			<Modifier>33</Modifier> 
+			<Modifier>34</Modifier> 
 		</Row>
 		<Row> 
 			<PromotionType>PROMOTION_TARGETING_1</PromotionType> 
@@ -274043,7 +273923,7 @@
 			<PromotionType>PROMOTION_WOODSMAN</PromotionType> 
 			<UnitCombatType>UNITCOMBAT_PARADROPPER</UnitCombatType> 
 		</Row>
-
+		<!-- Logistics -->
 		<Row> 
 			<PromotionType>PROMOTION_LOGISTICS</PromotionType> 
 			<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType> 
@@ -302833,7 +302713,7 @@
 			<Description>TXT_KEY_UNIT_SKINFANTRY</Description> 
 			<Civilopedia>TXT_KEY_CIV5_DENMARK_SKI_INFANTRY_TEXT</Civilopedia> 
 			<Strategy>TXT_KEY_CIV5_DENMARK_SKI_INFANTRY_STRATEGY</Strategy> 
-			<Help>TXT_KEY_CIV5_DENMARK_SKI_INFANTRY_HELP</Help> 
+			<Help>TXT_KEY_UNIT_SKINFANTRY_HELP</Help> 
 			<Combat>50</Combat> 
 			<RangedCombat>0</RangedCombat> 
 			<Cost>330</Cost> 
