@@ -337,7 +337,7 @@ cp "$PATCH/Lua/tmp/ui/UnitPanel/EnemyUnitPanel.lua.ignore" "$PATCH/Lua/UI/EnemyU
 
 # --- UnitPanel (EUI check) ---
 echo "[LEKMOD] Patching UnitPanel UI components..."
-if grep -q "-- modified by bc1 from Civ V 1.0.3.276 code" "$EUIFOLDER/UnitPanel/UnitPanel.lua" 2>/dev/null; then
+if grep -q -- "-- modified by bc1 from Civ V 1.0.3.276 code" "$EUIFOLDER/UnitPanel/UnitPanel.lua" 2>/dev/null; then
     echo "  -> Using EUI version of UnitPanel"
     cp "$PATCH/Lua/tmp/eui/UnitPanel/UnitPanel.lua.ignore" "$PATCH/Lua/UI/UnitPanel.lua"
 else
