@@ -1,5 +1,5 @@
 /*	-------------------------------------------------------------------------------------------------------
-	© 1991-2012 Take-Two Interactive Software and its subsidiaries.  Developed by Firaxis Games.  
+	ï¿½ 1991-2012 Take-Two Interactive Software and its subsidiaries.  Developed by Firaxis Games.  
 	Sid Meier's Civilization V, Civ, Civilization, 2K Games, Firaxis Games, Take-Two Interactive Software 
 	and their respective logos are all trademarks of Take-Two interactive Software, Inc.  
 	All other marks and trademarks are the property of their respective owners.  
@@ -44,6 +44,10 @@ void CvLuaTeam::PushMethods(lua_State* L, int t)
 	Method(DeclareWar);
 	Method(MakePeace);
 	Method(GetNumTurnsLockedIntoWar);
+	Method(GetNumTurnsAtWar);
+#ifdef LEKMOD_CITY_STATE_PEACE_LOCK_FROM_DECLARATION
+	Method(IsCityStatePeaceLockFromOurDeclaration);
+#endif
 	Method(Meet);
 
 	Method(GetScore);
@@ -298,6 +302,22 @@ int CvLuaTeam::lGetNumTurnsLockedIntoWar(lua_State* L)
 {
 	return BasicLuaMethod(L, &CvTeam::GetNumTurnsLockedIntoWar);
 }
+
+//------------------------------------------------------------------------------
+//int GetNumTurnsAtWar(TeamTypes eTeam);
+int CvLuaTeam::lGetNumTurnsAtWar(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvTeam::GetNumTurnsAtWar);
+}
+
+#ifdef LEKMOD_CITY_STATE_PEACE_LOCK_FROM_DECLARATION
+//------------------------------------------------------------------------------
+//bool IsCityStatePeaceLockFromOurDeclaration(TeamTypes eTeam) const;
+int CvLuaTeam::lIsCityStatePeaceLockFromOurDeclaration(lua_State* L)
+{
+	return BasicLuaMethod(L, &CvTeam::IsCityStatePeaceLockFromOurDeclaration);
+}
+#endif
 
 //------------------------------------------------------------------------------
 //void meet(TeamTypes eTeam, bool bSuppressMessages);

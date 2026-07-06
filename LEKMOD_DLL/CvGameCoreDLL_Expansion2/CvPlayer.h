@@ -1397,7 +1397,13 @@ public:
 	int getNumResourceUsed(ResourceTypes eIndex) const;
 	void changeNumResourceUsed(ResourceTypes eIndex, int iChange);
 	int getNumResourceTotal(ResourceTypes eIndex, bool bIncludeImport = true) const;
+#ifdef LEKMOD_CS_BUILDING_STRATEGIC_NO_ALLY_SHARE
+	void changeNumResourceTotal(ResourceTypes eIndex, int iChange, bool bIgnoreResourceWarning = false, bool bMinorStrategicFromBuilding = false);
+	/// Strategic copies granted by buildings (Caravansary, Recycling Center, etc.) on a city-state; not shared with ally majors.
+	int getNumMinorStrategicResourceFromBuildings(ResourceTypes eIndex) const;
+#else
 	void changeNumResourceTotal(ResourceTypes eIndex, int iChange, bool bIgnoreResourceWarning = false);
+#endif
 
 	int getSiphonLuxuryCount(PlayerTypes eFromPlayer) const;
 	void changeSiphonLuxuryCount(PlayerTypes eFromPlayer, int iChange);
@@ -1538,6 +1544,9 @@ public:
 	int getNumCities() const;
 	CvCity* getCity(int iID);
 	const CvCity* getCity(int iID) const;
+#if defined(LEKMOD_CITY_YIELDS_TRAITS) && defined(LEKMOD_TRACK_CITY_SETTLER_UNITTYPE) && defined(LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX) && (LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX > 0)
+	bool IsCityReceivingYieldSettleUnitEraBonus(const CvCity* pCity);
+#endif
 	CvCity* addCity();
 	void deleteCity(int iID);
 	CvCity* GetFirstCityWithBuildingClass(BuildingClassTypes eBuildingClass);
@@ -2277,6 +2286,10 @@ protected:
 	FAutoVariable<bool, CvPlayer> m_bHasAdoptedStateReligion;
 	FAutoVariable<bool, CvPlayer> m_bAlliesGreatPersonBiasApplied;
 
+#if defined(LEKMOD_PROMO_YIELD_FROM_CONVERSION) && defined(LEKMOD_PROMO_CONVERSION_MAJORITY_ONLY_ONCE)
+	FAutoVariable<std::vector<int>, CvPlayer> m_aiConversionMajorityOnceUsedKeys;
+#endif
+
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCityYieldChange;
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCoastalCityYieldChange;
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiCapitalYieldChange;
@@ -2293,6 +2306,9 @@ protected:
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiMinorFriendshipAnchors; // DEPRECATED
 	std::vector<int> m_aiSiphonLuxuryCount;
 	std::vector<int> m_aiGreatWorkYieldChange;
+#if defined(LEKMOD_CITY_YIELDS_TRAITS) && defined(LEKMOD_TRACK_CITY_SETTLER_UNITTYPE) && defined(LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX) && (LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX > 0)
+	std::vector<int> m_aiYieldSettleUnitCityOrder;
+#endif
 
 #ifdef LEKMOD_v34
 	FAutoVariable<std::vector<int>, CvPlayer> m_aiSameLandMassYieldChange;
@@ -2314,6 +2330,9 @@ protected:
 
 	FAutoVariable<std::vector<int>, CvPlayer> m_paiNumResourceUsed;
 	FAutoVariable<std::vector<int>, CvPlayer> m_paiNumResourceTotal;
+#ifdef LEKMOD_CS_BUILDING_STRATEGIC_NO_ALLY_SHARE
+	FAutoVariable<std::vector<int>, CvPlayer> m_paiMinorStrategicResourceFromBuildings;
+#endif
 	FAutoVariable<std::vector<int>, CvPlayer> m_paiResourceGiftedToMinors;
 	FAutoVariable<std::vector<int>, CvPlayer> m_paiResourceExport;
 	FAutoVariable<std::vector<int>, CvPlayer> m_paiResourceImport;
@@ -2479,6 +2498,15 @@ protected:
 	void doUpdateCacheOnTurn();
 
 	void doArmySize();
+
+#if defined(LEKMOD_PROMO_YIELD_FROM_CONVERSION) && defined(LEKMOD_PROMO_CONVERSION_MAJORITY_ONLY_ONCE)
+	bool IsConversionMajorityYieldOnceUsed(int iCityID, PromotionTypes ePromotion, YieldTypes eYield) const;
+	void MarkConversionMajorityYieldOnceUsed(int iCityID, PromotionTypes ePromotion, YieldTypes eYield);
+#endif
+
+#if defined(LEKMOD_CITY_YIELDS_TRAITS) && defined(LEKMOD_TRACK_CITY_SETTLER_UNITTYPE) && defined(LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX) && (LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX > 0)
+	void RebuildYieldSettleUnitCityOrder();
+#endif
 
 	friend class CvPlayerManager;
 	friend CvUnit* GetPlayerUnit(IDInfo& unit);

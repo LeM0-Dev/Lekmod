@@ -66,6 +66,9 @@ public:
 	int GetPopulationUnhappinessModifier() const;
 	int GetCityStateBonusModifier() const;
 	int GetCityStateFriendshipModifier() const;
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	int GetFirstProphetCostMod() const;
+#endif
 	int GetCityStateCombatModifier() const;
 	int GetLandBarbarianConversionPercent() const;
 	int GetLandBarbarianConversionExtraUnits() const;
@@ -256,6 +259,9 @@ public:
 	int GetYieldChangePerTradePartner(int i) const;
 	int GetYieldChangeIncomingTradeRoute(int i) const;
 	int GetYieldModifier(int i) const;
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+	int GetBuildingClassProductionModifier(int i) const;
+#endif
 	int GetStrategicResourceQuantityModifier(int i) const;
 	int GetObsoleteTech() const;
 	int GetPrereqTech() const;
@@ -310,6 +316,9 @@ protected:
 	int m_iPopulationUnhappinessModifier;
 	int m_iCityStateBonusModifier;
 	int m_iCityStateFriendshipModifier;
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	int m_iFirstProphetCostMod;
+#endif
 	int m_iCityStateCombatModifier;
 	int m_iLandBarbarianConversionPercent;
 	int m_iLandBarbarianConversionExtraUnits;
@@ -494,6 +503,9 @@ protected:
 	int* m_piResourceQuantityModifiers;
 	int* m_piMovesChangeUnitCombats;
 	int* m_piMaintenanceModifierUnitCombats;
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+	int* m_paiBuildingClassProductionModifiers;
+#endif
 #ifdef AUI_DATABASE_UTILITY_PROPER_2D_ALLOCATION_AND_DESTRUCTION
 	std::pair<int**, size_t> m_ppiImprovementYieldChanges;
 	std::pair<int**, size_t> m_ppiSpecialistYieldChanges;
@@ -649,6 +661,12 @@ public:
 	{
 		return m_iCityStateFriendshipModifier;
 	};
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	int GetFirstProphetCostMod() const
+	{
+		return m_iFirstProphetCostMod;
+	}
+#endif
 	int GetCityStateCombatModifier() const
 	{
 		return m_iCityStateCombatModifier;
@@ -1235,6 +1253,9 @@ public:
 	int GetTerrainYieldChange(TerrainTypes eTerrain, YieldTypes eYield);
 	int GetBuildingClassHappiness(BuildingClassTypes eBuildingClass);
 	int GetBuildingClassGlobalHappiness(BuildingClassTypes eBuildingClass);
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+	int GetBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const;
+#endif
 	int GetResourceClassYieldChange(ResourceClassTypes eResourceClass, YieldTypes eYieldType);
 	int GetFeatureYieldChange(FeatureTypes eFeature, YieldTypes eYieldType) const;
 	int GetBuildingCostOverride(BuildingTypes eBuilding, YieldTypes eYieldType);
@@ -1295,6 +1316,9 @@ private:
 	int m_iPopulationUnhappinessModifier;
 	int m_iCityStateBonusModifier;
 	int m_iCityStateFriendshipModifier;
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	int m_iFirstProphetCostMod;
+#endif
 	int m_iCityStateCombatModifier;
 	int m_iLandBarbarianConversionPercent;
 	int m_iLandBarbarianConversionExtraUnits;

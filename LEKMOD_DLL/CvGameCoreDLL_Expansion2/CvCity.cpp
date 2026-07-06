@@ -203,6 +203,9 @@ CvCity::CvCity() :
 	, m_iFood("CvCity::m_iFood", m_syncArchive)
 	, m_iFoodKept("CvCity::m_iFoodKept", m_syncArchive)
 	, m_iMaxFoodKeptPercent("CvCity::m_iMaxFoodKeptPercent", m_syncArchive)
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+	, m_iExcessGrowthModifier("CvCity::m_iExcessGrowthModifier", m_syncArchive)
+#endif
 	, m_iOverflowProduction("CvCity::m_iOverflowProduction", m_syncArchive)
 	, m_iFeatureProduction("CvCity::m_iFeatureProduction", m_syncArchive)
 	, m_iMilitaryProductionModifier("CvCity::m_iMilitaryProductionModifier", m_syncArchive)
@@ -963,6 +966,9 @@ void CvCity::reset(int iID, PlayerTypes eOwner, int iX, int iY, bool bConstructo
 	m_iFood = 0;
 	m_iFoodKept = 0;
 	m_iMaxFoodKeptPercent = 0;
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+	m_iExcessGrowthModifier = 0;
+#endif
 	m_iOverflowProduction = 0;
 	m_iFeatureProduction = 0;
 	m_iMilitaryProductionModifier = 0;
@@ -5714,6 +5720,30 @@ int CvCity::GetPurchaseCost(BuildingTypes eBuilding)
 	if(pkBuildingInfo == NULL)
 		return -1;
 
+#ifdef LEKMOD_BELIEF_BUILDING_PURCHASE
+	{
+		const int iHurryMod = pkBuildingInfo->GetHurryCostModifier();
+		if (iHurryMod != -1 && pkBuildingInfo->GetGoldCost() == 0 && pkBuildingInfo->GetFaithCost() <= 0)
+		{
+			int iRaw = 0;
+			if (getLekmodBeliefBuildingPurchaseRawCost(eBuilding, YIELD_GOLD, &iRaw) && iRaw > 0)
+			{
+				int iCostL = iRaw;
+				iCostL *= (100 + iHurryMod);
+				iCostL /= 100;
+				iCostL *= GC.getGame().getGameSpeedInfo().getConstructPercent();
+				iCostL /= 100;
+				iCostL *= (100 + GET_PLAYER(getOwner()).GetPlayerPolicies()->GetNumericModifier(POLICYMOD_BUILDING_PURCHASE_COST_MODIFIER));
+				iCostL /= 100;
+				int iDivisor = GC.getGOLD_PURCHASE_VISIBLE_DIVISOR();
+				iCostL /= iDivisor;
+				iCostL *= iDivisor;
+				return iCostL;
+			}
+		}
+	}
+#endif
+
 #ifdef LEKMOD_BUILDING_GOLD_COST
 	int iCost = pkBuildingInfo->GetGoldCost();
 #if defined(TRAITIFY) // BuildingCostOverride Gold
@@ -5768,6 +5798,35 @@ int CvCity::GetPurchaseCost(BuildingTypes eBuilding)
 	return iCost;
 }
 
+#ifdef LEKMOD_BELIEF_BUILDING_PURCHASE
+//	--------------------------------------------------------------------------------
+bool CvCity::getLekmodBeliefBuildingPurchaseRawCost(BuildingTypes eBuilding, YieldTypes eYield, int* piRaw) const
+{
+	VALIDATE_OBJECT
+	if (piRaw == NULL || eBuilding == NO_BUILDING)
+	{
+		return false;
+	}
+	CvGameReligions* pGR = GC.getGame().GetGameReligions();
+	if (!pGR)
+	{
+		return false;
+	}
+	const ReligionTypes eMaj = GetCityReligions()->GetReligiousMajority();
+	if (eMaj <= RELIGION_PANTHEON)
+	{
+		return false;
+	}
+	const CvReligion* pRel = pGR->GetReligion(eMaj, getOwner());
+	if (!pRel)
+	{
+		return false;
+	}
+	const int iNumCities = GET_PLAYER(getOwner()).getNumCities();
+	return pRel->m_Beliefs.TryGetBuildingPurchaseFaithGoldRawCost(eBuilding, eYield, iNumCities, piRaw) && *piRaw > 0;
+}
+#endif
+
 //	--------------------------------------------------------------------------------
 #ifdef AUI_CONSTIFY
 int CvCity::GetFaithPurchaseCost(BuildingTypes eBuilding) const
@@ -5791,6 +5850,16 @@ int CvCity::GetFaithPurchaseCost(BuildingTypes eBuilding)
 	if (iOverrideCost > 0) // Only apply override if a valid value exists
 	{
 		iCost = iOverrideCost;
+	}
+#endif
+#ifdef LEKMOD_BELIEF_BUILDING_PURCHASE
+	if (iCost <= 0)
+	{
+		int iRaw = 0;
+		if (getLekmodBeliefBuildingPurchaseRawCost(eBuilding, YIELD_FAITH, &iRaw) && iRaw > 0)
+		{
+			iCost = iRaw;
+		}
 	}
 #endif
 	EraTypes eEra = GET_TEAM(GET_PLAYER(getOwner()).getTeam()).GetCurrentEra();
@@ -6127,8 +6196,8 @@ int CvCity::getProductionModifier(UnitTypes eUnit, CvString* toolTipSink) const
 		}
 	}
 
-	// Military production bonus
-	if(pkUnitInfo->IsMilitaryProduction())
+	// Military production bonus (only for units with actual combat or ranged combat strength)
+	if(pkUnitInfo->IsMilitaryProduction() && (pkUnitInfo->GetCombat() > 0 || pkUnitInfo->GetRangedCombat() > 0))
 	{
 		iTempMod = getMilitaryProductionModifier();
 		iMultiplier += iTempMod;
@@ -6295,6 +6364,19 @@ int CvCity::getProductionModifier(BuildingTypes eBuilding, CvString* toolTipSink
 		}
 	}
 
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+	// From traits (Trait_BuildingClassProductionModifiers)
+	iTempMod = GET_PLAYER(getOwner()).GetPlayerTraits()->GetBuildingClassProductionModifier((BuildingClassTypes)kBuildingClassInfo.GetID());
+	if(iTempMod != 0)
+	{
+		iMultiplier += iTempMod;
+		if(toolTipSink && iTempMod)
+		{
+			GC.getGame().BuildProdModHelpText(toolTipSink, "TXT_KEY_PRODMOD_BUILDING_TRAIT", iTempMod);
+		}
+	}
+#endif
+
 	// From traits
 	iTempMod = GET_PLAYER(getOwner()).GetPlayerTraits()->GetCapitalBuildingDiscount(eBuilding);
 	if(iTempMod != 0)
@@ -6460,10 +6542,10 @@ int CvCity::getProductionDifferenceTimes100(int /*iProductionNeeded*/, int /*iPr
 		return 0;
 	}
 
-	int iFoodProduction = ((bFoodProduction) ? GetFoodProduction(getYieldRate(YIELD_FOOD, false) - foodConsumption(true)) : 0);
+	int iFoodProduction = bFoodProduction ? GetFoodProduction(getYieldRate(YIELD_FOOD, false) - foodConsumption(true)) : 0;
 	iFoodProduction *= 100;
 
-	int iOverflow = ((bOverflow) ? (getOverflowProductionTimes100() + getFeatureProduction() * 100) : 0);
+	int iOverflow = bOverflow ? (getOverflowProductionTimes100() + getFeatureProduction() * 100) : 0;
 
 	// Sum up difference
 	int iBaseProduction = getBaseYieldRate(YIELD_PRODUCTION) * 100;
@@ -7624,7 +7706,13 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 		}
 #endif
 		changeMaxFoodKeptPercent(pBuildingInfo->GetFoodKept() * iChange);
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+		changeExcessGrowthModifier(pBuildingInfo->GetExcessGrowth() * iChange);
+#endif
 		changeMilitaryProductionModifier(pBuildingInfo->GetMilitaryProductionModifier() * iChange);
+#if defined(LEKMOD_BUILDING_MILITARY_PRODUCTION_MOD)
+		changeMilitaryProductionModifier(pBuildingInfo->GetMilitaryProductionMod() * iChange);
+#endif
 		changeSpaceProductionModifier(pBuildingInfo->GetSpaceProductionModifier() * iChange);
 		m_pCityBuildings->ChangeBuildingProductionModifier(pBuildingInfo->GetBuildingProductionModifier() * iChange);
 		m_pCityBuildings->ChangeMissionaryExtraSpreads(pBuildingInfo->GetExtraMissionarySpreads() * iChange);
@@ -7664,7 +7752,16 @@ void CvCity::processBuilding(BuildingTypes eBuilding, int iChange, bool bFirst, 
 			int iNumResource = pBuildingInfo->GetResourceQuantity(iResourceLoop) * iChange;
 			if(iNumResource != 0)
 			{
-				owningPlayer.changeNumResourceTotal(eResource, iNumResource);
+#ifdef LEKMOD_CS_BUILDING_STRATEGIC_NO_ALLY_SHARE
+				const CvResourceInfo* pkLoopResourceInfo = GC.getResourceInfo(eResource);
+				const bool bMinorStrategicFromBuilding =
+					owningPlayer.isMinorCiv() &&
+					(pkLoopResourceInfo != NULL) &&
+					(pkLoopResourceInfo->getResourceUsage() == RESOURCEUSAGE_STRATEGIC);
+				owningPlayer.changeNumResourceTotal(eResource, iNumResource, false, bMinorStrategicFromBuilding);
+#else
+				owningPlayer.changeNumResourceTotal(eResource, iNumResource, false);
+#endif
 			}
 
 			// Do we have this resource local?
@@ -8562,6 +8659,14 @@ int CvCity::foodDifferenceTimes100(bool bBottom, CvString* toolTipSink) const
 			iTotalMod += iCityGrowthMod;
 			GC.getGame().BuildProdModHelpText(toolTipSink, "TXT_KEY_FOODMOD_PLAYER", iCityGrowthMod);
 		}
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+		int iBuildingExcessGrowthMod = getExcessGrowthModifier();
+		if(iBuildingExcessGrowthMod != 0)
+		{
+			iTotalMod += iBuildingExcessGrowthMod;
+			GC.getGame().BuildProdModHelpText(toolTipSink, "TXT_KEY_FOODMOD_PLAYER", iBuildingExcessGrowthMod);
+		}
+#endif
 
 		// Religion growth mod
 		int iReligionGrowthMod = 0;
@@ -10345,6 +10450,22 @@ void CvCity::changeMaxFoodKeptPercent(int iChange)
 	m_iMaxFoodKeptPercent = (m_iMaxFoodKeptPercent + iChange);
 	CvAssert(getMaxFoodKeptPercent() >= 0);
 }
+
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+//	--------------------------------------------------------------------------------
+int CvCity::getExcessGrowthModifier() const
+{
+	VALIDATE_OBJECT
+	return m_iExcessGrowthModifier;
+}
+
+//	--------------------------------------------------------------------------------
+void CvCity::changeExcessGrowthModifier(int iChange)
+{
+	VALIDATE_OBJECT
+	m_iExcessGrowthModifier = (m_iExcessGrowthModifier + iChange);
+}
+#endif
 
 
 //	--------------------------------------------------------------------------------
@@ -16329,6 +16450,28 @@ bool CvCity::IsCanPurchase(bool bTestPurchaseCost, bool bTestTrainable, UnitType
 #ifndef LEKMOD_FAITH_PURCHASE_NO_RELIGION
 			}
 #endif
+#ifdef LEKMOD_BELIEF_BUILDING_PURCHASE
+			if (pkBuildingInfo)
+			{
+				int iRawCk = 0;
+				if (pkBuildingInfo->GetFaithCost() <= 0 && getLekmodBeliefBuildingPurchaseRawCost(eBuildingType, YIELD_FAITH, &iRawCk) && iRawCk > 0)
+				{
+					if (!pkBuildingInfo->IsUnlockedByBelief())
+					{
+						if (GetCityBuildings()->GetNumBuilding(eBuildingType) > 0)
+						{
+							return false;
+						}
+#if defined(TRAITIFY)
+						if (GET_PLAYER(getOwner()).GetPlayerTraits()->GetBuildingCostOverride(eBuildingType, YIELD_FAITH) < 0)
+						{
+							return false;
+						}
+#endif
+					}
+				}
+			}
+#endif
 			iFaithCost = GetFaithPurchaseCost(eBuildingType);
 			if(iFaithCost < 1) return false;
 		}
@@ -16508,7 +16651,14 @@ void CvCity::Purchase(UnitTypes eUnitType, BuildingTypes eBuildingType, ProjectT
 				return;	// Can't create the unit, most likely we have no place for it.  We have not deducted the cost yet so just exit.
 
 			CvUnit* pUnit = kPlayer.getUnit(iResult);
+#ifdef LEKMOD_FAITH_MOVE_AFTER_PURCHASE
+			if (!pUnit->getUnitInfo().CanMoveAfterPurchase())
+			{
+				pUnit->setMoves(0);
+			}
+#else
 			pUnit->setMoves(0);
+#endif
 
 			ICvEngineScriptSystem1* pkScriptSystem = gDLL->GetScriptSystem();
 			if (pkScriptSystem) 
@@ -17447,6 +17597,9 @@ void CvCity::read(FDataStream& kStream)
 	kStream >> m_iFood;
 	kStream >> m_iFoodKept;
 	kStream >> m_iMaxFoodKeptPercent;
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+	kStream >> m_iExcessGrowthModifier;
+#endif
 	kStream >> m_iOverflowProduction;
 	kStream >> m_iFeatureProduction;
 	kStream >> m_iMilitaryProductionModifier;
@@ -17823,6 +17976,9 @@ void CvCity::write(FDataStream& kStream) const
 	kStream << m_iFood;
 	kStream << m_iFoodKept;
 	kStream << m_iMaxFoodKeptPercent;
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+	kStream << m_iExcessGrowthModifier;
+#endif
 	kStream << m_iOverflowProduction;
 	kStream << m_iFeatureProduction;
 	kStream << m_iMilitaryProductionModifier;

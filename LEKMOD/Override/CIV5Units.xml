@@ -9,6 +9,347 @@
 
 
 <GameData>
+
+	<Table name="Trait_BuildingClassProductionModifiers">
+		<Column name="TraitType" type="text"  />
+		<Column name="BuildingClassType" type="text"  />
+		<Column name="ProductionModifier" type="integer"  />
+	</Table>
+	<Trait_BuildingClassProductionModifiers>
+		<Delete />
+		<!-- Manchuria Trait -->
+		<Row>
+			<TraitType>TRAIT_EIGHT_BANNERS</TraitType>
+			<BuildingClassType>BUILDINGCLASS_STABLE</BuildingClassType>
+			<ProductionModifier>50</ProductionModifier>
+		</Row>
+		<!-- England Trait -->
+		<Row>
+			<TraitType>TRAIT_OCEAN_MOVEMENT</TraitType>
+			<BuildingClassType>BUILDINGCLASS_CONSTABLE</BuildingClassType>
+			<ProductionModifier>100</ProductionModifier>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_OCEAN_MOVEMENT</TraitType>
+			<BuildingClassType>BUILDINGCLASS_POLICE_STATION</BuildingClassType>
+			<ProductionModifier>100</ProductionModifier>
+		</Row>
+		<!-- Ireland Trait -->
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_TEMPLE</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_WORKSHOP</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_MONUMENT</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_CONSTABLE</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_HOTEL</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_GAELIC</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType> 
+			<ProductionModifier>15</ProductionModifier> 
+		</Row>
+		<!-- Turkey Trait -->
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_AMPHITHEATER</BuildingClassType> 
+			<ProductionModifier>50</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType> 
+			<ProductionModifier>50</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType> 
+			<ProductionModifier>50</ProductionModifier> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType> 
+			<BuildingClassType>BUILDINGCLASS_MUSEUM</BuildingClassType> 
+			<ProductionModifier>50</ProductionModifier> 
+		</Row>
+	</Trait_BuildingClassProductionModifiers>
+
+	<Table name="Policy_GreatPersonImprovement_Adjacency_YieldBonus">
+		<Column name="PolicyType" type="text" reference="Policies(Type)" />
+		<Column name="ImprovementType" type="text" reference="Improvements(Type)" />
+		<Column name="YieldType" type="text" reference="Yields(Type)" />
+		<Column name="Yield" type="integer" />
+	</Table>
+	<Policy_GreatPersonImprovement_Adjacency_YieldBonus>
+		<Delete />
+		
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_MANUFACTORY</ImprovementType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_ACADEMY</ImprovementType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_DOCK</ImprovementType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_CONCERT</ImprovementType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_HOLY_SITE</ImprovementType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_CUSTOMS_HOUSE</ImprovementType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_CHILE_DOCK</ImprovementType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+
+		
+	</Policy_GreatPersonImprovement_Adjacency_YieldBonus>
+
+	<Table name="Policy_TerrainYieldChanges">
+		<Column name="PolicyType" type="text" reference="Policies(Type)" />
+		<Column name="TerrainType" type="text" reference="Terrains(Type)" />
+		<Column name="YieldType" type="text" reference="Yields(Type)" />
+		<Column name="YieldChange" type="integer" />
+		<Column name="Unimproved" type="boolean" default="false" />
+		<Column name="NoResource" type="boolean" default="false" />
+		<Column name="ExcludeLakes" type="boolean" default="false" />
+	</Table>
+	<Policy_TerrainYieldChanges>
+		<Delete />
+		<Row>
+			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType>
+			<TerrainType>TERRAIN_COAST</TerrainType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldChange>1</YieldChange>
+			<Unimproved>true</Unimproved>
+			<NoResource>true</NoResource>
+			<ExcludeLakes>true</ExcludeLakes>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType>
+			<TerrainType>TERRAIN_COAST</TerrainType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldChange>1</YieldChange>
+			<Unimproved>true</Unimproved>
+			<NoResource>true</NoResource>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType>
+			<TerrainType>TERRAIN_OCEAN</TerrainType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<YieldChange>1</YieldChange>
+			<Unimproved>true</Unimproved>
+			<NoResource>true</NoResource>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType>
+			<TerrainType>TERRAIN_OCEAN</TerrainType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<YieldChange>1</YieldChange>
+			<Unimproved>true</Unimproved>
+			<NoResource>true</NoResource>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_EXPLORATION_FINISHER</PolicyType>
+			<TerrainType>TERRAIN_OCEAN</TerrainType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldChange>1</YieldChange>
+			<Unimproved>true</Unimproved>
+			<NoResource>true</NoResource>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_EXPLORATION_FINISHER</PolicyType>
+			<TerrainType>TERRAIN_COAST</TerrainType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<YieldChange>1</YieldChange>
+			<Unimproved>true</Unimproved>
+			<NoResource>true</NoResource>
+		</Row>
+	
+	</Policy_TerrainYieldChanges>
+
+	<Table name="Policy_FeatureYieldChanges">
+		<Column name="PolicyType" type="text" reference="Policies(Type)" />
+		<Column name="FeatureType" type="text" reference="Features(Type)" />
+		<Column name="YieldType" type="text" reference="Yields(Type)" />
+		<Column name="YieldChange" type="integer" />
+		<Column name="Unimproved" type="boolean" default="false" />
+		<Column name="NoResource" type="boolean" default="false" />
+	</Table>
+	<Policy_FeatureYieldChanges>
+		<Delete />
+
+	</Policy_FeatureYieldChanges>
+
+	<Table name="Beliefs_BuildingPurchaseFaithGold">
+		<Column name="BeliefType" type="text" />
+		<Column name="BuildingClassType" type="text" />
+		<Column name="Cost" type="integer" />
+		<Column name="YieldType" type="text" />
+		<Column name="IncrementalCostPerCity" type="integer" />
+	</Table>
+
+	<Beliefs_BuildingPurchaseFaithGold>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_NATIONAL_COLLEGE</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_IRONWORKS</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_NATIONAL_EPIC</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_HEROIC_EPIC</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_GRAND_TEMPLE</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_NATIONAL_TREASURY</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_CIRCUS_MAXIMUS</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_INTELLIGENCE_AGENCY</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_HERMITAGE</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_OXFORD_UNIVERSITY</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SANCTIFIED_INNOVATIONS</BeliefType>
+			<BuildingClassType>BUILDINGCLASS_INTELLIGENCE_AGENCY</BuildingClassType>
+			<Cost>300</Cost>
+			<YieldType>YIELD_FAITH</YieldType>
+			<IncrementalCostPerCity>75</IncrementalCostPerCity>
+		</Row>
+	</Beliefs_BuildingPurchaseFaithGold>
+	<Table name="Tourism_InfluenceCombatMod">
+		<Column name="ID" type="integer" primarykey="true"/>
+		<Column name="MinInfluencePercent" type="integer" notnull="true"/>
+		<Column name="MaxInfluencePercent" type="integer" notnull="true"/>
+		<Column name="MinCombatBonus" type="integer" notnull="true"/>
+		<Column name="MaxCombatBonus" type="integer" notnull="true"/>
+		<Column name="IdeologyRequired" type="boolean" default="false"/>
+	</Table>
+	<Tourism_InfluenceCombatMod>
+		<Row>
+			<ID>0</ID>
+			<MinInfluencePercent>10</MinInfluencePercent>
+			<MaxInfluencePercent>100</MaxInfluencePercent>
+			<MinCombatBonus>5</MinCombatBonus>
+			<MaxCombatBonus>25</MaxCombatBonus>
+			<IdeologyRequired>true</IdeologyRequired>
+		</Row>
+	</Tourism_InfluenceCombatMod>
+
 	<Table name="Terrain_MountainYieldChanges">
 		<Column name="TerrainType" type="text"  />
 		<Column name="YieldType" type="text"  />
@@ -53,6 +394,7 @@
 		<Column name="Yield" type="text" reference="Yields(Type)"/>
 		<Column name="Amount" type="integer" default="0"/>
 		<Column name="OnlyMajority" type="boolean" default="false"/>
+		<Column name="OnlyOnce" type="boolean" default="false"/>
   	</Table>
 	<UnitPromotions_YieldsFromFollowerConversion>
 		<Row>
@@ -83,26 +425,30 @@
 		<Row>
 			<PromotionType>PROMOTION_CONVERSION_PAYOUT</PromotionType>
 			<Yield>YIELD_FAITH</Yield>
-			<Amount>4</Amount>
+			<Amount>8</Amount>
 			<OnlyMajority>true</OnlyMajority>
+			<OnlyOnce>true</OnlyOnce>
 		</Row>
 		<Row>
 			<PromotionType>PROMOTION_CONVERSION_PAYOUT</PromotionType>
 			<Yield>YIELD_CULTURE</Yield>
-			<Amount>4</Amount>
+			<Amount>8</Amount>
 			<OnlyMajority>true</OnlyMajority>
+			<OnlyOnce>true</OnlyOnce>
 		</Row>
 		<Row>
 			<PromotionType>PROMOTION_CONVERSION_PAYOUT</PromotionType>
 			<Yield>YIELD_GOLD</Yield>
-			<Amount>4</Amount>
+			<Amount>8</Amount>
 			<OnlyMajority>true</OnlyMajority>
+			<OnlyOnce>true</OnlyOnce>
 		</Row>
 		<Row>
 			<PromotionType>PROMOTION_CONVERSION_PAYOUT</PromotionType>
 			<Yield>YIELD_SCIENCE</Yield>
-			<Amount>4</Amount>
+			<Amount>8</Amount>
 			<OnlyMajority>true</OnlyMajority>
+			<OnlyOnce>true</OnlyOnce>
 		</Row>
  	</UnitPromotions_YieldsFromFollowerConversion>
 
@@ -345,11 +691,6 @@
 		<Column name="PolicyType" type="text" reference="Policies(Type)"/>
 	</Table>
 	<Civilization_Dummy_Policies>
-		
-		<Row>
-			<Type>CIVILIZATION_ENGLAND</Type>
-			<PolicyType>POLICY_DUMMY_ENGLAND</PolicyType>
-		</Row>
 		<Row>
 			<Type>CIVILIZATION_VIETNAM</Type>
 			<PolicyType>POLICY_DUMMY_VIETNAM</PolicyType>
@@ -365,10 +706,6 @@
 		<Row>
 			<Type>CIVILIZATION_TURKEY</Type>
 			<PolicyType>POLICY_DUMMY_TURKEY</PolicyType>
-		</Row>
-		<Row>
-			<Type>CIVILIZATION_IRELAND</Type>
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType>
 		</Row>
 	</Civilization_Dummy_Policies>
 
@@ -423,11 +760,6 @@
 			<PolicyType>POLICY_ECONOMIC_UNION</PolicyType>
 		</Row>
 		<Row>
-			<BuildingType>BUILDING_HONOR_FINISHER</BuildingType>
-			<IsCapitalOnly>true</IsCapitalOnly>
-			<PolicyBranchFinished>POLICY_BRANCH_HONOR</PolicyBranchFinished>
-		</Row>
-		<Row>
 			<BuildingType>BUILDING_YUGO_ORDER</BuildingType>
 			<CivilizationType>CIVILIZATION_YUGOSLAVIA</CivilizationType> 
 			<PolicyBranchChosen>POLICY_BRANCH_FREEDOM</PolicyBranchChosen>
@@ -462,197 +794,6 @@
 	
 	</Global_Dummy_Buildings>
 
-	<!-- new tables for map script -->
-	<Table name ="Resource_Preferences">
-		<Column name="ResourceType" type="text" notnull="true" />
-		<Column name="TreeRequired" type="boolean"  default="0"/>
-		<Column name="HillRequired" type="boolean"  default="0"/>
-		<Column name="FlatRequired" type="boolean"  default="0"/>
-		<Column name="FeatureType" type="text" default="FEATURE_NONE"/>
-		<Column name="TerrainType" type="text" default="TERRAIN_NONE" />
-		<Column name="PreferenceValue" type="integer" default="0" />
-		
-	</Table>
-	
-	<Resource_Preferences>
-	<!-- New table for Resources -->
-	<!--  This table handles preferences and hard setting required terrain/features. Perefences are normally done in various places in the map script. Simplified and made editable here in the database.
-		Default Frequencies are in the <Resources> table under "TilesPer" column. Editing the default frequency means you should also edit the bonus values here.
-		
-		##### IMPORTANT ##### Currently this table only supports global placements and only for strategics. ######## 
-		
-		Any terrain/features entered is treated as "spawning more/less often on x terrain/features". 
-		
-		The value (y) means: x resource will spawn once per y amount of tiles it is viable on.
-		Example: Iron is placed once every 10 tiles it is viable on by default. If we enter TERRAIN_TUNDRA for RESOURCE_IRON with a value of -5, 
-		then for every (10 - 5 ) = 5 tundra tiles an iron can spawn on it will be placed once every 5 rather than every 10 tiles, so twice as often. 
-		However, it will still only be placed once every 10 tiles on any other terrain it is valid (such as plains).
-		
-		
-	-->
-	
-	<!-- TreeRequired will force any resource to spawn with a forest/jungle depending on valid features. Unused and has no effect yet.
-		The booleans main purpose is for certain resources to still be flexable with regards to spawn rules, but still need to have a plot/feature type present.
-		Setting them anywhere here will not affect initial spawning, only cleaning them up after everything else.
-		-->
-		
-	<!-- Multiple entries for one resource is allowed, but will resort in more of the resource being placed. Duplicate entries are allowed.
-		###Important: Setting both a terrain and feature type in one row will combine them. Useful for if you want a resource to spawn more often on a feature but only in a certain biome.
-	-->
-	
-	<!-- Default frequency of strategics is 0, so it will only spawn on the terrain/features set here regardless of Terrain/Feature/FeatureTerrain Booleans  -->
-		<Row>
-			<ResourceType>RESOURCE_URANIUM</ResourceType>
-			<FeatureType>FEATURE_FOREST</FeatureType>
-			<PreferenceValue>60</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_URANIUM</ResourceType>
-			<FeatureType>FEATURE_MARSH</FeatureType>
-			<PreferenceValue>20</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_URANIUM</ResourceType>
-			<FeatureType>FEATURE_JUNGLE</FeatureType>
-			<PreferenceValue>140</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_OIL</ResourceType>
-			<TerrainType>TERRAIN_DESERT</TerrainType>
-			<PreferenceValue>28</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_OIL</ResourceType>
-			<TerrainType>TERRAIN_SNOW</TerrainType>
-			<PreferenceValue>45</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_OIL</ResourceType>
-			<TerrainType>TERRAIN_TUNDRA</TerrainType>
-			<PreferenceValue>50</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_OIL</ResourceType>
-			<FeatureType>FEATURE_MARSH</FeatureType>
-			<PreferenceValue>15</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_OIL</ResourceType>
-			<FeatureType>FEATURE_FOREST</FeatureType>
-			<PreferenceValue>140</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_ALUMINUM</ResourceType>
-			<TerrainType>TERRAIN_SNOW</TerrainType>
-			<PreferenceValue>70</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_ALUMINUM</ResourceType>
-			<TerrainType>TERRAIN_TUNDRA</TerrainType>
-			<PreferenceValue>80</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_ALUMINUM</ResourceType>
-			<TerrainType>TERRAIN_HILL</TerrainType>
-			<PreferenceValue>50</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_ALUMINUM</ResourceType>
-			<FeatureType>FEATURE_FOREST</FeatureType>
-			<PreferenceValue>140</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_ALUMINUM</ResourceType>
-			<FeatureType>FEATURE_JUNGLE</FeatureType>
-			<PreferenceValue>140</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_IRON</ResourceType>
-			<TerrainType>TERRAIN_TUNDRA</TerrainType>
-			<PreferenceValue>60</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_IRON</ResourceType>
-			<TerrainType>TERRAIN_SNOW</TerrainType>
-			<PreferenceValue>75</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_IRON</ResourceType>
-			<TerrainType>TERRAIN_HILL</TerrainType>
-			<PreferenceValue>120</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_IRON</ResourceType>
-			<TerrainType>TERRAIN_DESERT</TerrainType>
-			<PreferenceValue>45</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_COAL</ResourceType>
-			<FeatureType>FEATURE_FOREST</FeatureType>
-			<PreferenceValue>200</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_COAL</ResourceType>
-			<FeatureType>FEATURE_JUNGLE</FeatureType>
-			<PreferenceValue>72</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_COAL</ResourceType>
-			<TerrainType>TERRAIN_HILL</TerrainType>
-			<PreferenceValue>50</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_HORSE</ResourceType>
-			<TerrainType>TERRAIN_GRASS</TerrainType>
-			<PreferenceValue>28</PreferenceValue>
-		</Row>
-		<Row>
-			<ResourceType>RESOURCE_HORSE</ResourceType>
-			<TerrainType>TERRAIN_PLAINS</TerrainType>
-			<PreferenceValue>28</PreferenceValue>
-		</Row>
-	
-	</Resource_Preferences>
-	
-	
-	<Table name="Resource_LuxuryRegionsWeights">
-		<Column name="ID" type="integer"  primarykey="true" autoincrement="true" />
-		<Column name="ResourceType" type="text"  unique="true" notnull="true" />
-		<Column name="RegionTundra" type="integer" default="0" />
-		<Column name="RegionJungle" type="integer" default="0" />
-		<Column name="RegionForest" type="integer" default="0" />
-		<Column name="RegionDesert" type="integer" default="0" />
-		<Column name="RegionHills" type="integer" default="0" />
-		<Column name="RegionPlains" type="integer" default="0" />
-		<Column name="RegionGrass" type="integer" default="0" />
-		<Column name="RegionHybrid" type="integer" default="0" />
-		<Column name="RegionWetlands" type="integer" default="0" />
-		<Column name="RegionFallback" type="integer" default="0" />
-		<Column name="RegionCityState" type="integer" default="0" />	
-	</Table>
-	<Resource_LuxuryRegionsWeights>
-	<!-- Region Weights for Luxuries. Unused (for now) -->
-	<!-- Recommended values of 05 (very low chance) to 40 (very high chance) -->
-	<Row>
-		<ID>0</ID>
-		<ResourceType>RESOURCE_CITRUS</ResourceType>
-		<RegionTundra>40</RegionTundra>
-		<RegionForest>10</RegionForest>
-	</Row>
-	<Row>
-		<ID>1</ID>
-		<ResourceType>RESOURCE_GOLD</ResourceType>
-		<RegionWetlands>40</RegionWetlands>
-		<RegionPlains>10</RegionPlains>
-	</Row>
-	<Row>
-		<ID>2</ID>
-		<ResourceType>RESOURCE_COPPER</ResourceType>
-		<RegionTundra>40</RegionTundra>
-		<RegionForest>10</RegionForest>
-	</Row>
-		
-	</Resource_LuxuryRegionsWeights>
 	<!-- new tables from the community patch dll -->
 	<Table name="Building_ImprovementYieldChanges">
 		<Column name="BuildingType" type="text" reference="Buildings(Type)"/>
@@ -769,6 +910,13 @@
 			<ImprovementType>IMPROVEMENT_CITADEL</ImprovementType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<Yield>2</Yield>
+		</Row>
+
+		<Row>
+			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType>
+			<ImprovementType>IMPROVEMENT_CAMP</ImprovementType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
 		</Row>
 	</Building_ImprovementYieldChanges>
 
@@ -26513,7 +26661,7 @@
 		<Row> 
 			<BeliefType>BELIEF_DEVOUT_PERFORMERS</BeliefType> 
 			<BuildingClassType>BUILDINGCLASS_CIRCUS_MAXIMUS</BuildingClassType> 
-			<Happiness>3</Happiness> 
+			<Happiness>5</Happiness> 
 		</Row>
 		<Row> 
 			<BeliefType>BELIEF_STARLIGHT</BeliefType> 
@@ -26594,6 +26742,12 @@
 			<BuildingClassType>BUILDINGCLASS_AMPHITHEATER</BuildingClassType> 
 			<YieldType>YIELD_FAITH</YieldType> 
 			<YieldChange>2</YieldChange> 
+		</Row>
+		<Row> 
+			<BeliefType>BELIEF_LITURGICAL_DRAMA</BeliefType> 
+			<BuildingClassType>BUILDINGCLASS_AMPHITHEATER</BuildingClassType> 
+			<YieldType>YIELD_GOLD</YieldType> 
+			<YieldChange>1</YieldChange> 
 		</Row>
 		<Row> 
 			<BeliefType>BELIEF_GOD_KING</BeliefType> 
@@ -26773,6 +26927,12 @@
 			<BeliefType>BELIEF_LITURGICAL_DRAMA</BeliefType> 
 			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
+			<YieldChange>1</YieldChange> 
+		</Row>
+		<Row> 
+			<BeliefType>BELIEF_LITURGICAL_DRAMA</BeliefType> 
+			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType> 
+			<YieldType>YIELD_GOLD</YieldType> 
 			<YieldChange>1</YieldChange> 
 		</Row>
 		<Row> 
@@ -27223,7 +27383,7 @@
 			<BeliefType>BELIEF_DEVOUT_PERFORMERS</BeliefType> 
 			<BuildingClassType>BUILDINGCLASS_CIRCUS</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<YieldChange>2</YieldChange> 
+			<YieldChange>1</YieldChange> 
 		</Row>
 		<Row> 
 			<BeliefType>BELIEF_DEVOUT_PERFORMERS</BeliefType> 
@@ -28593,11 +28753,16 @@
 		<Row> 
 			<BeliefType>BELIEF_MESSENGER_GODS</BeliefType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>1</Yield> 
 		</Row>
 		<Row> 
 			<BeliefType>BELIEF_MESSENGER_GODS</BeliefType> 
 			<YieldType>YIELD_FAITH</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<BeliefType>BELIEF_MESSENGER_GODS</BeliefType> 
+			<YieldType>YIELD_GOLD</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
 	</Belief_YieldChangeTradeRoute> 
@@ -28693,6 +28858,8 @@
 		<Column name="SpreadModifierUnownedCities" type="INTEGER"  default="0"/>
 		<Column name="GoldenAgeTurns" type="INTEGER"  default="0"/>
 		<Column name="NumFreeSettlers" type="INTEGER"  default="0"/>
+		<Column name="CityStateFollowingReligionDecayMod" type="integer" default="0"/>
+		<Column name="CityStateFollowingReligionRecoveryMod" type="integer" default="0"/>
 	</Table> 
 	<Beliefs>
 		<Delete />
@@ -29787,7 +29954,7 @@
 			<Description>TXT_KEY_BELIEF_INITIATION_RITES</Description> 
 			<ShortDescription>TXT_KEY_BELIEF_INITIATION_RITES_SHORT</ShortDescription> 
 			<Pantheon>false</Pantheon> 
-			<Founder>true</Founder> 
+			<Founder>false</Founder> 
 			<Follower>false</Follower> 
 			<Enhancer>false</Enhancer> 
 			<Reformation>false</Reformation> 
@@ -30072,9 +30239,9 @@
 			<Description>TXT_KEY_BELIEF_RELIGIOUS_UNITY</Description> 
 			<ShortDescription>TXT_KEY_BELIEF_RELIGIOUS_UNITY_SHORT</ShortDescription> 
 			<Pantheon>false</Pantheon> 
-			<Founder>true</Founder> 
+			<Founder>false</Founder> 
 			<Follower>false</Follower> 
-			<Enhancer>false</Enhancer> 
+			<Enhancer>true</Enhancer> 
 			<Reformation>false</Reformation> 
 			<RequiresPeace>false</RequiresPeace> 
 			<ConvertsBarbarians>false</ConvertsBarbarians> 
@@ -30121,7 +30288,9 @@
 			<ExtraTradeRoutes>0</ExtraTradeRoutes> 
 			<FaithPerForeignTradeRoute>0</FaithPerForeignTradeRoute> 
 			<SpreadModifierOwnedCities>0</SpreadModifierOwnedCities> 
-			<SpreadModifierUnownedCities>0</SpreadModifierUnownedCities> 
+			<SpreadModifierUnownedCities>0</SpreadModifierUnownedCities>
+			<CityStateFollowingReligionDecayMod>50</CityStateFollowingReligionDecayMod>
+			<CityStateFollowingReligionRecoveryMod>100</CityStateFollowingReligionRecoveryMod> 
 		</Row>
 		<Row> 
 			<ID>40</ID> 
@@ -31155,9 +31324,9 @@
 			<Description>TXT_KEY_BELIEF_PROMISED_LAND</Description> 
 			<ShortDescription>TXT_KEY_BELIEF_PROMISED_LAND_SHORT</ShortDescription> 
 			<Pantheon>false</Pantheon> 
-			<Founder>false</Founder> 
+			<Founder>true</Founder> 
 			<Follower>false</Follower> 
-			<Enhancer>true</Enhancer> 
+			<Enhancer>false</Enhancer> 
 			<Reformation>false</Reformation> 
 			<RequiresPeace>false</RequiresPeace> 
 			<ConvertsBarbarians>false</ConvertsBarbarians> 
@@ -31184,7 +31353,7 @@
 			<PlayerCultureModifier>0</PlayerCultureModifier> 
 			<GoldPerFollowingCity>0</GoldPerFollowingCity> 
 			<GoldPerXFollowers>0</GoldPerXFollowers> 
-			<GoldPerFirstCityConversion>0</GoldPerFirstCityConversion> 
+			<GoldPerFirstCityConversion>100</GoldPerFirstCityConversion> 
 			<SciencePerOtherReligionFollower>0</SciencePerOtherReligionFollower> 
 			<SpreadDistanceModifier>0</SpreadDistanceModifier> 
 			<SpreadStrengthModifier>0</SpreadStrengthModifier> 
@@ -36058,30 +36227,6 @@
 			<Monument>false</Monument> 
 		</Row>
 		<Row> 
-			<ID>141</ID> 
-			<Type>BUILDINGCLASS_TREASURE_FLEETS</Type> 
-			<Description>TXT_KEY_BUILDING_TREASURE_FLEETS_DESC</Description> 
-			<DefaultBuilding>BUILDING_TREASURE_FLEETS</DefaultBuilding> 
-			<MaxGlobalInstances>-1</MaxGlobalInstances> 
-			<MaxTeamInstances>-1</MaxTeamInstances> 
-			<MaxPlayerInstances>-1</MaxPlayerInstances> 
-			<ExtraPlayerInstances>0</ExtraPlayerInstances> 
-			<NoLimit>false</NoLimit> 
-			<Monument>false</Monument> 
-		</Row>
-		<Row> 
-			<ID>142</ID> 
-			<Type>BUILDINGCLASS_HONOR_FINISHER</Type> 
-			<Description>TXT_KEY_HONOR_FINISHER</Description> 
-			<DefaultBuilding>BUILDING_HONOR_FINISHER</DefaultBuilding> 
-			<MaxGlobalInstances>-1</MaxGlobalInstances> 
-			<MaxTeamInstances>-1</MaxTeamInstances> 
-			<MaxPlayerInstances>1</MaxPlayerInstances> 
-			<ExtraPlayerInstances>0</ExtraPlayerInstances> 
-			<NoLimit>false</NoLimit> 
-			<Monument>false</Monument> 
-		</Row>
-		<Row> 
 			<ID>143</ID> 
 			<Type>BUILDINGCLASS_AKKAD</Type> 
 			<Description>AKKAD UA</Description> 
@@ -37480,24 +37625,6 @@
 			<YieldType>YIELD_FOOD</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<FeatureType>FEATURE_REEF</FeatureType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<FeatureType>FEATURE_REEF</FeatureType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<FeatureType>FEATURE_REEF</FeatureType> 
-			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
-		</Row>	
 		<Row> 
 			<BuildingType>BUILDING_PALMYRA_FORUM</BuildingType> 
 			<FeatureType>FEATURE_OASIS</FeatureType> 
@@ -40072,11 +40199,6 @@
 	<Building_GlobalYieldModifiers>
 		<Delete />
 		<Row> 
-			<BuildingType>BUILDING_HONOR_FINISHER</BuildingType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>10</Yield> 
-		</Row>
-		<Row> 
 			<BuildingType>BUILDING_SISTINE_CHAPEL</BuildingType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
 			<Yield>25</Yield> 
@@ -40138,16 +40260,6 @@
 		<Row> 
 			<BuildingType>BUILDING_HACIENDA</BuildingType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_GOLD</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
 		<Row> 
@@ -40570,27 +40682,27 @@
 		<Row> 
 			<BuildingType>BUILDING_CARAVANSARY</BuildingType> 
 			<ResourceType>RESOURCE_HORSE</ResourceType> 
-			<Quantity>1</Quantity> 
+			<Quantity>2</Quantity> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_SERAI</BuildingType> 
 			<ResourceType>RESOURCE_HORSE</ResourceType> 
-			<Quantity>1</Quantity> 
+			<Quantity>2</Quantity> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_MC_KOKH</BuildingType> 
 			<ResourceType>RESOURCE_HORSE</ResourceType> 
-			<Quantity>1</Quantity> 
+			<Quantity>2</Quantity> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_HORDE_YAM_ROUTE</BuildingType> 
 			<ResourceType>RESOURCE_HORSE</ResourceType> 
-			<Quantity>1</Quantity> 
+			<Quantity>2</Quantity> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_MUGHALS_CARAVANSARY</BuildingType> 
 			<ResourceType>RESOURCE_HORSE</ResourceType> 
-			<Quantity>1</Quantity> 
+			<Quantity>2</Quantity> 
 		</Row>
 	</Building_ResourceQuantity> 
 
@@ -41386,21 +41498,6 @@
 			<Yield>1</Yield> 
 		</Row>
 		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
 			<BuildingType>BUILDING_COTHON</BuildingType> 
 			<YieldType>YIELD_FOOD</YieldType> 
 			<Yield>1</Yield> 
@@ -41439,21 +41536,6 @@
 			<BuildingType>BUILDING_LIGHTHOUSE</BuildingType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
 			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>-1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>-1</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TREASURE_FLEETS</BuildingType> 
-			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>-1</Yield> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_COTHON</BuildingType> 
@@ -42139,16 +42221,6 @@
 			<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType> 
 			<Experience>15</Experience> 
 		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_NAVALRANGED</UnitCombatType> 
-			<Experience>15</Experience> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType> 
-			<Experience>15</Experience> 
-		</Row>
 
 	</Building_UnitCombatFreeExperiences> 
 
@@ -42176,11 +42248,6 @@
 			<Modifier>15</Modifier> 
 		</Row>
 		<Row> 
-			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType> 
-			<Modifier>15</Modifier> 
-		</Row>
-		<Row> 
 			<BuildingType>BUILDING_DUCAL_STABLE</BuildingType> 
 			<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType> 
 			<Modifier>15</Modifier> 
@@ -42208,11 +42275,6 @@
 		<Row> 
 			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
 			<UnitCombatType>UNITCOMBAT_MOUNTED_RANGED</UnitCombatType> 
-			<Modifier>15</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_NAVALRANGED</UnitCombatType> 
 			<Modifier>15</Modifier> 
 		</Row>
 		<Row> 
@@ -42294,81 +42356,6 @@
 			<BuildingType>BUILDING_ZIMBABWE_TRAIT</BuildingType> 
 			<UnitCombatType>UNITCOMBAT_PARADROPPER</UnitCombatType> 
 			<Modifier>25</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_MELEE</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_ARCHER</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_MOUNTED</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_MOUNTED_RANGED</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_SIEGE</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_GUN</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_ARMOR</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_HELICOPTER</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_NAVALRANGED</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_FIGHTER</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_BOMBER</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_NAVALMELEE</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType> 
-			<Modifier>10</Modifier> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<UnitCombatType>UNITCOMBAT_CARRIER</UnitCombatType> 
-			<Modifier>10</Modifier> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_QARA</BuildingType>
@@ -43016,7 +43003,17 @@
 		<Row> 
 			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>3</Yield> 
+		</Row>
+		<Row> 
+			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
+			<YieldType>YIELD_GOLD</YieldType> 
+			<Yield>3</Yield> 
+		</Row>
+		<Row> 
+			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
+			<YieldType>YIELD_PRODUCTION</YieldType> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_AMPHITHEATER</BuildingType> 
@@ -43056,17 +43053,17 @@
 		<Row> 
 			<BuildingType>BUILDING_MUSIC_HOUSE</BuildingType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>4</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_MOSQUE</BuildingType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_MOSQUE</BuildingType> 
 			<YieldType>YIELD_FAITH</YieldType> 
-			<Yield>3</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_PAGODA</BuildingType> 
@@ -43434,11 +43431,6 @@
 			<Yield>1</Yield> 
 		</Row>
 		<Row> 
-			<BuildingType>BUILDING_STATUE_ZEUS</BuildingType> 
-			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>2</Yield> 
-		</Row>
-		<Row> 
 			<BuildingType>BUILDING_CARAVANSARY</BuildingType> 
 			<YieldType>YIELD_GOLD</YieldType> 
 			<Yield>2</Yield> 
@@ -43490,18 +43482,8 @@
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
-			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>3</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>3</Yield> 
-		</Row>
-		<Row> 
-			<BuildingType>BUILDING_TEMPLE_ARTEMIS</BuildingType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>3</Yield> 
+			<Yield>1</Yield> 
 		</Row>
 		<Row> 
 			<BuildingType>BUILDING_MURUS_GALLICUS</BuildingType> 
@@ -44161,6 +44143,8 @@
 		<Column name="TourismPerMountain" type="INTEGER" default="0" /> <!-- Gives X Tourism for each mountain in territory owned by the player, and within 3 tiles of this city -->
 		<Column name="GarrisonStrengthBonus" type="INTEGER" default="0" /> <!-- Raw strength added to the city if it has a garrison, regardless of the unit. Only effects defensive strenght and not Ranfed Strikes. Not In Hundredths, unlike <Defense> -->
 		<Column name="FreeGreatWorkCount" type="integer" default="0" /> <!-- Spawns X free great works of the kind the building can hold, of the Era the player is currently in. -->
+		<Column name="ExcessGrowth" type="integer" default="0"/> <!-- A local excess food modifier for the city. Excess food is food left over after citizens subract 2 per pop. -->
+		<Column name="MilitaryProductionMod" type="integer" default="0"/> <!-- Production modifier for all military units that also have a combat strength -->
     </Table>
 	<!-- NOTE: This table is organized, but don't feel like you need to follow it as it uses manually assigned IDs which can be combersome to change. Just add to the end. 
 	Most normal buildings are organized by when the base version appears on the tech tree, and have all the variants below them. Same with other kinds of buildings. 
@@ -44320,7 +44304,7 @@
 			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_SHRINE_TEXT</Civilopedia> 
 			<Strategy>TXT_KEY_BUILDING_SHRINE_STRATEGY</Strategy> 
 			<GoldMaintenance>1</GoldMaintenance> 
-			<Cost>40</Cost> 
+			<Cost>30</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra> 
@@ -44339,7 +44323,7 @@
 			<Strategy>TXT_KEY_BUILDING_MAYA_PYRAMID_STRATEGY</Strategy>
 			<Help>TXT_KEY_BUILDING_MAYA_PYRAMID_HELP</Help> 
 			<GoldMaintenance>1</GoldMaintenance> 
-			<Cost>48</Cost> 
+			<Cost>40</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
 			<PrereqTech>TECH_POTTERY</PrereqTech> 
@@ -44355,7 +44339,7 @@
 			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_FINNISH_SAUNA_TEXT</Civilopedia>
 			<Strategy>TXT_KEY_BUILDING_FINNISH_SAUNA_STRATEGY</Strategy>
 			<Help>TXT_KEY_BUILDING_FINNISH_SAUNA_HELP</Help>
-			<Cost>40</Cost> 
+			<Cost>30</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb>  
 			<FreeStartEra>ERA_MEDIEVAL</FreeStartEra> 
@@ -45084,7 +45068,7 @@
 			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_TEMPLE_TEXT</Civilopedia> 
 			<Strategy>TXT_KEY_BUILDING_TEMPLE_STRATEGY</Strategy> 
 			<GoldMaintenance>2</GoldMaintenance> 
-			<Cost>100</Cost> 
+			<Cost>75</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra> 
@@ -45101,7 +45085,7 @@
 			<Civilopedia>TXT_KEY_CIV5_BUILDING_MUD_PYRAMID_MOSQUE_PEDIA</Civilopedia> 
 			<Strategy>TXT_KEY_BUILDING_MUD_PYRAMID_MOSQUE_STRATEGY</Strategy> 
 			<Help>TXT_KEY_BUILDING_MUD_PYRAMID_MOSQUE_HELP</Help> 
-			<Cost>100</Cost> 
+			<Cost>75</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra> 
@@ -45118,7 +45102,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_BURIAL_TOMB_PEDIA</Civilopedia> 
 			<Strategy>TXT_KEY_BUILDING_BURIAL_TOMB_STRATEGY</Strategy> 
 			<Help>TXT_KEY_BUILDING_BURIAL_TOMB_HELP</Help> 
-			<Cost>100</Cost> 
+			<Cost>75</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
 			<Happiness>2</Happiness> 
@@ -45138,7 +45122,7 @@
 			<Strategy>TXT_KEY_BUILDING_ZIGGURAT_STRATEGY</Strategy> 
 			<Help>TXT_KEY_BUILDING_ZIGGURAT_HELP</Help> 
 			<GoldMaintenance>1</GoldMaintenance> 
-			<Cost>100</Cost> 
+			<Cost>75</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra> 
@@ -45155,7 +45139,7 @@
 			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_STAVE_TEXT</Civilopedia> 
 			<Strategy>TXT_KEY_BUILDING_TEMPLE_STRATEGY</Strategy>
             <Help>TXT_KEY_BUILDING_STAVE_HELP</Help> 			
-			<Cost>75</Cost> 
+			<Cost>55</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
 			<MaxStartEra>ERA_RENAISSANCE</MaxStartEra> 
@@ -45374,7 +45358,6 @@
 			<Cost>100</Cost> 
 			<HurryCostModifier>25</HurryCostModifier>
 			<ConquestProb>66</ConquestProb> 
-			<GreatPersonExpendGold>20</GreatPersonExpendGold> 
 			<TradeRouteRecipientBonus>1</TradeRouteRecipientBonus> 
 			<TradeRouteTargetBonus>1</TradeRouteTargetBonus> 
 			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra> 
@@ -46583,8 +46566,8 @@
 			<ConquestProb>66</ConquestProb> 
 			<PrereqTech>TECH_BIOLOGY</PrereqTech> 
 			<ArtDefineTag>ART_DEF_BUILDING_BANK</ArtDefineTag> 
-			<PortraitIndex>49</PortraitIndex> 
-			<IconAtlas>TECH_ATLAS_1</IconAtlas> 
+			<PortraitIndex>4</PortraitIndex> 
+			<IconAtlas>BW_ATLAS_1</IconAtlas> 
 		</Row>
 		<Row> 
 			<ID>124</ID> 
@@ -46944,7 +46927,7 @@
 			<GoldMaintenance>3</GoldMaintenance> 
 			<Cost>360</Cost>
 			<ConquestProb>66</ConquestProb> 
-			<SpaceProductionModifier>50</SpaceProductionModifier> 
+			<SpaceProductionModifier>100</SpaceProductionModifier> 
 			<PrereqTech>TECH_ROBOTICS</PrereqTech> 
 			<ArtDefineTag>ART_DEF_BUILDING_HYDRO_PLANT</ArtDefineTag> 
 			<PortraitIndex>54</PortraitIndex> 
@@ -47227,8 +47210,6 @@
 			<Type>BUILDING_ORSZ</Type> 
 			<BuildingClass>BUILDINGCLASS_PALACE</BuildingClass> 
 			<Description>TXT_KEY_BUILDING_ORSZ</Description> 
-			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_PALACE_TEXT</Civilopedia> 
-			<Strategy>TXT_KEY_BUILDING_PALACE_STRATEGY</Strategy> 
 			<Help>TXT_KEY_BUILDING_ORSZ_HELP</Help> 
 			<GoldMaintenance>1</GoldMaintenance> 
 			<Capital>true</Capital> 
@@ -47423,7 +47404,8 @@
 			<PrereqTech>TECH_THEOLOGY</PrereqTech> 
 			<ArtDefineTag>TEMPLE</ArtDefineTag> 
 			<PortraitIndex>6</PortraitIndex> 
-			<IconAtlas>EXPANSION_SCEN_WONDER_ATLAS</IconAtlas> 
+			<IconAtlas>EXPANSION_SCEN_WONDER_ATLAS</IconAtlas>
+			<ExtraLeagueVotes>2</ExtraLeagueVotes> 
 		</Row>
 		<Row> 
 			<ID>169</ID> 
@@ -47606,15 +47588,13 @@
 			<ConquestProb>100</ConquestProb> 
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra> 
 			<PrereqTech>TECH_ARCHERY</PrereqTech> 
-			<PolicyBranchType>POLICY_BRANCH_HONOR</PolicyBranchType> 
-			<SpecialistType>SPECIALIST_ENGINEER</SpecialistType> 
-			<GreatPeopleRateChange>1</GreatPeopleRateChange> 
 			<ArtDefineTag>TEMPLE ARTEMIS</ArtDefineTag> 
 			<DisplayPosition>4</DisplayPosition> 
 			<PortraitIndex>0</PortraitIndex> 
 			<WonderSplashImage>WonderTempleArtemis.dds</WonderSplashImage> 
 			<WonderSplashAudio>AS2D_WONDER_SPEECH_TEMPLE_OF_ARTEMIS</WonderSplashAudio> 
-			<IconAtlas>WONDERS_DLC_ATLAS</IconAtlas> 
+			<IconAtlas>WONDERS_DLC_ATLAS</IconAtlas>
+			<ExcessGrowth>15</ExcessGrowth>
 		</Row>
 		<Row> 
 			<ID>178</ID> 
@@ -47732,13 +47712,17 @@
 			<ConquestProb>100</ConquestProb> 
 			<MaxStartEra>ERA_CLASSICAL</MaxStartEra> 
 			<FreePromotion>PROMOTION_STATUE_ZEUS</FreePromotion> 
-			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>  
+			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<PolicyBranchType>POLICY_BRANCH_HONOR</PolicyBranchType> 
+			<SpecialistType>SPECIALIST_ENGINEER</SpecialistType> 
+			<GreatPeopleRateChange>1</GreatPeopleRateChange> 
 			<ArtDefineTag>STATUE ZEUS</ArtDefineTag> 
 			<DisplayPosition>4</DisplayPosition> 
 			<PortraitIndex>2</PortraitIndex> 
 			<WonderSplashImage>WonderConceptTempleZues.dds</WonderSplashImage> 
 			<WonderSplashAudio>AS2D_WONDER_SPEECH_STATUE_OF_ZEUS</WonderSplashAudio> 
-			<IconAtlas>WONDERS_DLC_ATLAS</IconAtlas> 
+			<IconAtlas>WONDERS_DLC_ATLAS</IconAtlas>
+			<MilitaryProductionMod>10</MilitaryProductionMod> 
 		</Row>
 		<Row> 
 			<ID>183</ID> 
@@ -48820,7 +48804,7 @@
 			<Cost>1250</Cost> 
 			<HurryCostModifier>-1</HurryCostModifier>
 			<ConquestProb>100</ConquestProb> 
-			<GlobalSpaceProductionModifier>200</GlobalSpaceProductionModifier>
+			<GlobalSpaceProductionModifier>100</GlobalSpaceProductionModifier>
 			<FreeBuildingThisCity>BUILDINGCLASS_RECYCLING_CENTER</FreeBuildingThisCity> 
 			<PrereqTech>TECH_SATELLITES</PrereqTech> 
 			<SpecialistType>SPECIALIST_SCIENTIST</SpecialistType> 
@@ -49036,41 +49020,6 @@
 			<ArtDefineTag>MONUMENT</ArtDefineTag> 
 			<PortraitIndex>52</PortraitIndex> 
 			<IconAtlas>BW_ATLAS_1</IconAtlas> 
-		</Row>
-		<!-- Treasure Fleets -->
-		<Row> 
-			<ID>239</ID> 
-			<Type>BUILDING_TREASURE_FLEETS</Type> 
-			<BuildingClass>BUILDINGCLASS_TREASURE_FLEETS</BuildingClass> 
-			<Description>TXT_KEY_BUILDING_TREASURE_FLEETS_DESC</Description> 
-			<Civilopedia>TXT_KEY_BUILDING_TREASURE_FLEETS_PEDIA</Civilopedia> 
-			<Strategy>TXT_KEY_BUILDING_TREASURE_FLEETS_STRATEGY</Strategy> 
-			<Help>TXT_KEY_BUILDING_TREASURE_FLEETS_STRATEGY</Help> 
-			<NeverCapture>true</NeverCapture> 
-			<NukeImmune>true</NukeImmune> 
-			<Cost>-1</Cost> 
-			<HurryCostModifier>-1</HurryCostModifier>
-			<ArtDefineTag>MONUMENT</ArtDefineTag> 
-			<GreatWorkCount>-1</GreatWorkCount> 
-			<PortraitIndex>13</PortraitIndex> 
-			<IconAtlas>TECH_ATLAS_1</IconAtlas> 
-		</Row>
-		<!-- Honor Finisher -->
-		<Row> 
-			<ID>240</ID> 
-			<Type>BUILDING_HONOR_FINISHER</Type> 
-			<BuildingClass>BUILDINGCLASS_HONOR_FINISHER</BuildingClass> 
-			<Description>Encampment</Description> 
-			<Civilopedia>Encampment</Civilopedia> 
-			<Strategy /> 
-			<Help />  
-			<NeverCapture>true</NeverCapture> 
-			<Cost>-1</Cost> 
-			<FaithCost>-1</FaithCost>
-			<ArtDefineTag>ART_DEF_BUILDING_HEROIC_EPIC</ArtDefineTag> 
-			<GreatWorkCount>-1</GreatWorkCount> 
-			<PortraitIndex>32</PortraitIndex> 
-			<IconAtlas>BW_ATLAS_2</IconAtlas> 
 		</Row>
 		<!-- Economic Union -->
 		<Row> 
@@ -50804,7 +50753,8 @@
 		<Row> 
 			<ID>41</ID> 
 			<Type>BUILD_TIBET</Type> 
-			<Description>TXT_KEY_BUILD_MONASTERY</Description> 
+			<Description>TXT_KEY_BUILD_MONASTERY</Description>
+			<Help>TXT_KEY_IMPROVEMENT_TIBET_BUILD_HELP</Help> 
 			<HotKey>KB_Z</HotKey> 
 			<HotKeyPriority>0</HotKeyPriority> 
 			<HotKeyPriorityAlt>0</HotKeyPriorityAlt> 
@@ -115751,6 +115701,11 @@
 		 <IconFontTexture>ICON_BUILDING1_FONT</IconFontTexture>
 		 <IconMapping>4</IconMapping>
 	  </Row>
+	   <Row>
+		 <IconName>ICON_BUILDING_REFINERY</IconName>
+		 <IconFontTexture>ICON_BUILDING1_FONT</IconFontTexture>
+		 <IconMapping>5</IconMapping>
+	  </Row>
 	  <Row>
 		 <IconName>ICON_BUILDING_BARRACKS</IconName>
 		 <IconFontTexture>ICON_BUILDING1_FONT</IconFontTexture>
@@ -116016,10 +115971,25 @@
          <IconFontTexture>ICON_BUILDING1_FONT</IconFontTexture>
          <IconMapping>63</IconMapping>
       </Row>
-      <Row>
+	   <Row>
          <IconName>ICON_BUILDING_COURTHOUSE</IconName>
          <IconFontTexture>ICON_BUILDING1_FONT</IconFontTexture>
          <IconMapping>64</IconMapping>
+      </Row>
+		<Row>
+         <IconName>ICON_WONDER_CIRCUS_MAXIMUS</IconName>
+         <IconFontTexture>ICON_BUILDING2_FONT</IconFontTexture>
+         <IconMapping>1</IconMapping>
+      </Row>
+	  <Row>
+         <IconName>ICON_BUILDING_AQUEDUCT</IconName>
+         <IconFontTexture>ICON_BUILDING3_FONT</IconFontTexture>
+         <IconMapping>1</IconMapping>
+      </Row>
+	   <Row>
+         <IconName>ICON_BUILDING_STONEWORKS</IconName>
+         <IconFontTexture>ICON_BUILDING3_FONT</IconFontTexture>
+         <IconMapping>2</IconMapping>
       </Row>
 	   <Row>
          <IconName>ICON_WONDER_PYRAMID</IconName>
@@ -118416,6 +118386,71 @@
       <IconFontTexture>ICON_EXP01_WONDER_FONT</IconFontTexture>
       <IconMapping>8</IconMapping>
     </Row>
+	<Row>
+      <IconName>ICON_WONDER_NATIONAL_TREASURY</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>1</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_NATIONAL_VISITING_CENTRE</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>2</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_FEATURE_SOLOMON</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>3</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_FEATURE_LAKE_VICTORIA</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>4</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_FEATURE_KILI</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>5</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_BOROBODUR</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>6</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_BROADWAY</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>7</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_GLOBE_THEATRE</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>8</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_TELESCOPE</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>9</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_RED_FORT</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>10</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_PARTHENON</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>11</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_PRORA</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>12</IconMapping>
+    </Row>
+	<Row>
+      <IconName>ICON_WONDER_UFFIZI</IconName>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconMapping>13</IconMapping>
+    </Row>
     <Row>
       <IconName>ICON_BUILDING_GRAND_TEMPLE</IconName>
       <IconFontTexture>ICON_EXP01_WONDER2_FONT</IconFontTexture>
@@ -119513,7 +119548,11 @@
       <IconFontTexture>ICON_EXP01_SCEN_UNIT_FONT</IconFontTexture>
       <IconFontTextureFile>unitatlas_scenario_exp_32</IconFontTextureFile>
     </Row>
-	 <Row>
+	<Row>
+      <IconFontTexture>ICON_EXP02_WONDER_FONT</IconFontTexture>
+      <IconFontTextureFile>wonderatlas_expansion2_32</IconFontTextureFile>
+    </Row>
+	<Row>
       <IconFontTexture>ICON_DLC05_ACTIONS_FONT</IconFontTexture>
       <IconFontTextureFile>UnitAction45_DLC_Korea</IconFontTextureFile>
     </Row>
@@ -138740,7 +138779,19 @@
 			<ImprovementType>IMPROVEMENT_TIBET</ImprovementType> 
 			<TechType>TECH_FLIGHT</TechType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<ImprovementType>IMPROVEMENT_TIBET</ImprovementType> 
+			<TechType>TECH_ACOUSTICS</TechType> 
+			<YieldType>YIELD_CULTURE</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<ImprovementType>IMPROVEMENT_TIBET</ImprovementType> 
+			<TechType>TECH_FLIGHT</TechType> 
+			<YieldType>YIELD_GOLD</YieldType> 
+			<Yield>1</Yield> 
 		</Row>
 		<Row> 
 			<ImprovementType>IMPROVEMENT_DOCK</ImprovementType> 
@@ -186690,6 +186741,8 @@
 		<Column name="GlobalMoveChange" type="integer" default="0"/>
 		<Column name="GlobalMoveChangeFriendly" type="integer" default="0"/>
 		<Column name="GlobalMoveChangeEnemy" type="integer" default="0"/>
+		<Column name="MinorBullyInfluenceReward" type="integer" default="0"/>
+		<Column name="MinorBullyNoPenalty" type="boolean" default="false"/>
 	</Table> 
 	<Policies>
 		<Delete />
@@ -203840,7 +203893,7 @@
 			<RiggingElectionModifier>0</RiggingElectionModifier> 
 			<MilitaryUnitGiftExtraInfluence>0</MilitaryUnitGiftExtraInfluence> 
 			<ProtectedMinorPerTurnInfluence>0</ProtectedMinorPerTurnInfluence> 
-			<AfraidMinorPerTurnInfluence>600</AfraidMinorPerTurnInfluence> 
+			<AfraidMinorPerTurnInfluence>0</AfraidMinorPerTurnInfluence> 
 			<MinorBullyScoreModifier>50</MinorBullyScoreModifier> 
 			<CityStateTradeChange>0</CityStateTradeChange> 
 			<ThemingBonusMultiplier>0</ThemingBonusMultiplier> 
@@ -203872,7 +203925,9 @@
 			<NumCitiesFreeAestheticsSchools>0</NumCitiesFreeAestheticsSchools> 
 			<TourismPerWonder>0</TourismPerWonder> 
 			<InternalTradeRouteGoldChange>0</InternalTradeRouteGoldChange> 
-			<ExtraTerritoryClaim>0</ExtraTerritoryClaim> 
+			<ExtraTerritoryClaim>0</ExtraTerritoryClaim>
+			<MinorBullyInfluenceReward>5000</MinorBullyInfluenceReward>
+			<MinorBullyNoPenalty>true</MinorBullyNoPenalty> 
 		</Row>
 		<Row> 
 			<ID>107</ID> 
@@ -204516,166 +204571,6 @@
 			<NumCitiesFreeAestheticsSchools>0</NumCitiesFreeAestheticsSchools> 
 			<TourismPerWonder>0</TourismPerWonder> 
 			<InternalTradeRouteGoldChange>0</InternalTradeRouteGoldChange> 
-			<ExtraTerritoryClaim>0</ExtraTerritoryClaim> 
-		</Row>
-		<Row> 
-			<ID>118</ID> 
-			<Type>POLICY_DUMMY_IRELAND</Type> 
-			<Description>Dummy</Description> 
-			<Civilopedia>TXT_KEY_CIV5_POLICY_LIBERTY_TEXT</Civilopedia> 
-			<Help>NotVisible</Help> 
-			<NumExtraBranches>0</NumExtraBranches> 
-			<CultureCost>-1</CultureCost> 
-			<GridX>0</GridX> 
-			<GridY>0</GridY> 
-			<Level>0</Level> 
-			<PolicyCostModifier>0</PolicyCostModifier> 
-			<CulturePerCity>0</CulturePerCity> 
-			<CulturePerWonder>0</CulturePerWonder> 
-			<CultureWonderMultiplier>0</CultureWonderMultiplier> 
-			<CulturePerTechResearched>0</CulturePerTechResearched> 
-			<CultureImprovementChange>0</CultureImprovementChange> 
-			<CultureFromKills>0</CultureFromKills> 
-			<CultureFromBarbarianKills>0</CultureFromBarbarianKills> 
-			<GoldFromKills>0</GoldFromKills> 
-			<EmbarkedExtraMoves>0</EmbarkedExtraMoves> 
-			<AttackBonusTurns>0</AttackBonusTurns> 
-			<GoldenAgeTurns>0</GoldenAgeTurns> 
-			<GoldenAgeMeterMod>0</GoldenAgeMeterMod> 
-			<GoldenAgeDurationMod>0</GoldenAgeDurationMod> 
-			<NumFreeTechs>0</NumFreeTechs> 
-			<NumFreePolicies>0</NumFreePolicies> 
-			<NumFreeGreatPeople>0</NumFreeGreatPeople> 
-			<MedianTechPercentChange>0</MedianTechPercentChange> 
-			<StrategicResourceMod>0</StrategicResourceMod> 
-			<WonderProductionModifier>0</WonderProductionModifier> 
-			<BuildingProductionModifier>0</BuildingProductionModifier> 
-			<GreatPeopleRateModifier>0</GreatPeopleRateModifier> 
-			<GreatGeneralRateModifier>0</GreatGeneralRateModifier> 
-			<GreatAdmiralRateModifier>0</GreatAdmiralRateModifier> 
-			<GreatWriterRateModifier>0</GreatWriterRateModifier> 
-			<GreatArtistRateModifier>0</GreatArtistRateModifier> 
-			<GreatMusicianRateModifier>0</GreatMusicianRateModifier> 
-			<GreatMerchantRateModifier>0</GreatMerchantRateModifier> 
-			<GreatScientistRateModifier>0</GreatScientistRateModifier> 
-			<DomesticGreatGeneralRateModifier>0</DomesticGreatGeneralRateModifier> 
-			<ExtraHappiness>0</ExtraHappiness> 
-			<ExtraHappinessPerCity>0</ExtraHappinessPerCity> 
-			<UnhappinessMod>0</UnhappinessMod> 
-			<CityCountUnhappinessMod>0</CityCountUnhappinessMod> 
-			<OccupiedPopulationUnhappinessMod>0</OccupiedPopulationUnhappinessMod> 
-			<CapitalUnhappinessMod>0</CapitalUnhappinessMod> 
-			<FreeExperience>0</FreeExperience> 
-			<WorkerSpeedModifier>0</WorkerSpeedModifier> 
-			<AllFeatureProduction>0</AllFeatureProduction> 
-			<ImprovementCostModifier>0</ImprovementCostModifier> 
-			<ImprovementUpgradeRateModifier>0</ImprovementUpgradeRateModifier> 
-			<SpecialistProductionModifier>0</SpecialistProductionModifier> 
-			<SpecialistUpgradeModifier>0</SpecialistUpgradeModifier> 
-			<MilitaryProductionModifier>0</MilitaryProductionModifier> 
-			<BaseFreeUnits>0</BaseFreeUnits> 
-			<BaseFreeMilitaryUnits>0</BaseFreeMilitaryUnits> 
-			<FreeUnitsPopulationPercent>0</FreeUnitsPopulationPercent> 
-			<FreeMilitaryUnitsPopulationPercent>0</FreeMilitaryUnitsPopulationPercent> 
-			<HappinessPerGarrisonedUnit>0</HappinessPerGarrisonedUnit> 
-			<CulturePerGarrisonedUnit>0</CulturePerGarrisonedUnit> 
-			<HappinessPerTradeRoute>0</HappinessPerTradeRoute> 
-			<HappinessPerXPopulation>0</HappinessPerXPopulation> 
-			<ExtraHappinessPerLuxury>0</ExtraHappinessPerLuxury> 
-			<UnhappinessFromUnitsMod>0</UnhappinessFromUnitsMod> 
-			<NumExtraBuilders>0</NumExtraBuilders> 
-			<PlotGoldCostMod>0</PlotGoldCostMod> 
-			<PlotCultureCostModifier>0</PlotCultureCostModifier> 
-			<PlotCultureExponentModifier>0</PlotCultureExponentModifier> 
-			<NumCitiesPolicyCostDiscount>0</NumCitiesPolicyCostDiscount> 
-			<GarrisonedCityRangeStrikeModifier>0</GarrisonedCityRangeStrikeModifier> 
-			<UnitPurchaseCostModifier>0</UnitPurchaseCostModifier> 
-			<BuildingPurchaseCostModifier>0</BuildingPurchaseCostModifier> 
-			<CityConnectionTradeRouteGoldModifier>0</CityConnectionTradeRouteGoldModifier> 
-			<TradeMissionGoldModifier>0</TradeMissionGoldModifier> 
-			<FaithCostModifier>0</FaithCostModifier> 
-			<CulturalPlunderMultiplier>0</CulturalPlunderMultiplier> 
-			<StealTechSlowerModifier>0</StealTechSlowerModifier> 
-			<StealTechFasterModifier>0</StealTechFasterModifier> 
-			<CatchSpiesModifier>0</CatchSpiesModifier> 
-			<GoldPerUnit>0</GoldPerUnit> 
-			<GoldPerMilitaryUnit>0</GoldPerMilitaryUnit> 
-			<RouteGoldMaintenanceMod>0</RouteGoldMaintenanceMod> 
-			<BuildingGoldMaintenanceMod>0</BuildingGoldMaintenanceMod> 
-			<UnitGoldMaintenanceMod>0</UnitGoldMaintenanceMod> 
-			<UnitSupplyMod>0</UnitSupplyMod> 
-			<UnitUpgradeCostMod>0</UnitUpgradeCostMod> 
-			<CityStrengthMod>0</CityStrengthMod> 
-			<CityGrowthMod>0</CityGrowthMod> 
-			<CapitalGrowthMod>0</CapitalGrowthMod> 
-			<SettlerProductionModifier>0</SettlerProductionModifier> 
-			<CapitalSettlerProductionModifier>0</CapitalSettlerProductionModifier> 
-			<NewCityExtraPopulation>0</NewCityExtraPopulation> 
-			<FreeFoodBox>0</FreeFoodBox> 
-			<HappyPerMilitaryUnit>0</HappyPerMilitaryUnit> 
-			<MilitaryFoodProduction>false</MilitaryFoodProduction> 
-			<HappinessToCulture>0</HappinessToCulture> 
-			<HappinessToScience>0</HappinessToScience> 
-			<NumCitiesFreeCultureBuilding>0</NumCitiesFreeCultureBuilding> 
-			<NumCitiesFreeFoodBuilding>0</NumCitiesFreeFoodBuilding> 
-			<HalfSpecialistUnhappiness>false</HalfSpecialistUnhappiness> 
-			<HalfSpecialistFood>false</HalfSpecialistFood> 
-			<MaxConscript>0</MaxConscript> 
-			<UnitSightRangeChange>0</UnitSightRangeChange> 
-			<WoundedUnitDamageMod>0</WoundedUnitDamageMod> 
-			<BarbarianCombatBonus>0</BarbarianCombatBonus> 
-			<AlwaysSeeBarbCamps>false</AlwaysSeeBarbCamps> 
-			<RevealAllCapitals>false</RevealAllCapitals> 
-			<FreeSpecialist>0</FreeSpecialist> 
-			<ExpModifier>0</ExpModifier> 
-			<ExpInBorderModifier>0</ExpInBorderModifier> 
-			<MinorQuestFriendshipMod>0</MinorQuestFriendshipMod> 
-			<MinorGoldFriendshipMod>0</MinorGoldFriendshipMod> 
-			<MinorFriendshipMinimum>0</MinorFriendshipMinimum> 
-			<MinorFriendshipDecayMod>0</MinorFriendshipDecayMod> 
-			<OtherPlayersMinorFriendshipDecayMod>0</OtherPlayersMinorFriendshipDecayMod> 
-			<CityStateUnitFrequencyModifier>0</CityStateUnitFrequencyModifier> 
-			<CommonFoeTourismModifier>0</CommonFoeTourismModifier> 
-			<LessHappyTourismModifier>0</LessHappyTourismModifier> 
-			<SharedIdeologyTourismModifier>0</SharedIdeologyTourismModifier> 
-			<LandTradeRouteGoldChange>0</LandTradeRouteGoldChange> 
-			<SeaTradeRouteGoldChange>0</SeaTradeRouteGoldChange> 
-			<SharedIdeologyTradeGoldChange>0</SharedIdeologyTradeGoldChange> 
-			<RiggingElectionModifier>0</RiggingElectionModifier> 
-			<MilitaryUnitGiftExtraInfluence>0</MilitaryUnitGiftExtraInfluence> 
-			<ProtectedMinorPerTurnInfluence>0</ProtectedMinorPerTurnInfluence> 
-			<AfraidMinorPerTurnInfluence>0</AfraidMinorPerTurnInfluence> 
-			<MinorBullyScoreModifier>0</MinorBullyScoreModifier> 
-			<CityStateTradeChange>0</CityStateTradeChange> 
-			<ThemingBonusMultiplier>0</ThemingBonusMultiplier> 
-			<InternalTradeRouteYieldModifier>0</InternalTradeRouteYieldModifier> 
-			<SharedReligionTourismModifier>0</SharedReligionTourismModifier> 
-			<TradeRouteTourismModifier>0</TradeRouteTourismModifier> 
-			<OpenBordersTourismModifier>0</OpenBordersTourismModifier> 
-			<MinorGreatPeopleAllies>false</MinorGreatPeopleAllies> 
-			<MinorScienceAllies>false</MinorScienceAllies> 
-			<MinorResourceBonus>false</MinorResourceBonus>
-			<GarrisonFreeMaintenance>false</GarrisonFreeMaintenance> 
-			<GoldenAgeCultureBonusDisabled>false</GoldenAgeCultureBonusDisabled> 
-			<SecondReligionPantheon>false</SecondReligionPantheon> 
-			<AddReformationBelief>false</AddReformationBelief> 
-			<EnablesSSPartHurry>false</EnablesSSPartHurry> 
-			<EnablesSSPartPurchase>false</EnablesSSPartPurchase> 
-			<AbleToAnnexCityStates>false</AbleToAnnexCityStates> 
-			<OneShot>false</OneShot> 
-			<IncludesOneShotFreeUnits>false</IncludesOneShotFreeUnits> 
-			<PortraitIndex>24</PortraitIndex> 
-			<IconAtlas>POLICY_ATLAS</IconAtlas> 
-			<IconAtlasAchieved>POLICY_A_ATLAS</IconAtlasAchieved> 
-			<ExtraTourismPerGreatWork>0</ExtraTourismPerGreatWork> 
-			<NumCitiesResearchCostDiscount>0</NumCitiesResearchCostDiscount> 
-			<ScienceFromKills>0</ScienceFromKills> 
-			<ProductionFromGarrison>0</ProductionFromGarrison> 
-			<MinorMilitaryNumExtraUnitsToGift>0</MinorMilitaryNumExtraUnitsToGift> 
-			<CityStateBonusModifier>0</CityStateBonusModifier> 
-			<NumCitiesFreeAestheticsSchools>0</NumCitiesFreeAestheticsSchools> 
-			<TourismPerWonder>0</TourismPerWonder> 
-			<InternalTradeRouteGoldChange>0</InternalTradeRouteGoldChange>
 			<ExtraTerritoryClaim>0</ExtraTerritoryClaim> 
 		</Row>
 		<Row> 
@@ -205696,17 +205591,6 @@
 			<IconAtlas>POLICY_ATLAS</IconAtlas> 
 			<IconAtlasAchieved>POLICY_A_ATLAS</IconAtlasAchieved> 
 		</Row>
-		<Row> 
-			<ID>137</ID>
-			<Type>POLICY_DUMMY_ENGLAND</Type> 
-			<Description>Dummy</Description> 
-			<Civilopedia>Dummy</Civilopedia> 
-			<Help>NotVisible</Help>
-			<CultureCost>-1</CultureCost> 
-			<PortraitIndex>24</PortraitIndex> 
-			<IconAtlas>POLICY_ATLAS</IconAtlas> 
-			<IconAtlasAchieved>POLICY_A_ATLAS</IconAtlasAchieved>
-		</Row>
 	</Policies> 
 
 	<Table name="PolicyBranchTypes">
@@ -206384,12 +206268,12 @@
 		<Row> 
 			<PolicyType>POLICY_PIETY</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_SHRINE</BuildingClassType> 
-			<ProductionModifier>100</ProductionModifier> 
+			<ProductionModifier>50</ProductionModifier> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_PIETY</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_TEMPLE</BuildingClassType> 
-			<ProductionModifier>100</ProductionModifier> 
+			<ProductionModifier>50</ProductionModifier> 
 		</Row>
 		<!-- Cultural Centers -->
 		<Row> 
@@ -206421,12 +206305,12 @@
 		<Row> 
 			<PolicyType>POLICY_PROFESSIONAL_ARMY</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_ARMORY</BuildingClassType> 
-			<ProductionModifier>100</ProductionModifier> 
+			<ProductionModifier>50</ProductionModifier> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_PROFESSIONAL_ARMY</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_MILITARY_ACADEMY</BuildingClassType> 
-			<ProductionModifier>100</ProductionModifier> 
+			<ProductionModifier>50</ProductionModifier> 
 		</Row>
 		<!-- Socialist Realism -->
 		<Row> 
@@ -206683,94 +206567,6 @@
 		<Row> 
 			<PolicyType>POLICY_CARAVANS</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_STOCK_EXCHANGE</BuildingClassType> 
-			<ProductionModifier>50</ProductionModifier> 
-		</Row>
-		<!-- England Trait -->
-		<Row> 
-			<PolicyType>POLICY_DUMMY_ENGLAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_CONSTABLE</BuildingClassType> 
-			<ProductionModifier>100</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_ENGLAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_POLICE_STATION</BuildingClassType> 
-			<ProductionModifier>100</ProductionModifier> 
-		</Row>
-		<!-- Ireland Trait -->
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_COLOSSEUM</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_MARKET</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_TEMPLE</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_WORKSHOP</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_LIBRARY</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_MONUMENT</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_CONSTABLE</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_HOTEL</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_IRELAND</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_UNIVERSITY</BuildingClassType> 
-			<ProductionModifier>15</ProductionModifier> 
-		</Row>
-		<!-- Turkey Trait -->
-		<Row> 
-			<PolicyType>POLICY_DUMMY_TURKEY</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_AMPHITHEATER</BuildingClassType> 
-			<ProductionModifier>50</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_TURKEY</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType> 
-			<ProductionModifier>50</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_TURKEY</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType> 
-			<ProductionModifier>50</ProductionModifier> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_DUMMY_TURKEY</PolicyType> 
-			<BuildingClassType>BUILDINGCLASS_MUSEUM</BuildingClassType> 
 			<ProductionModifier>50</ProductionModifier> 
 		</Row>
 		<Row> 
@@ -207077,6 +206873,19 @@
 			<YieldType>YIELD_GOLD</YieldType> 
 			<YieldChange>3</YieldChange> 
 		</Row>
+		<!-- Honor Finisher -->
+		<Row> 
+			<PolicyType>POLICY_HONOR_FINISHER</PolicyType> 
+			<BuildingClassType>BUILDINGCLASS_BARRACKS</BuildingClassType> 
+			<YieldType>YIELD_FOOD</YieldType> 
+			<YieldChange>1</YieldChange> 
+		</Row>
+		<Row> 
+			<PolicyType>POLICY_HONOR_FINISHER</PolicyType> 
+			<BuildingClassType>BUILDINGCLASS_ARMORY</BuildingClassType> 
+			<YieldType>YIELD_FOOD</YieldType> 
+			<YieldChange>2</YieldChange> 
+		</Row>
 		<!-- Piety Opener -->
 		 <Row> 
 			<PolicyType>POLICY_PIETY</PolicyType> 
@@ -207088,6 +206897,12 @@
 			<PolicyType>POLICY_PIETY</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType> 
 			<YieldType>YIELD_FAITH</YieldType> 
+			<YieldChange>1</YieldChange> 
+		</Row>
+		<Row> 
+			<PolicyType>POLICY_PIETY</PolicyType> 
+			<BuildingClassType>BUILDINGCLASS_PALACE</BuildingClassType> 
+			<YieldType>YIELD_PRODUCTION</YieldType> 
 			<YieldChange>1</YieldChange> 
 		</Row>
 		<!-- Organized Religion, Shrine -->
@@ -207202,6 +207017,12 @@
 			<PolicyType>POLICY_DISCIPLINE</PolicyType> 
 			<BuildingClassType>BUILDINGCLASS_HEROIC_EPIC</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
+			<YieldChange>4</YieldChange> 
+		</Row>
+		<Row> 
+			<PolicyType>POLICY_DISCIPLINE</PolicyType> 
+			<BuildingClassType>BUILDINGCLASS_HEROIC_EPIC</BuildingClassType> 
+			<YieldType>YIELD_FOOD</YieldType> 
 			<YieldChange>4</YieldChange> 
 		</Row>
 		<!-- Urbanization, Windmill -->
@@ -207403,22 +207224,27 @@
 		<Row> 
 			<PolicyType>POLICY_PARTY_LEADERSHIP</PolicyType> 
 			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>1</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_PARTY_LEADERSHIP</PolicyType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>1</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_PARTY_LEADERSHIP</PolicyType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>1</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_PARTY_LEADERSHIP</PolicyType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<PolicyType>POLICY_PARTY_LEADERSHIP</PolicyType> 
+			<YieldType>YIELD_CULTURE</YieldType> 
+			<Yield>1</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_DUMMY_YUGO_ORDER</PolicyType> 
@@ -207438,7 +207264,7 @@
 		<Row>
 			<PolicyType>POLICY_MARITIME_INFRASTRUCTURE</PolicyType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 	</Policy_CityYieldChanges> 
 
@@ -207449,12 +207275,6 @@
 	</Table> 
 	<Policy_CoastalCityYieldChanges>
 		<Delete />
-
-		<Row>
-			<PolicyType>POLICY_MARITIME_INFRASTRUCTURE</PolicyType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>2</Yield> 
-		</Row>
 	</Policy_CoastalCityYieldChanges> 
 
 	<Table name="Policy_Disables">
@@ -207830,7 +207650,7 @@
 			<Flavor>20</Flavor> 
 		</Row>
 		<Row> 
-			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType> 
+			<PolicyType>POLICY_EXPLORATION_FINISHER</PolicyType> 
 			<FlavorType>FLAVOR_GOLD</FlavorType> 
 			<Flavor>1</Flavor> 
 		</Row>
@@ -208555,6 +208375,11 @@
 			<YieldType>YIELD_SCIENCE</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
+		<Row> 
+			<PolicyType>POLICY_DUMMY_TURKEY</PolicyType> 
+			<YieldType>YIELD_GOLD</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
 		<!-- Creative Expression -->
 		<Row> 
 			<PolicyType>POLICY_CREATIVE_EXPRESSION</PolicyType> 
@@ -208754,31 +208579,61 @@
 			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
 			<ImprovementType>IMPROVEMENT_ACADEMY</ImprovementType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>5</Yield> 
+			<Yield>4</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
 			<ImprovementType>IMPROVEMENT_CONCERT</ImprovementType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>5</Yield> 
+			<Yield>4</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
 			<ImprovementType>IMPROVEMENT_CUSTOMS_HOUSE</ImprovementType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>5</Yield> 
+			<Yield>4</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
 			<ImprovementType>IMPROVEMENT_MANUFACTORY</ImprovementType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>5</Yield> 
+			<Yield>4</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
 			<ImprovementType>IMPROVEMENT_HOLY_SITE</ImprovementType> 
 			<YieldType>YIELD_FAITH</YieldType> 
-			<Yield>5</Yield> 
+			<Yield>4</Yield> 
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NEW_DEAL</PolicyType>
+			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_PIETY_FINISHER</PolicyType> 
@@ -208824,81 +208679,15 @@
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
-			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType> 
-			<YieldType>YIELD_FAITH</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
-			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
-			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
-			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType> 
-			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
-			<ImprovementType>IMPROVEMENT_SACRED_GROVE</ImprovementType> 
-			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
 			<ImprovementType>IMPROVEMENT_DOCK</ImprovementType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>5</Yield> 
+			<Yield>4</Yield> 
 		</Row>
 		<Row> 
 			<PolicyType>POLICY_NEW_DEAL</PolicyType> 
 			<ImprovementType>IMPROVEMENT_CHILE_DOCK</ImprovementType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>5</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType> 
-			<ImprovementType>IMPROVEMENT_AYER</ImprovementType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>-1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType> 
-			<ImprovementType>IMPROVEMENT_AYER</ImprovementType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>-1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType> 
-			<ImprovementType>IMPROVEMENT_AYER</ImprovementType> 
-			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>-1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType> 
-			<ImprovementType>IMPROVEMENT_WATER_POLDER</ImprovementType> 
-			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>-1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType> 
-			<ImprovementType>IMPROVEMENT_WATER_POLDER</ImprovementType> 
-			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>-1</Yield> 
-		</Row>
-		<Row> 
-			<PolicyType>POLICY_TREASURE_FLEETS</PolicyType> 
-			<ImprovementType>IMPROVEMENT_WATER_POLDER</ImprovementType> 
-			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>-1</Yield> 
+			<Yield>4</Yield> 
 		</Row>
 		
 		<Row> 
@@ -219659,7 +219448,7 @@
 			<Help>TXT_KEY_TECH_TELECOM_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>7700</Cost> 
+			<Cost>8085</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -219714,7 +219503,7 @@
 			<Help>TXT_KEY_TECH_MOBILE_TACTICS_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>7700</Cost> 
+			<Cost>8085</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -219769,7 +219558,7 @@
 			<Help>TXT_KEY_TECH_ADVANCED_BALLISTICS_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>7700</Cost> 
+			<Cost>8085</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -219824,7 +219613,7 @@
 			<Help>TXT_KEY_TECH_SATELLITES_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>7700</Cost> 
+			<Cost>8085</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -219879,7 +219668,7 @@
 			<Help>TXT_KEY_TECH_ROBOTICS_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>7700</Cost> 
+			<Cost>8085</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -219934,7 +219723,7 @@
 			<Help>TXT_KEY_TECH_LASERS_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>7700</Cost> 
+			<Cost>8085</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -219989,7 +219778,7 @@
 			<Help>TXT_KEY_TECH_INTERNET_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>8800</Cost> 
+			<Cost>9240</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -220044,7 +219833,7 @@
 			<Help>TXT_KEY_TECH_GLOBALIZATION_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>8800</Cost> 
+			<Cost>9240</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -220100,7 +219889,7 @@
 			<Help>TXT_KEY_TECH_PARTICLE_PHYSICS_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>8800</Cost> 
+			<Cost>9240</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -220155,7 +219944,7 @@
 			<Help>TXT_KEY_TECH_NUCLEAR_FUSION_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>8800</Cost> 
+			<Cost>9240</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -220210,7 +219999,7 @@
 			<Help>TXT_KEY_TECH_NANOTECHNOLOGY_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>8800</Cost> 
+			<Cost>9240</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -220265,7 +220054,7 @@
 			<Help>TXT_KEY_TECH_STEALTH_HELP</Help> 
 			<AIWeight>0</AIWeight> 
 			<AITradeModifier>0</AITradeModifier> 
-			<Cost>8800</Cost> 
+			<Cost>9240</Cost> 
 			<AdvancedStartCost>-1</AdvancedStartCost> 
 			<Era>ERA_FUTURE</Era> 
 			<FeatureProductionModifier>0</FeatureProductionModifier> 
@@ -223209,12 +222998,14 @@
 	<Trait_CapitalTechYieldChange>
 		<Delete />
 		<!-- France -->
+		<!-- v34.13 change
 		<Row>
 			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
 			<TechType>TECH_ACOUSTICS</TechType>
 			<YieldType>YIELD_CULTURE</YieldType>
 			<YieldChange>15</YieldChange>
 		</Row>
+		-->
 	</Trait_CapitalTechYieldChange>
 
 	<Table name="Trait_CapitalYieldChange">
@@ -223303,6 +223094,42 @@
             <TraitType>TRAIT_ARGENTINA</TraitType>
             <BuildType>BUILD_FARM</BuildType>
             <Time>400</Time>
+        </Row>
+		<Row>
+            <TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
+            <BuildType>BUILD_MINE</BuildType>
+            <Time>400</Time>
+			<ResourceClassRequired>RESOURCECLASS_LUXURY</ResourceClassRequired>
+        </Row>
+        <Row>
+            <TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
+            <BuildType>BUILD_QUARRY</BuildType>
+            <Time>400</Time>
+			<ResourceClassRequired>RESOURCECLASS_LUXURY</ResourceClassRequired>
+        </Row>
+		<Row>
+            <TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
+            <BuildType>BUILD_CAMP</BuildType>
+            <Time>400</Time>
+			<ResourceClassRequired>RESOURCECLASS_LUXURY</ResourceClassRequired>
+        </Row>
+		<Row>
+            <TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
+            <BuildType>BUILD_FISHING_BOATS_WORKER</BuildType>
+            <Time>400</Time>
+			<ResourceClassRequired>RESOURCECLASS_LUXURY</ResourceClassRequired>
+        </Row>
+		<Row>
+            <TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
+            <BuildType>BUILD_PLANTATION</BuildType>
+            <Time>400</Time>
+			<ResourceClassRequired>RESOURCECLASS_LUXURY</ResourceClassRequired>
+        </Row>
+		<Row>
+            <TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
+            <BuildType>BUILD_RUBBER_PLANTATION</BuildType>
+            <Time>400</Time>
+			<ResourceClassRequired>RESOURCECLASS_LUXURY</ResourceClassRequired>
         </Row>
     </Trait_BuildImprovementBuildTimeOverride>
 	
@@ -223854,6 +223681,11 @@
 			<UnitCombatType>UNITCOMBAT_SUBMARINE</UnitCombatType> 
 			<PromotionType>PROMOTION_MAORI</PromotionType> 
 		</Row>
+		<Row> 
+			<TraitType>TRAIT_MANA</TraitType> 
+			<UnitCombatType>UNITCOMBAT_CARRIER</UnitCombatType> 
+			<PromotionType>PROMOTION_MAORI</PromotionType> 
+		</Row>
 		<!-- Chile -->
 		<Row> 
 			<TraitType>TRAIT_BY_REASON</TraitType> 
@@ -224302,7 +224134,7 @@
 			<TraitType>TRAIT_FOOD_FOR_TOUGHT</TraitType> 
 			<ImprovementType>IMPROVEMENT_FARM</ImprovementType> 
 			<YieldType>YIELD_FOOD</YieldType> 
-			<Yield>1</Yield> 
+			<FreshWaterYield>1</FreshWaterYield> 
 		</Row>
 		<!-- Japan -->
 		<Row> 
@@ -225685,6 +225517,12 @@
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_WESTERNIZATION</TraitType>
+			<BuildingClassType>BUILDINGCLASS_MUSEUM</BuildingClassType> 
+			<YieldType>YIELD_GOLD</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType>
 			<BuildingClassType>BUILDINGCLASS_AMPHITHEATER</BuildingClassType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
 			<Yield>1</Yield> 
@@ -225693,6 +225531,12 @@
 			<TraitType>TRAIT_WESTERNIZATION</TraitType>
 			<BuildingClassType>BUILDINGCLASS_AMPHITHEATER</BuildingClassType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType>
+			<BuildingClassType>BUILDINGCLASS_AMPHITHEATER</BuildingClassType> 
+			<YieldType>YIELD_GOLD</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
 		<Row> 
@@ -225709,6 +225553,12 @@
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_WESTERNIZATION</TraitType>
+			<BuildingClassType>BUILDINGCLASS_OPERA_HOUSE</BuildingClassType> 
+			<YieldType>YIELD_GOLD</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType>
 			<BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
 			<Yield>1</Yield> 
@@ -225717,6 +225567,12 @@
 			<TraitType>TRAIT_WESTERNIZATION</TraitType>
 			<BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
+			<Yield>1</Yield> 
+		</Row>
+		<Row> 
+			<TraitType>TRAIT_WESTERNIZATION</TraitType>
+			<BuildingClassType>BUILDINGCLASS_BROADCAST_TOWER</BuildingClassType> 
+			<YieldType>YIELD_GOLD</YieldType> 
 			<Yield>1</Yield> 
 		</Row>
 		<!-- Bulgaria -->
@@ -225804,128 +225660,128 @@
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_MINT</BuildingClassType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_MINT</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_GEMCUTTER</BuildingClassType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_GEMCUTTER</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_BREWERY</BuildingClassType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_BREWERY</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_GROCER</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_CENSER</BuildingClassType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_CENSER</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_TEXTILE</BuildingClassType> 
 			<YieldType>YIELD_GOLD</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAND_TRADE_GOLD</TraitType>
 			<BuildingClassType>BUILDINGCLASS_TEXTILE</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>1</Yield> 
+			<Yield>2</Yield> 
 		</Row>
 		<!-- Scotland -->
 		<Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_ARTISTS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		 <Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_ARTISTS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		 <Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_ARTISTS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_MUSICIANS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_MUSICIANS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_MUSICIANS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_WRITERS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_SCIENCE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_WRITERS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_PRODUCTION</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<Row> 
 			<TraitType>TRAIT_LAST_OF_THE_FREE</TraitType>
 			<BuildingClassType>BUILDINGCLASS_WRITERS_GUILD</BuildingClassType> 
 			<YieldType>YIELD_CULTURE</YieldType> 
-			<Yield>2</Yield> 
+			<Yield>3</Yield> 
 		</Row>
 		<!-- Mughals -->
 		<Row>
@@ -226239,6 +226095,319 @@
 			<BuildingClassType>BUILDINGCLASS_INTERNATIONAL_SPACE_STATION</BuildingClassType>
 			<YieldType>YIELD_GOLDEN_AGE_POINTS</YieldType>
 			<Yield>2</Yield>
+		</Row>
+		<!-- France -->
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_TEMPLE_ARTEMIS</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_STONEHENGE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_GREAT_LIBRARY</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_PYRAMID</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_MAUSOLEUM_HALICARNASSUS</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_STATUE_ZEUS</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_GREAT_LIGHTHOUSE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_HANGING_GARDEN</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_TERRACOTTA_ARMY</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_ORACLE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_MOSQUE_OF_DJENNE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_PARTHENON</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_PETRA</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_GREAT_WALL</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_COLOSSUS</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_HAGIA_SOPHIA</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_BOROBUDUR</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_CHICHEN_ITZA</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_LAKE_WONDER</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_MACHU_PICHU</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_ALTHING</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_TOWER_OF_BELEM</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_ANGKOR_WAT</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_ALHAMBRA</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_NOTRE_DAME</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_SISTINE_CHAPEL</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_FORBIDDEN_PALACE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_LEANING_TOWER</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_GLOBE_THEATER</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_HIMEJI_CASTLE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_ARSENAL_OF_VENICE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_PORCELAIN_TOWER</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_TAJ_MAHAL</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_UFFIZI</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_RED_FORT</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_LOUVRE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_BIG_BEN</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_NEUSCHWANSTEIN</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_BRANDENBURG_GATE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_EIFFEL_TOWER</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_BROADWAY</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_STATUE_OF_LIBERTY</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_PRORA_RESORT</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_KREMLIN</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_PANAMA</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_CRISTO_REDENTOR</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_CN_TOWER</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_PENTAGON</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_SYDNEY_OPERA_HOUSE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row> 
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_GREAT_FIREWALL</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_HUBBLE</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_ENHANCED_CULTURE</TraitType>
+			<BuildingClassType>BUILDINGCLASS_INTERNATIONAL_SPACE_STATION</BuildingClassType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>2</Yield>
 		</Row> 
 		<!-- Hungary -->
 		<Row>
@@ -226301,6 +226470,10 @@
 		<Row>
 			<TraitType>TRAIT_LEADER_HIRAM</TraitType>
 			<UnitClassType>UNITCLASS_TRIREME</UnitClassType>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_BY_REASON</TraitType>
+			<UnitClassType>UNITCLASS_GREAT_ADMIRAL</UnitClassType>
 		</Row>
 	</Trait_UnitClassForceCapitalSpawn>
 
@@ -226587,6 +226760,7 @@
 		<Column name="LandTradeRouteYieldBonus" type="integer" default="0" />
 		<Column name="FriendlyLandsCitizenMoveChange" type="integer" default="0" />
 		<Column name="CiviliansEmbarkOneMove" type="boolean" default="false"/>
+		<Column name="FirstProphetCostMod" type="integer" default="0"/>
 	</Table> 
 	<Traits>
 		<Delete />
@@ -226623,7 +226797,6 @@
 			<ExtraSpies>1</ExtraSpies> 
             <!-- Trait_FreePromotionUnitCombats -->
 			<!-- Trait_BuildingClassHappinessChanges -->
-			<!-- Has a Dummy Policy "POLICY_DUMMY_ENGLAND"-->
 		</Row>
 		<Row> 
 			<ID>4</ID> 
@@ -227048,6 +227221,7 @@
 			<Type>TRAIT_BALTIC</Type> 
 			<Description>TXT_KEY_TRAIT_BALTIC</Description> 
 			<ShortDescription>TXT_KEY_TRAIT_BALTIC_SHORT</ShortDescription>
+			<FirstProphetCostMod>-50</FirstProphetCostMod>
 			<!-- Trait_BanUnitMissions -->
 		</Row>
 		<Row> 
@@ -227219,8 +227393,9 @@
 			<Type>TRAIT_VATICAN</Type> 
 			<Description>TXT_KEY_TRAIT_VATICAN</Description> 
 			<ShortDescription>TXT_KEY_TRAIT_VATICAN_SHORT</ShortDescription> 
-			<NumExtraLeagueVotes>2</NumExtraLeagueVotes>
-			<!-- Triat_ImprovementYieldChanges -->
+			<NumExtraLeagueVotes>0</NumExtraLeagueVotes>
+			<FaithFromKills>100</FaithfromKills>
+			<!-- Trait_ImprovementYieldChanges -->
 			<!-- Has code in Lua\Civilziations\Lekmod_vatican.lua -->
 		</Row>
 		<Row> 
@@ -227316,7 +227491,7 @@
 			<Type>TRAIT_GAELIC</Type>
 			<Description>TXT_KEY_TRAIT_GAELIC</Description>
 			<ShortDescription>TXT_KEY_TRAIT_GAELIC_SHORT</ShortDescription>
-			<!-- Uses a Dummy Policy "POLICY_DUMMY_IRELAND" -->
+			<!-- Trait_BuildingClassProductionModifiers -->
 			<!-- Trait_BuildingClassHappinessChanges -->
 		</Row>
 		<Row> 
@@ -271871,6 +272046,10 @@
 			<PrerequisitePromotion>PROMOTION_BARRAGE_1</PrerequisitePromotion>
 		</Row>
 		<Row>
+			<PromotionType>PROMOTION_COVER_1</PromotionType>
+			<PrerequisitePromotion>PROMOTION_ANTI_NAVAL_1</PrerequisitePromotion>
+		</Row>
+		<Row>
 			<PromotionType>PROMOTION_COVER_2</PromotionType>
 			<PrerequisitePromotion>PROMOTION_COVER_1</PrerequisitePromotion>
 		</Row>
@@ -272565,6 +272744,10 @@
 		<Row> 
 			<PromotionType>PROMOTION_MAORI_CIVILIAN</PromotionType> 
 			<UnitType>UNIT_INQUISITOR</UnitType> 
+		</Row>
+		<Row> 
+			<PromotionType>PROMOTION_MAORI_CIVILIAN</PromotionType> 
+			<UnitType>UNIT_ARCHAEOLOGIST</UnitType> 
 		</Row>
 		<Row> 
 			<PromotionType>PROMOTION_VIETNAM_CIVILIAN</PromotionType> 
@@ -287440,7 +287623,7 @@
 			<Help>TXT_KEY_UNIT_HELP_SS_PART</Help> 
 			<Combat>0</Combat> 
 			<RangedCombat>0</RangedCombat> 
-			<Cost>1500</Cost> 
+			<Cost>1875</Cost> 
 			<FaithCost>0</FaithCost> 
 			<RequiresFaithPurchaseEnabled>false</RequiresFaithPurchaseEnabled> 
 			<PurchaseOnly>false</PurchaseOnly> 
@@ -287530,7 +287713,7 @@
 			<Help>TXT_KEY_UNIT_HELP_SS_PART</Help> 
 			<Combat>0</Combat> 
 			<RangedCombat>0</RangedCombat> 
-			<Cost>1500</Cost> 
+			<Cost>1875</Cost> 
 			<FaithCost>0</FaithCost> 
 			<RequiresFaithPurchaseEnabled>false</RequiresFaithPurchaseEnabled> 
 			<PurchaseOnly>false</PurchaseOnly> 
@@ -287620,7 +287803,7 @@
 			<Help>TXT_KEY_UNIT_HELP_SS_PART</Help> 
 			<Combat>0</Combat> 
 			<RangedCombat>0</RangedCombat> 
-			<Cost>1500</Cost> 
+			<Cost>1875</Cost> 
 			<FaithCost>0</FaithCost> 
 			<RequiresFaithPurchaseEnabled>false</RequiresFaithPurchaseEnabled> 
 			<PurchaseOnly>false</PurchaseOnly> 
@@ -287710,7 +287893,7 @@
 			<Help>TXT_KEY_UNIT_HELP_SS_BOOSTER</Help> 
 			<Combat>0</Combat> 
 			<RangedCombat>0</RangedCombat> 
-			<Cost>1500</Cost> 
+			<Cost>1875</Cost> 
 			<FaithCost>0</FaithCost> 
 			<RequiresFaithPurchaseEnabled>false</RequiresFaithPurchaseEnabled> 
 			<PurchaseOnly>false</PurchaseOnly> 
@@ -299317,14 +299500,14 @@
 			<Civilopedia>TXT_KEY_CIV5_XCOM_SQUAD_TEXT</Civilopedia> 
 			<Strategy>TXT_KEY_UNIT_XCOM_SQUAD_STRATEGY</Strategy> 
 			<Help>TXT_KEY_UNIT_HELP_XCOM_SQUAD</Help> 
-			<Combat>100</Combat> 
+			<Combat>110</Combat> 
 			<RangedCombat>0</RangedCombat> 
 			<Cost>510</Cost> 
 			<FaithCost>800</FaithCost> 
 			<RequiresFaithPurchaseEnabled>true</RequiresFaithPurchaseEnabled> 
 			<PurchaseOnly>false</PurchaseOnly> 
 			<MoveAfterPurchase>false</MoveAfterPurchase> 
-			<Moves>2</Moves> 
+			<Moves>3</Moves> 
 			<Immobile>false</Immobile> 
 			<Range>0</Range> 
 			<BaseSightRange>2</BaseSightRange> 
@@ -306962,7 +307145,7 @@
 			<FaithCost>200</FaithCost> 
 			<RequiresFaithPurchaseEnabled>false</RequiresFaithPurchaseEnabled> 
 			<PurchaseOnly>false</PurchaseOnly> 
-			<MoveAfterPurchase>false</MoveAfterPurchase> 
+			<MoveAfterPurchase>true</MoveAfterPurchase> 
 			<Moves>5</Moves> 
 			<Immobile>false</Immobile> 
 			<Range>0</Range> 

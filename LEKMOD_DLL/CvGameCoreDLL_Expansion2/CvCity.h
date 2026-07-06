@@ -246,7 +246,9 @@ public:
 	int GetPurchaseCost(ProjectTypes eProject);
 	int GetPurchaseCostFromProduction(int iProduction);
 #endif
-
+#ifdef LEKMOD_BELIEF_BUILDING_PURCHASE
+	bool getLekmodBeliefBuildingPurchaseRawCost(BuildingTypes eBuilding, YieldTypes eYield, int* piRaw) const;
+#endif
 	int getProductionTurnsLeft(int iProductionNeeded, int iProduction, int iFirstProductionDifference, int iProductionDifference) const;
 	void setProduction(int iNewValue);
 	void changeProduction(int iChange);
@@ -507,6 +509,10 @@ public:
 
 	int getMaxFoodKeptPercent() const;
 	void changeMaxFoodKeptPercent(int iChange);
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+	int getExcessGrowthModifier() const;
+	void changeExcessGrowthModifier(int iChange);
+#endif
 	
 	int getOverflowProduction() const;
 	void setOverflowProduction(int iNewValue);
@@ -1017,6 +1023,9 @@ protected:
 	FAutoVariable<int, CvCity> m_iFood;
 	FAutoVariable<int, CvCity> m_iFoodKept;
 	FAutoVariable<int, CvCity> m_iMaxFoodKeptPercent;
+#if defined(LEKMOD_BUILDING_EXCESS_GROWTH)
+	FAutoVariable<int, CvCity> m_iExcessGrowthModifier;
+#endif
 	FAutoVariable<int, CvCity> m_iOverflowProduction;
 	FAutoVariable<int, CvCity> m_iFeatureProduction;
 	FAutoVariable<int, CvCity> m_iMilitaryProductionModifier;

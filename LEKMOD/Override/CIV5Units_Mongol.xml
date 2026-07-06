@@ -12,28 +12,95 @@
 	<Language_en_US>
 		<!-- Version Number, Leave at top -->
 		<Row Tag="TXT_KEY_LEKMOD_VERSION">
-			<Text>LEKMOD v34.10</Text>
+			<Text>LEKMOD v34.15</Text>
 		</Row>
 		<Replace Tag="TXT_KEY_MULTIPLAYER_STAGING_ROOM"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]LEKMOD v34.10[ENDCOLOR]
+				[COLOR_POSITIVE_TEXT]LEKMOD v34.15[ENDCOLOR]
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_AD_SETUP_ADVANCED_OPTIONS"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]LEKMOD v34.10[ENDCOLOR]  
+				[COLOR_POSITIVE_TEXT]LEKMOD v34.15[ENDCOLOR]  
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_GAME_SELECTION_SCREEN"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]LEKMOD v34.10[ENDCOLOR] 
+				[COLOR_POSITIVE_TEXT]LEKMOD v34.15[ENDCOLOR] 
 			</Text>
 		</Replace>
 		<Row Tag="TXT_KEY_GAME_OPTION_SCUFFED_VERSION_CHECKER">
-			<Text>[COLOR_POSITIVE_TEXT]LEKMOD v34.10[ENDCOLOR]</Text>
+			<Text>[COLOR_POSITIVE_TEXT]LEKMOD v34.15[ENDCOLOR]</Text>
 		</Row>
 		<!-- END VERSION -->
 
+		<Row Tag="TXT_KEY_DIPLO_ITEM_PLAYER_ALREADY_OWNS_ONE_LINE">
+			<Text>
+				[COLOR_WARNING_TEXT]Both players already own this item![ENDCOLOR]
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_PEDIA_CATEGORY_MILITARY">
+			<Text>
+			Military Units
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_VOTE_ON_PROPOSAL">
+			<Text>
+			VOTE ON PROPOSAL
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_VOTE_PROPOSAL_TT">
+			<Text>
+			You have an active proposal vote pending. Open the vote screen before ending your turn.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_MP_PENDING_VOTES">
+			<Text>
+			Pending votes: {1_Num}
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_MP_PENDING_VOTES_NONE">
+			<Text>
+			Pending votes: none
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_CITY_STATE_MAKE_PEACE">
+    		<Text>
+				Make Peace
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_CITY_STATE_PEACE_TURNS_REMAINING_TT">
+    		<Text>
+				You cannot make peace yet. {1_Num} turns remaining.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_CITY_STATE_PEACE_TURNS_REMAINING">
+    		<Text>
+			[COLOR_WARNING_TEXT]Make Peace ({1_Num} turns remaining)[ENDCOLOR]
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEKMOD_RESPOND_TO_DEALS">
+    		<Text>
+				RESPOND TO DEAL(S)
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_DIPLO_REQUEST">
+    		<Text>
+				Review pending incoming deals before ending your turn.
+			</Text>
+		</Row>
+
+		<Replace Tag="TXT_KEY_CO_OPINION_TT_UNHAPPINESS_LINE5">
+			<Text>
+				[NEWLINE]Policies and traits modify this unhappiness by {1_Num}% (applied as ×(100% + this) after the base; negative reduces, positive increases).
+			</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_CO_OPINION_TT_UNHAPPINESS_LINE5_LEKMOD">
+			<Text>
+				[NEWLINE]Ideology pressure unhappiness modifier: {1_Num}%
+			</Text>
+		</Replace>
 		<Row Tag="TXT_KEY_UNIT_MAURYA_MISSIONARY"> 
 			<Text>
 				Ashoka's Envoy
@@ -41,7 +108,7 @@
 		</Row>
 		<Row Tag="TXT_KEY_UNIT_MAURA_MISSIONARY_HELP"> 
 			<Text>
-				Replaces the [ICON_UNIT_MISSIONARY] Missionary. Unique to [COLOR_POSITIVE_TEXT]Maurya[ENDCOLOR]. Has an additional [ICON_MOVES] Movement and ignores terrain cost. Yields 1 [ICON_RESEARCH] Science, [ICON_CULTURE] Culture, [ICON_GOLD] Gold, and [ICON_PEACE] Faith per [ICON_CITIZEN] Citizen converted to a [ICON_RELIGION] Religion upon spreading one; fully converting a city to a [ICON_RELIGION] Religion awards and additional 4 of those yields.
+				Replaces the [ICON_UNIT_MISSIONARY] Missionary. Unique to [COLOR_POSITIVE_TEXT]Maurya[ENDCOLOR]. Has an additional [ICON_MOVES] Movement, ignores terrain cost, and may move immediately after being purchased. Yields 1 [ICON_RESEARCH] Science, [ICON_CULTURE] Culture, [ICON_GOLD] Gold, and [ICON_PEACE] Faith per [ICON_CITIZEN] Citizen converted to a [ICON_RELIGION] Religion upon spreading one; fully converting a city to a [ICON_RELIGION] Religion awards and additional 8 of those yields.
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMOTION_CONVERSION_PAYOUT"> 
@@ -373,7 +440,7 @@
 			<Text>The Mansabdari system was a unique administrative structure established by Emperor Akbar that formed the backbone of the Mughal Empire's civil and military administration. Under this system, imperial officers known as mansabdars were assigned ranks (mansabs) that determined their status, responsibilities, and compensation. Each mansabdar maintained estates that served as centers of local governance and military recruitment. These estates not only strengthened imperial control but also served as cultural centers that promoted Mughal artistic and architectural styles. The system helped integrate diverse ethnic and religious groups into the empire's administrative framework, reflecting the Mughals' skill at incorporating various cultural traditions into their governance model.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_MUGHALS_CARAVANSARY_HELP">			
-			<Text>Mughal replacement for the Caravansary. Available at Currency (vs. Horseback Riding). Provides +10 City [ICON_STRENGTH] Strength, +2 [ICON_GOLD] Gold and +3 [ICON_CULTURE] Culture if the city has a garrison. Provides 1 [ICON_RES_HORSE] Horse resource for the Empire.</Text>
+			<Text>Mughal replacement for the Caravansary. Available at Currency (vs. Horseback Riding). Provides +10 City [ICON_STRENGTH] Strength, +2 [ICON_GOLD] Gold and +3 [ICON_CULTURE] Culture if the city has a garrison. Provides 2 [ICON_RES_HORSE] Horse resource for the Empire.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_MUGHALS_CARAVANSARY_STRATEGY">			
 			<Text>The Mansabdari Estate is available at a different technology than the Caravansary it replaces, requiring Currency rather than Horseback Riding. Beyond improving land trade routes, it provides significant defensive bonuses to your cities and additional [ICON_GOLD] Gold and [ICON_CULTURE] Culture when the city is garrisoned, encouraging a balanced approach to growth and defense.</Text>
@@ -830,6 +897,11 @@
 				Bonus vs Different Ideology
 			</Text>
 		</Row>
+		<Row Tag="TXT_KEY_EUPANEL_LEKMOD_TOURISM_INFLUENCE_BONUS">
+			<Text>
+				[ICON_TOURISM] Tourism Influence
+			</Text>
+		</Row>
 		
 		<Replace Tag="TXT_KEY_GAME_OPTION_NO_MP_POLICY_SAVING"> 
 			<Text>
@@ -1282,7 +1354,7 @@
 			<Text>If Known Tech Discount is enabled, AI will no longer reduce the research cost of technologies they have researched for other players.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_SANCTIFIED_INNOVATIONS">
-			<Text>+1 [ICON_PRODUCTION] Production, +1 [ICON_RESEARCH] Science, and +1 [ICON_PEACE] Faith from [COLOR_POSITIVE_TEXT]National Wonders[ENDCOLOR]</Text>
+			<Text>+1 [ICON_PRODUCTION] Production, +1 [ICON_RESEARCH] Science, and +1 [ICON_PEACE] Faith from [COLOR_POSITIVE_TEXT]National Wonders[ENDCOLOR]. May purchase [COLOR_POSITIVE_TEXT]National Wonders[ENDCOLOR] with [ICON_PEACE] Faith. This cost goes up the more cities there are in the empire</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BELIEF_SANCTIFIED_INNOVATIONS_SHORT">
 			<Text>Sanctified Innovations</Text>
@@ -1448,7 +1520,7 @@
 		
 		<Replace Tag="TXT_KEY_BUILDING_HORDE_YAM_ROUTE_HELP"> 
 			<Text>
-				Replaces the Caravansary. Only the Golden Horde may build it. The Yam Route yields [ICON_RESEARCH] Science instead of [ICON_GOLD] Gold. In addition, it is available earlier and allows Airlifting in the City. Provides 1 [ICON_RES_HORSE] Horse resource for the Empire.
+				Replaces the Caravansary. Only the Golden Horde may build it. The Yam Route yields [ICON_RESEARCH] Science instead of [ICON_GOLD] Gold. In addition, it is available earlier and allows Airlifting in the City. Provides 2 [ICON_RES_HORSE] Horse resource for the Empire.
 			</Text>
 		</Replace>
 	
@@ -2549,7 +2621,7 @@ Many individual cacicazgos have been studied in colonial Mexico, showing that en
 			<Text>Houses of Worship</Text>
 	</Row>
 	<Row Tag="TXT_KEY_BELIEF_HOUSES_OF_WORSHIP">
-			<Text>Use 100 [ICON_PEACE] Faith to buy an Art Hall (+1 [ICON_CULTURE] Culture, +4 [ICON_PEACE] Faith, +3 [ICON_TOURISM] Tourism), Writing Auditorium (+2 [ICON_CULTURE] Culture, +1 [ICON_RESEARCH] Science) and a Vocal Chamber (+4 [ICON_CULTURE] Culture, +1 [ICON_HAPPINESS_1] Happiness, 1 [ICON_GREAT_MUSICIAN] Great Musician Slot) </Text>
+			<Text>Use 100 [ICON_PEACE] Faith to buy an Art Hall (+1 [ICON_CULTURE] Culture, +4 [ICON_PEACE] Faith, +3 [ICON_TOURISM] Tourism), Writing Auditorium (+2 [ICON_CULTURE] Culture, +1 [ICON_RESEARCH] Science) and a Vocal Chamber (+3 [ICON_CULTURE] Culture, +1 [ICON_HAPPINESS_1] Happiness, 1 [ICON_GREAT_MUSICIAN] Great Musician Slot) </Text>
 	</Row>
 	
 	<Row Tag="TXT_KEY_BELIEF_DEVOTED_ELITE_SHORT">
@@ -2564,7 +2636,7 @@ Many individual cacicazgos have been studied in colonial Mexico, showing that en
 	</Row>
 	
 	<Row Tag="TXT_KEY_BELIEF_DEVOUT_PERFORMERS">
-			<Text>+2 [ICON_CULTURE] Culture from each [COLOR_POSITIVE_TEXT]Circus[ENDCOLOR] and +1 [ICON_CULTURE] Culture from each [COLOR_POSITIVE_TEXT]Colosseum[ENDCOLOR]. +3 [ICON_HAPPINESS_1] Happiness and +4 [ICON_CULTURE] Culture from the [COLOR_POSITIVE_TEXT]Circus Maximus[ENDCOLOR]</Text>
+			<Text>+1 [ICON_CULTURE] Culture from each [ICON_BUILDING_CIRCUS] Circus and [ICON_BUILDING_COLOSSEUM] Colosseum. +5 [ICON_HAPPINESS_1] Happiness and +4 [ICON_CULTURE] Culture from the [ICON_WONDER_CIRCUS_MAXIMUS]Circus Maximus[ENDCOLOR]</Text>
 	</Row>
 	
 	<Row Tag="TXT_KEY_PROMOTION_ATTACK_MOD">
@@ -3342,7 +3414,7 @@ Many individual cacicazgos have been studied in colonial Mexico, showing that en
 			<Text>Perhaps the best known feature of Nabataean culture were the intricate rock-cut façades of their tombs. The tomb façades draw upon a rich array of Hellenistic and Near Eastern architecture and, in this sense, their architecture reflects the diverse and different cultures with which the Nabateans traded, interacted, and even intermarried (King Aretas IV''s daughter was married to Herod Antipas, the son of Herod the Great, whose mother was also Nabataean). Many of the tombs contain niches or small chambers for burials, cut into the stone walls. No human remains have ever been found in any of the tombs, and the exact funerary practices of the Nabataeans remain unknown.</Text>
 	</Row>
 	<Row Tag="TXT_KEY_BUILDING_MC_KOKH_HELP">
-			<Text>Unique Building for Nabataea. Unlike the Caravansary that it replaces, it provides more [ICON_GOLD] Gold and +2 [ICON_FOOD] Food. In addition, every Trade Route Departing the city yields an additional [ICON_FOOD] Food. Provides 1 [ICON_RES_HORSE] Horse resource for the Empire.</Text>
+			<Text>Unique Building for Nabataea. Unlike the Caravansary that it replaces, it provides more [ICON_GOLD] Gold and +2 [ICON_FOOD] Food. In addition, every Trade Route Departing the city yields an additional [ICON_FOOD] Food. Provides 2 [ICON_RES_HORSE] Horse resource for the Empire.</Text>
 	</Row>
 	<Row Tag="TXT_KEY_TRAIT_FOOD_FOR_TOUGHT">
 			<Text>Fresh Water Farms yield +1 [ICON_FOOD] Food at [ICON_TECH_MATHEMATICS] Mathematics rather than [ICON_TECH_CIVIL_SERVICE] Civil Service.</Text>
@@ -7406,7 +7478,7 @@ Many individual cacicazgos have been studied in colonial Mexico, showing that en
 			<Text>Westernization</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_WESTERNIZATION">
-			<Text>[ICON_BUILDING_AMPHITHEATER] Amphitheaters, [ICON_BUILDING_OPERA_HOUSE] Opera Houses, [ICON_BUILDING_MUSEUM] Museums and [ICON_BUILDING_BROADCAST_TOWER] Broadcast Towers are built 50% faster. These [COLOR_GREEN]buildings[ENDCOLOR] and [ICON_GREAT_WORK] Great works each provide +1 [ICON_RESEARCH] Science and +1 [ICON_PRODUCTION] Production</Text>
+			<Text>[ICON_BUILDING_AMPHITHEATER] Amphitheaters, [ICON_BUILDING_OPERA_HOUSE] Opera Houses, [ICON_BUILDING_MUSEUM] Museums and [ICON_BUILDING_BROADCAST_TOWER] Broadcast Towers are built 50% faster. These [COLOR_GREEN]buildings[ENDCOLOR] and [ICON_GREAT_WORK] Great works each provide +1 [ICON_RESEARCH] Science, +1 [ICON_PRODUCTION] Production, and +1 [ICON_GOLD] Gold.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_LEADER_UC_ATATURK_DESC">
 			<Text>Ataturk</Text>
@@ -8027,7 +8099,7 @@ Many individual cacicazgos have been studied in colonial Mexico, showing that en
 			<Text>Flower of Scotland</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TRAIT_LAST_OF_THE_FREE">
-			<Text>+2 [ICON_PRODUCTION] Production, +2 [ICON_RESEARCH] Science and +2 [ICON_CULTURE] Culture from Writer's, Artist's and Musician's Guilds. +33% [ICON_GREAT_PEOPLE] Great person generation in the [ICON_CAPITAL] Capital.</Text>
+			<Text>+3 [ICON_PRODUCTION] Production, +3 [ICON_RESEARCH] Science and +3 [ICON_CULTURE] Culture from Writer's, Artist's and Musician's Guilds. +33% [ICON_GREAT_PEOPLE] Great person generation in the [ICON_CAPITAL] Capital.</Text>
 		</Row>
 		<!-- Wales civ v24 -->
 		<!-- Improvement -->
@@ -15985,9 +16057,19 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 				Kotel
 			</Text>
 		</Replace>
+		<Replace Tag="TXT_KEY_BELIEF_LEKMOD_NATWONDER_FAITH_PURCHASE"> 
+			<Text>
+				May purchase National Wonders with [ICON_PEACE] Faith. Cost is 200 [ICON_PEACE] Faith plus 50 [ICON_PEACE] Faith per city in your empire (before other modifiers).
+			</Text>
+		</Replace>
+		<Replace Tag="TXT_KEY_BELIEF_LEKMOD_NATWONDER_FAITH_PURCHASE_SHORT"> 
+			<Text>
+				National Wonder Faith Purchase
+			</Text>
+		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_LITURGICAL_DRAMA"> 
 			<Text>
-				+2 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from [COLOR_POSITIVE_TEXT]Amphitheaters[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Opera Houses[ENDCOLOR]
+				+2 [ICON_PEACE] Faith, +1 [ICON_CULTURE] Culture, and +1 [ICON_GOLD] Gold from [ICON_BUILDING_AMPHITHEATER] Amphitheaters and [ICON_BUILDING_OPERA_HOUSE] Opera Houses.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_LITURGICAL_DRAMA_SHORT"> 
@@ -16027,7 +16109,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_MESSENGER_GODS"> 
 			<Text>
-				+2 [ICON_RESEARCH] Science and +1 [ICON_PEACE] Faith in Cities with a [ICON_CONNECTED] City Connection
+				+1 [ICON_RESEARCH] Science, +1 [ICON_GOLD] Gold, and +1 [ICON_PEACE] Faith in Cities with a [ICON_CONNECTED] City Connection
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_MESSENGER_GODS_SHORT"> 
@@ -16087,7 +16169,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_MOSQUES"> 
 			<Text>
-				Use 100 [ICON_PEACE] Faith to purchase [COLOR_POSITIVE_TEXT]Mosques[ENDCOLOR] (+3 [ICON_PEACE] Faith, +1 [ICON_HAPPINESS_1] Happiness, and +1 [ICON_CULTURE] Culture)
+				Use 100 [ICON_PEACE] Faith to purchase [COLOR_POSITIVE_TEXT]Mosques[ENDCOLOR] (+2 [ICON_PEACE] Faith, +1 [ICON_HAPPINESS_1] Happiness, and +2 [ICON_CULTURE] Culture)
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_MOSQUES_SHORT"> 
@@ -16237,7 +16319,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_PROMISED_LAND"> 
 			<Text>
-				[ICON_RELIGION] Religion spreads 100% faster to your Cities.
+				[ICON_RELIGION] Religion spreads 100% faster to your Cities. +67 [ICON_GOLD] Gold (on Quick Speed) when each city first converts to this [ICON_RELIGION] Religion.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_PROMISED_LAND_SHORT"> 
@@ -16332,7 +16414,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_UNITY"> 
 			<Text>
-				[ICON_RELIGION] Religion spreads to friendly city-states at double rate and +45 [ICON_INFLUENCE] Influence resting point with City-States following this [ICON_RELIGION] Religion
+				[ICON_RELIGION] Religion spreads to friendly [ICON_CITY_STATE] City-States at double rate. [ICON_INFLUENCE] Influence resting point with [ICON_CITY_STATE] City-States following this [ICON_RELIGION] Religion is increased by 45. [ICON_INFLUENCE] Influence with those [ICON_CITY_STATE] City-States degrades half as slowly and recovers at twice the normal rate.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BELIEF_RELIGIOUS_UNITY_SHORT"> 
@@ -17377,7 +17459,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_CARAVANSARY_HELP"> 
 			<Text>
-				Land trade routes originating from this city have a 50% increase in range and produce an additional 2 [ICON_GOLD] Gold when connecting to another civilization. Provides 1 [ICON_RES_HORSE] Horse resource for the Empire.
+				Land trade routes originating from this city have a 50% increase in range and produce an additional 2 [ICON_GOLD] Gold when connecting to another civilization. Provides 2 [ICON_RES_HORSE] Horse resource for the Empire.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_CARAVANSARY_STRATEGY"> 
@@ -19159,7 +19241,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_ORSZ_HELP"> 
 			<Text>
-				Replaces the Palace. A second Palace may be constructed to move the [ICON_CAPITAL] Capital. It may be sold.[NEWLINE][NEWLINE]Provides +25% [ICON_GREAT_PEOPLE] Great People generation and +10% [ICON_PRODUCTION] Production towards buildings after Chivalry is researched.
+				Replaces the Palace. A second Palace may be constructed to move the [ICON_CAPITAL] Capital. It may be sold.[NEWLINE][NEWLINE]Provides +25% [ICON_GREAT_PEOPLE] Great People generation and +10% [ICON_PRODUCTION] Production towards buildings.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_OUTREMER"> 
@@ -19465,7 +19547,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_BRUNEI_REFINERY_HELP"> 
 			<Text>
-				Unique Building for Brunei. Replaces the Oil Refinery. Requires no [ICON_RES_OIL] Oil resources nearby. Provides +2 [ICON_RES_OIL] Oil. +3 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold from [ICON_RES_OIL] Oil.
+				Unique Building for Brunei. Replaces the [ICON_BUILDING_REFINERY] Oil Refinery. Requires no [ICON_RES_OIL] Oil resources nearby. Provides +2 [ICON_RES_OIL] Oil. +3 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold from [ICON_RES_OIL] Oil.
 			</Text>
 		</Replace>
 		
@@ -19581,7 +19663,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_SERAI_HELP"> 
 			<Text>
-				In addition to the regular effects of a [ICON_BUILDING_CARAVANSARY] Caravansary, the Serai provides +1 [ICON_GOLD] Gold per 3 [ICON_CITIZEN] Citizens, increases the city's air unit capacity by 1 and allows units to fast travel between other cities with Serais with the Airlift function. Provides 1 [ICON_RES_HORSE] Horse resource for the Empire.
+				In addition to the regular effects of a [ICON_BUILDING_CARAVANSARY] Caravansary, the Serai provides +1 [ICON_GOLD] Gold per 3 [ICON_CITIZEN] Citizens, increases the city's air unit capacity by 1 and allows units to fast travel between other cities with Serais with the Airlift function. Provides 2 [ICON_RES_HORSE] Horse resource for the Empire.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_SHRINE"> 
@@ -19639,7 +19721,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_SPACESHIP_FACTORY_HELP"> 
 			<Text>
-				+50% [ICON_PRODUCTION] Production when building Spaceship Parts. Requires 1 [ICON_RES_ALUMINUM] Aluminum.[NEWLINE][NEWLINE]City must have a Factory.
+				+100% [ICON_PRODUCTION] Production when building Spaceship Parts. Requires 1 [ICON_RES_ALUMINUM] Aluminum.[NEWLINE][NEWLINE]City must have a Factory.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_SPACESHIP_FACTORY_STRATEGY"> 
@@ -19820,7 +19902,7 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_STPETERS_HELP"> 
 			<Text>
-				[COLOR_CYAN]* National Wonder (each player may build one)[ENDCOLOR][NEWLINE][NEWLINE]Replaces the Grand Temple. Doubles religious pressure emanating from this City and provides a free Cathedral and Great Prophet.[NEWLINE][NEWLINE]Must be built in a Holy City. Must have built a Temple in all Cities. The cost goes up the more cities there are in the empire.
+				[COLOR_CYAN]* National Wonder (each player may build one)[ENDCOLOR][NEWLINE][NEWLINE]Replaces the Grand Temple. Doubles religious pressure emanating from this City and provides a free [ICON_BUILDING_CATHEDRAL] Cathedral and [ICON_PROPHET] Great Prophet. +2 Delegates in the [COLOR_POSITIVE_TEXT]World Congress[ENDCOLOR].[NEWLINE][NEWLINE]Must be built in a Holy City. Must have built a Temple in all Cities. The cost goes up the more cities there are in the empire.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_SUBTERRANEAN_COLONY"> 
@@ -20021,12 +20103,12 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_TIBET_STRATEGY"> 
 			<Text>
-				Given in cities founded by Dalai Lama, and the Tibetan [ICON_CAPITAL] Capital. Provides significant yields that grow with each Era passed
+				Given in a city founded by Dalai Lama, and the Tibetan [ICON_CAPITAL] Capital. Provides significant yields that grow with each Era passed
 			</Text>
 		</Row>
 		<Row Tag="TXT_KEY_BUILDING_TIBET_HELP"> 
 			<Text>
-				Given in cities founded by Dalai Lama, and the Tibetan [ICON_CAPITAL] Capital after the discovery of [ICON_TECH_DRAMA] [COLOR_CYAN]Drama and Poetry[ENDCOLOR]. Provides +2 [ICON_FOOD] Food, [ICON_PRODUCTION] Production, [ICON_GOLD] Gold, [ICON_RESEARCH] Science, [ICON_CULTURE] Culture, and [ICON_PEACE] Faith. Additionally gives +1 to all of those for each Era beyond the Classical Era.
+				Given in a city founded by Dalai Lama, and the Tibetan [ICON_CAPITAL] Capital after the discovery of [ICON_TECH_DRAMA] [COLOR_CYAN]Drama and Poetry[ENDCOLOR]. Provides +2 [ICON_FOOD] Food, [ICON_PRODUCTION] Production, [ICON_GOLD] Gold, [ICON_RESEARCH] Science, [ICON_CULTURE] Culture, and [ICON_PEACE] Faith. Additionally gives +1 to all of those for each Era beyond the Classical Era.
 			</Text>
 		</Row>
 		<Replace Tag="TXT_KEY_BUILDING_TIMMYS_DESC"> 
@@ -20100,21 +20182,6 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 		<Replace Tag="TXT_KEY_BUILDING_TRADINGPOST_STRATEGY"> 
 			<Text>
 				Free Building for Canada. +2 [ICON_GOLD]  Gold from Camps. +2 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture from Lakes.
-			</Text>
-		</Replace>
-		<Replace Tag="TXT_KEY_BUILDING_TREASURE_FLEETS_DESC"> 
-			<Text>
-				Warehouse
-			</Text>
-		</Replace>
-		<Replace Tag="TXT_KEY_BUILDING_TREASURE_FLEETS_PEDIA"> 
-			<Text>
-				A Warehouse is automatically constructed in every city after you have adopted the Treasure Fleets social policy.
-			</Text>
-		</Replace>
-		<Replace Tag="TXT_KEY_BUILDING_TREASURE_FLEETS_STRATEGY"> 
-			<Text>
-				Provides +1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production, and +1 [ICON_GOLD] Gold from all Coast and Ocean tiles without sea resources.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_BUILDING_TURKISH_BATH_DESC"> 
@@ -20690,6 +20757,9 @@ strongest around the Gulf of Bothnia, where land steadily rises about 1 cm a yea
 				Build a Monastery
 			</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_IMPROVEMENT_TIBET_BUILD_HELP">
+			<Text>+1 [ICON_CULTURE] Culture from each adjacent Mountain. Preserves Forest and Jungle. Extra [ICON_PEACE] Faith / [ICON_CULTURE] Culture from [COLOR_CYAN]Theology[ENDCOLOR] and [COLOR_CYAN]Acoustics[ENDCOLOR]; extra [ICON_CULTURE] Culture and [ICON_GOLD] Gold at [COLOR_CYAN]Flight[ENDCOLOR].</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_BUILD_MOTTE_BAILEY"> 
 			<Text>
 				Construct a Motte and Bailey
@@ -76182,6 +76252,9 @@ The ship has weather'd every rack; the prize we sought is won."
 				Monastery
 			</Text>
 		</Replace>
+		<Row Tag="TXT_KEY_IMPROVEMENT_TIBET_HELP">
+			<Text>Unique to Tibet. Unlocked at the [COLOR_CYAN]Calendar[ENDCOLOR] Technology. Can only be built on [COLOR_POSITIVE_TEXT]Hills[ENDCOLOR]. Provides +2 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture; an additional +1 [ICON_PEACE] Faith at [COLOR_CYAN]Theology[ENDCOLOR] and +1 [ICON_CULTURE] Culture at [COLOR_CYAN]Acoustics[ENDCOLOR]. +1 [ICON_CULTURE] Culture for each adjacent Mountain tile. At [COLOR_CYAN]Flight[ENDCOLOR], receives +1 [ICON_CULTURE] Culture and +1 [ICON_GOLD] Gold. May be built on [COLOR_GREEN]Forest[ENDCOLOR] and [COLOR_GREEN]Jungle[ENDCOLOR] without removing the feature.</Text>
+		</Row>
 		<Replace Tag="TXT_KEY_IMPROVEMENT_TIPI"> 
 			<Text>
 				Tipi
@@ -114280,7 +114353,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_ARTISTIC_GENIUS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Artistic Genius[ENDCOLOR][NEWLINE]A [ICON_GREAT_ARTIST] Great Artist appears. [COLOR_POSITIVE_TEXT]Amphitheaters[ENDCOLOR], [COLOR_POSITIVE_TEXT]Opera Houses[ENDCOLOR], [COLOR_POSITIVE_TEXT]Museums[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Broadcast Towers[ENDCOLOR] provide +1 [ICON_RESEARCH] Science. [COLOR_POSITIVE_TEXT]Great Works[ENDCOLOR] provide +3 [ICON_RESEARCH] Science and every [COLOR_POSITIVE_TEXT]Festival[ENDCOLOR] yields +2 [ICON_RESEARCH] Science.
+				[COLOR_POSITIVE_TEXT]Artistic Genius[ENDCOLOR][NEWLINE]A [ICON_GREAT_ARTIST] Great Artist appears. [ICON_BUILDING_AMPHITHEATER] Amphitheaters, [ICON_BUILDING_OPERA_HOUSE] Opera Houses, [ICON_BUILDING_MUSEUM] Museums, and [ICON_BUILDING_BROADCAST_TOWER] Broadcast Towers provide +1 [ICON_RESEARCH] Science. [ICON_GREAT_WORK] Great Works provide +3 [ICON_RESEARCH] Science and every [COLOR_POSITIVE_TEXT]Festival[ENDCOLOR] yields +2 [ICON_RESEARCH] Science.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_ARTISTIC_GENIUS_TEXT"> 
@@ -114330,7 +114403,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_AESTHETICS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Aesthetics[ENDCOLOR] improves the civilization's ability to generate [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Adopting Aesthetics allows you to earn [ICON_GREAT_WRITER] Great Writers, [ICON_GREAT_ARTIST] Artists and [ICON_GREAT_MUSICIAN] Musicians 25% faster. Unlocks building [COLOR_POSITIVE_TEXT]Uffizi[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Aesthetics tree gives a +100% [ICON_PRODUCTION] Production bonus towards training [COLOR_YELLOW]Archaeologists[ENDCOLOR] and doubles the theming bonus you receive from [COLOR_POSITIVE_TEXT]Museums[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Wonders[ENDCOLOR]. It also reveals [COLOR_POSITIVE_TEXT]Hidden Antiquity Sites[ENDCOLOR] and and allows the purchase of [ICON_GREAT_WRITER]Great Writers, [ICON_GREAT_ARTIST] Artists, or [ICON_GREAT_MUSICIAN] Musicians with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR]. Grants 1 free [COLOR_POSITIVE_TEXT]Social Policy[ENDCOLOR] upon completing the tree.
+				[COLOR_POSITIVE_TEXT]Aesthetics[ENDCOLOR] improves the civilization's ability to generate [ICON_CULTURE] Culture.[NEWLINE][NEWLINE]Adopting Aesthetics allows you to earn [ICON_GREAT_WRITER] Great Writers, [ICON_GREAT_ARTIST] Artists and [ICON_GREAT_MUSICIAN] Musicians 25% faster. Unlocks building [ICON_WONDER_UFFIZI] Uffizi.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Aesthetics tree gives a +100% [ICON_PRODUCTION] Production bonus towards training [COLOR_YELLOW]Archaeologists[ENDCOLOR] and doubles the theming bonus you receive from [ICON_BUILDING_MUSEUM] Museums and [COLOR_POSITIVE_TEXT]Wonders[ENDCOLOR]. It also reveals [COLOR_POSITIVE_TEXT]Hidden Antiquity Sites[ENDCOLOR] and allows the purchase of [ICON_GREAT_WRITER]Great Writers, [ICON_GREAT_ARTIST] Artists, or [ICON_GREAT_MUSICIAN] Musicians with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR]. Grants 1 free [COLOR_POSITIVE_TEXT]Social Policy[ENDCOLOR] upon completing the tree.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_AMERICAN"> 
@@ -114390,7 +114463,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_COMMERCE_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Commerce[ENDCOLOR] provides bonuses to empires focused on [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Adopting Commerce allows you to earn [ICON_GREAT_MERCHANT] Great Merchants 33% faster. Unlocks building [COLOR_POSITIVE_TEXT]Big Ben[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Commerce tree will grant you 2 free [ICON_GREAT_MERCHANT] Great Merchants and double [ICON_GOLD] Gold from [ICON_GREAT_MERCHANT] Great Merchant [COLOR_POSITIVE_TEXT]Trade Missions[ENDCOLOR]. It also provides +1 [ICON_FOOD] Food from [COLOR_POSITIVE_TEXT]Trading Posts[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Caers[ENDCOLOR] and allows the purchase of [ICON_GREAT_MERCHANT]Great Merchants with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Commerce[ENDCOLOR] provides bonuses to empires focused on [ICON_GOLD] Gold.[NEWLINE][NEWLINE]Adopting Commerce allows you to earn [ICON_GREAT_MERCHANT] Great Merchants 33% faster. Unlocks building [ICON_WONDER_BIG_BEN] Big Ben.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Commerce tree will grant you 2 free [ICON_GREAT_MERCHANT] Great Merchants and double [ICON_GOLD] Gold from [ICON_GREAT_MERCHANT] Great Merchant [COLOR_POSITIVE_TEXT]Trade Missions[ENDCOLOR]. It also provides +1 [ICON_FOOD] Food from [COLOR_POSITIVE_TEXT]Trading Posts[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Caers[ENDCOLOR] and allows the purchase of [ICON_GREAT_MERCHANT]Great Merchants with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_EUROPEAN"> 
@@ -114410,7 +114483,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_EXPLORATION_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Exploration[ENDCOLOR] enhances your abilties to spread your empire, especially over the seas.[NEWLINE][NEWLINE]Adopting Exploration gives +1 [ICON_MOVES] Movement and +1 Sight for naval [COLOR_POSITIVE_TEXT]Military[ENDCOLOR] units. It also allows you to train [ICON_UNIT_SPANISH_CONQUISTADOR] Conquistadors and unlocks building the [COLOR_POSITIVE_TEXT]Tower of Belem[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] provides +1 [ICON_HAPPINESS_1] Happiness from each [COLOR_POSITIVE_TEXT]Luxury[ENDCOLOR] resource and causes a [ICON_GREAT_ADMIRAL] Great Admiral to appear. [ICON_GREAT_ADMIRAL] Great Admirals are earned twice as fast and may be purchased with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Exploration[ENDCOLOR] enhances your abilties to spread your empire, especially over the seas.[NEWLINE][NEWLINE]Adopting Exploration gives +1 [ICON_MOVES] Movement and +1 Sight for naval [COLOR_POSITIVE_TEXT]Military[ENDCOLOR] units. It also allows you to train [ICON_UNIT_SPANISH_CONQUISTADOR] Conquistadors and unlocks building the [COLOR_POSITIVE_TEXT]Tower of Belem[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] yields +1 [ICON_GOLD] Gold from all [COLOR_POSITIVE_TEXT]Coast[ENDCOLOR], [COLOR_POSITIVE_TEXT]Ocean[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Lake[ENDCOLOR] tiles without Resources or Improvements. Provides +1 [ICON_HAPPINESS_1] Happiness from each [COLOR_POSITIVE_TEXT]Luxury[ENDCOLOR] resource and causes a [ICON_GREAT_ADMIRAL] Great Admiral to appear. [ICON_GREAT_ADMIRAL] Great Admirals are earned twice as fast and may be purchased with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_FREEDOM"> 
@@ -114440,7 +114513,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_HONOR_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Honor[ENDCOLOR] improves the effectiveness of one's army in a variety of ways.[NEWLINE][NEWLINE]Adopting Honor gives a +33% combat bonus VS [COLOR_POSITIVE_TEXT]Barbarians[ENDCOLOR]. Gain [ICON_CULTURE] Culture for the empire for each enemy unit killed. Unlocks building the [COLOR_POSITIVE_TEXT]Temple of Artemis[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Honor tree will grant [ICON_RESEARCH] Science for each enemy unit killed. All cities receive +10% [ICON_FOOD] Food. [ICON_GREAT_GENERAL] Great Generals can be purchased with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Honor[ENDCOLOR] improves the effectiveness of one's army in a variety of ways.[NEWLINE][NEWLINE]Adopting Honor gives a +33% combat bonus VS [COLOR_POSITIVE_TEXT]Barbarians[ENDCOLOR]. Gain [ICON_CULTURE] Culture for the empire for each enemy unit killed. Unlocks building the [ICON_WONDER_STATUE_ZEUS] Statue of Zeus.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Honor tree will grant [ICON_RESEARCH] Science for each enemy unit killed. +1 [ICON_FOOD] Food from [ICON_BUILDING_BARRACKS] Barracks, and +2 [ICON_FOOD] Food from [ICON_BUILDING_ARMORY] Armories. [ICON_GREAT_GENERAL] Great Generals can be purchased with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_LIBERTY"> 
@@ -114455,7 +114528,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_LIBERTY_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Liberty[ENDCOLOR] is best for civilizations which desire rapid expansion.[NEWLINE][NEWLINE]Adopting Liberty will provide 1 [ICON_CULTURE] Culture per city. Unlocks building the [COLOR_POSITIVE_TEXT]Pyramids[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Liberty tree will grant a free [ICON_GREAT_PEOPLE] Great Person of your choice near the [ICON_CAPITAL] Capital. All cities gain +33% [ICON_PRODUCTION] Production towards [COLOR_POSITIVE_TEXT]National Wonders[ENDCOLOR] and +15% [ICON_PRODUCTION] Production towards any building required for a [COLOR_POSITIVE_TEXT]National Wonder[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Liberty[ENDCOLOR] is best for civilizations which desire rapid expansion.[NEWLINE][NEWLINE]Adopting Liberty will provide 1 [ICON_CULTURE] Culture per city. Unlocks building the [ICON_WONDER_PYRAMID] Pyramids.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Liberty tree will grant a free [ICON_GREAT_PEOPLE] Great Person of your choice near the [ICON_CAPITAL] Capital. All cities gain +33% [ICON_PRODUCTION] Production towards [COLOR_POSITIVE_TEXT]National Wonders[ENDCOLOR] and +15% [ICON_PRODUCTION] Production towards any building required for a [COLOR_POSITIVE_TEXT]National Wonder[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_ORDER"> 
@@ -114485,7 +114558,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_PATRONAGE_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Patronage[ENDCOLOR] enhances the benefits of City-State friendship.[NEWLINE][NEWLINE]Adopting Patronage will cause the resting point for [ICON_INFLUENCE] Influence with all City-States to be increased by 20. Unlocks building the [COLOR_POSITIVE_TEXT]Forbidden Palace[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Patronage tree will cause [COLOR_POSITIVE_TEXT]Allied[ENDCOLOR] City-States to occasionally gift you [ICON_GREAT_PEOPLE] Great People. Increases [COLOR_POSITIVE_TEXT]Friendly[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Allied[ENDCOLOR] City-State gifts of [ICON_FOOD] Food, [ICON_CULTURE] Culture, and [ICON_PEACE] Faith by 50%, and [COLOR_POSITIVE_TEXT]Militaristic[ENDCOLOR] City-States send two units per gift.
+				[COLOR_POSITIVE_TEXT]Patronage[ENDCOLOR] enhances the benefits of City-State friendship.[NEWLINE][NEWLINE]Adopting Patronage will cause the resting point for [ICON_INFLUENCE] Influence with all City-States to be increased by 20. Unlocks building the [ICON_WONDER_FORBIDDEN_PALACE] Forbidden Palace.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Patronage tree will cause [COLOR_POSITIVE_TEXT]Allied[ENDCOLOR] City-States to occasionally gift you [ICON_GREAT_PEOPLE] Great People. Increases [COLOR_POSITIVE_TEXT]Friendly[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Allied[ENDCOLOR] City-State gifts of [ICON_FOOD] Food, [ICON_CULTURE] Culture, and [ICON_PEACE] Faith by 50%, and [COLOR_POSITIVE_TEXT]Militaristic[ENDCOLOR] City-States send two units per gift.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_PIETY"> 
@@ -114500,7 +114573,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_PIETY_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Piety[ENDCOLOR] increases the [ICON_PEACE] Faith of empires.[NEWLINE][NEWLINE]Adopting Piety provides you with +1 [ICON_CULTURE] Culture and +1 [ICON_PEACE] Faith in the [ICON_CAPITAL] Capital +100% [ICON_PRODUCTION] Production towards [COLOR_POSITIVE_TEXT]Shrines[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Temples[ENDCOLOR]. Unlocks building the [COLOR_POSITIVE_TEXT]Great Mosque of Djenne[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Piety tree causes a [ICON_PROPHET] Great Prophet to appear. [COLOR_POSITIVE_TEXT]Holy Sites[ENDCOLOR] provide +1 [ICON_FOOD] Food and +3 [ICON_CULTURE] Culture. Provides a free [COLOR_POSITIVE_TEXT]Garden[ENDCOLOR] in your first 4 cities and allows [ICON_PEACE] Faith purchasing of 1 [ICON_GREAT_PEOPLE] Great Person of every kind with exception to a [ICON_GREAT_SCIENTIST] Great Scientist starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Piety[ENDCOLOR] increases the [ICON_PEACE] Faith of empires.[NEWLINE][NEWLINE]Adopting Piety provides you with +1 [ICON_PRODUCTION] Production, +1 [ICON_CULTURE] Culture, and +1 [ICON_PEACE] Faith in the [ICON_CAPITAL] Capital. +50% [ICON_PRODUCTION] Production towards [ICON_BUILDING_SHRINE] Shrines and [ICON_BUILDING_TEMPLE] Temples. Unlocks building the [ICON_WONDER_MOSQUE_OF_DJENNE] Great Mosque of Djenne.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Piety tree causes a [ICON_PROPHET] Great Prophet to appear. [COLOR_POSITIVE_TEXT]Holy Sites[ENDCOLOR] provide +1 [ICON_FOOD] Food and +3 [ICON_CULTURE] Culture. Provides a free [ICON_BUILDING_GARDEN] Garden in your first 4 cities and allows [ICON_PEACE] Faith purchasing of 1 [ICON_GREAT_PEOPLE] Great Person of every kind with exception to a [ICON_GREAT_SCIENTIST] Great Scientist starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_RATIONALISM"> 
@@ -114515,7 +114588,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_RATIONALISM_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Rationalism[ENDCOLOR] improves the ability to use and generate [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]Adopting Rationalism allows you to earn [ICON_GREAT_SCIENTIST] Great Scientist 20% Faster. Unlocks building the [COLOR_POSITIVE_TEXT]Porcelain Tower[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Rationalism tree will grant +10% [ICON_RESEARCH] Science while the empire is [ICON_HAPPINESS_1] Happy.
+				[COLOR_POSITIVE_TEXT]Rationalism[ENDCOLOR] improves the ability to use and generate [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]Adopting Rationalism allows you to earn [ICON_GREAT_SCIENTIST] Great Scientist 20% Faster. Unlocks building the [ICON_WONDER_PORCELAIN_TOWER] Porcelain Tower.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Rationalism tree will grant +10% [ICON_RESEARCH] Science while the empire is [ICON_HAPPINESS_1] Happy.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_TRADITION"> 
@@ -114530,7 +114603,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_TRADITION_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Tradition[ENDCOLOR] is best for small empires.[NEWLINE][NEWLINE]Adopting Tradition greatly increases the rate of border expansion in cities and also grants 3 [ICON_CULTURE] Culture in the [ICON_CAPITAL] Capital. Unlocks building the [COLOR_POSITIVE_TEXT]Hanging Gardens[ENDCOLOR].[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Tradition tree will grant +15% [ICON_FOOD] Growth and a free [COLOR_POSITIVE_TEXT]Aqueduct[ENDCOLOR] in your first 4 cities. It also allows the purchase of [ICON_GREAT_ENGINEER] Great Engineers with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Tradition[ENDCOLOR] is best for small empires.[NEWLINE][NEWLINE]Adopting Tradition greatly increases the rate of border expansion in cities and also grants 3 [ICON_CULTURE] Culture in the [ICON_CAPITAL] Capital. Unlocks building the [ICON_WONDER_HANGING_GARDEN] Hanging Gardens.[NEWLINE][NEWLINE]Adopting all [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] in the Tradition tree will grant +15% [ICON_FOOD] Growth and a free [ICON_BUILDING_AQUEDUCT] Aqueduct in your first 4 cities. It also allows the purchase of [ICON_GREAT_ENGINEER] Great Engineers with [ICON_PEACE] Faith starting in the [COLOR_CYAN]Industrial Era[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_BRANCH_UNLOCK_SPEND"> 
@@ -114565,7 +114638,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_CARAVANS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Silk Road[ENDCOLOR][NEWLINE]+50% [ICON_PRODUCTION] Production bonus towards [COLOR_POSITIVE_TEXT]Markets[ENDCOLOR], [COLOR_POSITIVE_TEXT]Banks[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Stock Exchanges[ENDCOLOR]
+				[COLOR_POSITIVE_TEXT]Silk Road[ENDCOLOR][NEWLINE]+50% [ICON_PRODUCTION] Production bonus towards [ICON_BUILDING_MARKET] Markets, [ICON_BUILDING_BANK] Banks, and [ICON_BUILDING_STOCK_EXCHANGE] Stock Exchanges.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_CARAVANS_TEXT"> 
@@ -114625,12 +114698,12 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_COLLECTIVE_RULE_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Collective Rule[ENDCOLOR][NEWLINE]Speeds the training of [COLOR_POSITIVE_TEXT]Settlers[ENDCOLOR] by 50% in the [ICON_CAPITAL] Capital and a free [COLOR_POSITIVE_TEXT]Settler[ENDCOLOR] appears near the [ICON_CAPITAL] Capital.
+				[COLOR_POSITIVE_TEXT]Collective Rule[ENDCOLOR][NEWLINE]Speeds the training of [ICON_UNIT_SETTLER] [COLOR_YELLOW]Settlers[ENDCOLOR] by 50% in the [ICON_CAPITAL] Capital and a free [ICON_UNIT_SETTLER] [COLOR_YELLOW]Settler[ENDCOLOR] appears near the [ICON_CAPITAL] Capital.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_COLLECTIVE_RULE_NWS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Collective Rule[ENDCOLOR][NEWLINE]Speeds the training of [COLOR_POSITIVE_TEXT]Settlers[ENDCOLOR] by 50% in the [ICON_CAPITAL] Capital and a free [COLOR_POSITIVE_TEXT]Settler[ENDCOLOR] appears near the [ICON_CAPITAL] Capital.
+				[COLOR_POSITIVE_TEXT]Collective Rule[ENDCOLOR][NEWLINE]Speeds the training of [ICON_UNIT_SETTLER] Settlers by 50% in the [ICON_CAPITAL] Capital and a free [ICON_UNIT_SETTLER]Settler appears near the [ICON_CAPITAL] Capital.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_COMMERCE_FINISHER"> 
@@ -114765,7 +114838,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_CULTURAL_CENTERS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Cultural Centers[ENDCOLOR][NEWLINE]+100% [ICON_PRODUCTION] Production towards [COLOR_POSITIVE_TEXT]Amphitheaters[ENDCOLOR], [COLOR_POSITIVE_TEXT]Opera Houses[ENDCOLOR], [COLOR_POSITIVE_TEXT]Museums[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Broadcast Towers[ENDCOLOR]. +1 [ICON_HAPPINESS_1] Happiness from [COLOR_POSITIVE_TEXT]Writer[ENDCOLOR]/[COLOR_POSITIVE_TEXT]Artist[ENDCOLOR]/[COLOR_POSITIVE_TEXT]Musician Guilds[ENDCOLOR]
+				[COLOR_POSITIVE_TEXT]Cultural Centers[ENDCOLOR][NEWLINE]+100% [ICON_PRODUCTION] Production towards [ICON_BUILDING_AMPHITHEATER] Amphitheaters, [ICON_BUILDING_OPERA_HOUSE] Opera Houses, [ICON_BUILDING_MUSEUM] Museums, and [ICON_BUILDING_BROADCAST_TOWER] Broadcast Towers. +1 [ICON_HAPPINESS_1] Happiness from each [COLOR_POSITIVE_TEXT]Guild[ENDCOLOR] building
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_CULTURAL_CENTERS_TEXT"> 
@@ -114855,7 +114928,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_DISCIPLINE_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Discipline[ENDCOLOR][NEWLINE]+100% [ICON_PRODUCTION] Production towards the [COLOR_POSITIVE_TEXT]Heroic Epic[ENDCOLOR] and it provides +4 [ICON_HAPPINESS_1] Happiness, +4 [ICON_PRODUCTION] Production, +4 [ICON_GOLD] Gold and +4 [ICON_CULTURE] Culture. Non-Airplane [COLOR_POSITIVE_TEXT]Military[ENDCOLOR] units gain 50% more [COLOR_POSITIVE_TEXT]Experience[ENDCOLOR] from combat.
+				[COLOR_POSITIVE_TEXT]Discipline[ENDCOLOR][NEWLINE]+100% [ICON_PRODUCTION] Production towards the [ICON_WONDER_HEROIC_EPIC] Heroic Epic and it provides +4 [ICON_HAPPINESS_1] Happiness, +4 [ICON_FOOD] Food, +4 [ICON_PRODUCTION] Production, +4 [ICON_GOLD] Gold and +4 [ICON_CULTURE] Culture. Non-Airplane [COLOR_POSITIVE_TEXT]Military[ENDCOLOR] units gain 50% more [COLOR_POSITIVE_TEXT]Experience[ENDCOLOR] from combat.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_DISCIPLINE_TEXT"> 
@@ -115010,7 +115083,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_FINE_ARTS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Fine Arts[ENDCOLOR][NEWLINE]Provides a free [COLOR_POSITIVE_TEXT]Scriptorium[ENDCOLOR], [COLOR_POSITIVE_TEXT]Gallery[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Conservatory[ENDCOLOR] in your cities. [COLOR_POSITIVE_TEXT]Amphitheaters[ENDCOLOR], [COLOR_POSITIVE_TEXT]Opera Houses[ENDCOLOR], [COLOR_POSITIVE_TEXT]Museums[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Broadcast Towers[ENDCOLOR] increase city [ICON_TOURISM] Tourism output by 20%.
+				[COLOR_POSITIVE_TEXT]Fine Arts[ENDCOLOR][NEWLINE]Provides a free [COLOR_POSITIVE_TEXT]Scriptorium[ENDCOLOR], [COLOR_POSITIVE_TEXT]Gallery[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Conservatory[ENDCOLOR] in your cities. [ICON_BUILDING_AMPHITHEATER] Amphitheaters, [ICON_BUILDING_OPERA_HOUSE] Opera Houses, [ICON_BUILDING_MUSEUM] Museums, and [ICON_BUILDING_BROADCAST_TOWER] Broadcast Towers increase city [ICON_TOURISM] Tourism output by 20%.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_FINE_ARTS_TEXT"> 
@@ -115100,7 +115173,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_FREE_RELIGION_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Religious Tolerance[ENDCOLOR][NEWLINE]Cities with a majority [ICON_RELIGION] Religion also get the [ICON_RELIGION_PANTHEON] Pantheon belief bonus of that city's second most popular [ICON_RELIGION] Religion.[NEWLINE]+2 [ICON_RESEARCH] Science from each [COLOR_POSITIVE_TEXT]Temple[ENDCOLOR].[NEWLINE]+25% [ICON_RESEARCH] Science from the [COLOR_POSITIVE_TEXT]Grand Temple[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Religious Tolerance[ENDCOLOR][NEWLINE]Cities with a majority [ICON_RELIGION] Religion also get the [ICON_RELIGION_PANTHEON] Pantheon belief bonus of that city's second most popular [ICON_RELIGION] Religion.[NEWLINE]+2 [ICON_RESEARCH] Science from each [ICON_BUILDING_TEMPLE] Temple.[NEWLINE]+25% [ICON_RESEARCH] Science from the [ICON_BUILDING_GRAND_TEMPLE] Grand Temple.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_FREE_SPEECH"> 
@@ -115150,7 +115223,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_GUNBOAT_DIPLOMACY_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Gunboat Diplomacy[ENDCOLOR][NEWLINE]Gain 6 more [ICON_INFLUENCE] Influence (at Standard speed) per turn with City-States you could demand tribute from.  Your military forces are 50% more effective at intimidating City-States.
+				[COLOR_POSITIVE_TEXT]Gunboat Diplomacy[ENDCOLOR][NEWLINE][COLOR_POSITIVE_TEXT]Military Units[ENDCOLOR] are 50% more effective at intimidating [ICON_CITY_STATE] City-States. Tributing a [ICON_CITY_STATE] City-State increases [ICON_INFLUENCE] Influence with it by 50 (rather than decreasing it), and no longer clears given [COLOR_POSITIVE_TEXT]Quests[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_GUNBOAT_DIPLOMACY_TEXT"> 
@@ -115205,7 +115278,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_HUMANISM_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Humanism[ENDCOLOR][NEWLINE]+50% [ICON_PRODUCTION] Production towards [COLOR_POSITIVE_TEXT]Libraries[ENDCOLOR], [COLOR_POSITIVE_TEXT]Universities[ENDCOLOR], [COLOR_POSITIVE_TEXT]Observatories[ENDCOLOR], [COLOR_POSITIVE_TEXT]Public Schools[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Research Labs[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Humanism[ENDCOLOR][NEWLINE]+50% [ICON_PRODUCTION] Production towards [ICON_BUILDING_LIBRARY] Libraries, [ICON_BUILDING_UNIVERSITY] Universities, [ICON_BUILDING_OBSERVATORY] Observatories, [ICON_BUILDING_PUBLIC_SCHOOL] Public Schools, and [ICON_BUILDING_LABORATORY] Research Labs.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_HUMANISM_TEXT"> 
@@ -115310,7 +115383,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MANDATE_OF_HEAVEN_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Mandate of Heaven[ENDCOLOR][NEWLINE]+1 [ICON_PEACE] Faith in the [ICON_CAPITAL] Capital and +1 [ICON_HAPPINESS_1] Happiness from each [COLOR_POSITIVE_TEXT]Temple[ENDCOLOR]. 20% discount on all purchases of [COLOR_POSITIVE_TEXT]Religious Units[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Buildings[ENDCOLOR] with [ICON_PEACE] Faith.
+				[COLOR_POSITIVE_TEXT]Mandate of Heaven[ENDCOLOR][NEWLINE]+1 [ICON_PEACE] Faith in the [ICON_CAPITAL] Capital and +1 [ICON_HAPPINESS_1] Happiness from each [ICON_BUILDING_TEMPLE] Temple. 20% discount on all purchases of [COLOR_POSITIVE_TEXT]Religious Units[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Buildings[ENDCOLOR] with [ICON_PEACE] Faith.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MARITIME_INFRASTRUCTURE"> 
@@ -115320,7 +115393,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MARITIME_INFRASTRUCTURE_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Maritime Infrastructure[ENDCOLOR][NEWLINE]+1 [ICON_PRODUCTION] Production in all Cities, increasing to +3 [ICON_PRODUCTION] Production in [COLOR_POSITIVE_TEXT]Coastal[ENDCOLOR] Cities. +50% [ICON_PRODUCTION] Production towards [ICON_BUILDING_LIGHTHOUSE] Lighthouses, [ICON_BUILDING_HARBOR] Harbors, and [ICON_BUILDING_SEAPORT] Seaports.
+				[COLOR_POSITIVE_TEXT]Maritime Infrastructure[ENDCOLOR][NEWLINE]+2 [ICON_PRODUCTION] Production in all Cities. +50% [ICON_PRODUCTION] Production towards [ICON_BUILDING_LIGHTHOUSE] Lighthouses, [ICON_BUILDING_HARBOR] Harbors, and [ICON_BUILDING_SEAPORT] Seaports.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MARITIME_INFRASTRUCTURE_TEXT"> 
@@ -115350,7 +115423,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MERCANTILISM_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Mercantilism[ENDCOLOR][NEWLINE]Purchasing items in Cities requires 20% less [ICON_GOLD] Gold. +2 [ICON_RESEARCH] Science from every [COLOR_POSITIVE_TEXT]Market[ENDCOLOR], [COLOR_POSITIVE_TEXT]Bank[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Stock Exchange[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Mercantilism[ENDCOLOR][NEWLINE]Purchasing items in Cities requires 20% less [ICON_GOLD] Gold. +2 [ICON_RESEARCH] Science from every [ICON_BUILDING_MARKET] Market, [ICON_BUILDING_BANK] Bank, and [ICON_BUILDING_STOCK_EXCHANGE] Stock Exchange.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MERCANTILISM_TEXT"> 
@@ -115435,7 +115508,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MILITARY_CASTE_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Military Caste[ENDCOLOR][NEWLINE][COLOR_POSITIVE_TEXT]Garrisoned[ENDCOLOR] units cost no maintenance and provide the city with +2 [ICON_CULTURE] Culture and +1 [ICON_HAPPINESS_1] Happiness. [COLOR_POSITIVE_TEXT]Courthouses[ENDCOLOR] provide +2 [ICON_HAPPINESS_1] Happiness.
+				[COLOR_POSITIVE_TEXT]Military Caste[ENDCOLOR][NEWLINE][COLOR_POSITIVE_TEXT]Garrisoned[ENDCOLOR] units cost no maintenance and provide the city with +2 [ICON_CULTURE] Culture and +1 [ICON_HAPPINESS_1] Happiness. [ICON_BUILDING_COURTHOUSE] Courthouses provide +2 [ICON_HAPPINESS_1] Happiness.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MILITARY_TRADITION"> 
@@ -115445,7 +115518,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MILITARY_TRADITION_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Military Tradition[ENDCOLOR][NEWLINE]+50% [ICON_PRODUCTION] Production towards [COLOR_POSITIVE_TEXT]Courthouses[ENDCOLOR] and they provide +3 [ICON_FOOD] Food, +3 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold. [COLOR_POSITIVE_TEXT]Citadels[ENDCOLOR] provide +2 [ICON_RESEARCH] Science, +2 [ICON_CULTURE] Culture and +1 [ICON_FOOD] Food.
+				[COLOR_POSITIVE_TEXT]Military Tradition[ENDCOLOR][NEWLINE]+50% [ICON_PRODUCTION] Production towards [ICON_BUILDING_COURTHOUSE] Courthouses and they provide +3 [ICON_FOOD] Food, +3 [ICON_PRODUCTION] Production and +3 [ICON_GOLD] Gold. [COLOR_POSITIVE_TEXT]Citadels[ENDCOLOR] provide +2 [ICON_RESEARCH] Science, +2 [ICON_CULTURE] Culture and +1 [ICON_FOOD] Food.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_MOBILIZATION"> 
@@ -115541,7 +115614,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_NEW_DEAL_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]New Deal[ENDCOLOR][NEWLINE][COLOR_POSITIVE_TEXT]Landmarks[ENDCOLOR] and [ICON_GREAT_PEOPLE] Great Person improvements produce +5 of the appropriate yield. [COLOR_POSITIVE_TEXT]Sacred Groves[ENDCOLOR] produce +1 of the appropriate yields.
+				[COLOR_POSITIVE_TEXT]New Deal[ENDCOLOR][NEWLINE]+5 [ICON_CULTURE] Culture from [COLOR_POSITIVE_TEXT]Landmarks[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Sacred Groves[ENDCOLOR] receive +1 of each yield they give. Other [ICON_GREAT_PEOPLE] Great Person tile improvements produce +4 of their appropriate yield. This bonus is increased by 1 for each adjacent [ICON_GREAT_PEOPLE] Great Person tile improvement.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_NEW_DEAL_TEXT"> 
@@ -115621,7 +115694,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_ORGANIZED_RELIGION_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Organized Religion[ENDCOLOR][NEWLINE]+1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from [COLOR_POSITIVE_TEXT]Shrines[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Temples[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Organized Religion[ENDCOLOR][NEWLINE]+1 [ICON_PEACE] Faith and +1 [ICON_CULTURE] Culture from [ICON_BUILDING_SHRINE] Shrines and [ICON_BUILDING_TEMPLE] Temples.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_OVERSEAS_EMPIRE"> 
@@ -115646,7 +115719,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_PARTY_LEADERSHIP_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Party Leadership[ENDCOLOR][NEWLINE]+2 [ICON_FOOD] Food, +2 [ICON_PRODUCTION] Production, +2 [ICON_RESEARCH] Science, and +2 [ICON_GOLD] Gold per city.
+				[COLOR_POSITIVE_TEXT]Party Leadership[ENDCOLOR][NEWLINE]+1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production, +1 [ICON_RESEARCH] Science, +1 [ICON_CULTURE] Culture, and +1 [ICON_GOLD] Gold per city.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_PARTY_LEADERSHIP_TEXT"> 
@@ -115786,7 +115859,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_PROFESSIONAL_ARMY_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Professional Army[ENDCOLOR][NEWLINE]+100% [ICON_PRODUCTION] Production towards [COLOR_POSITIVE_TEXT]Barracks[ENDCOLOR], [COLOR_POSITIVE_TEXT]Armories[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Military Academies[ENDCOLOR]. They each provide +1 [ICON_PRODUCTION] Production, +1 [ICON_CULTURE] Culture, and +1 [ICON_GOLD] Gold.
+				[COLOR_POSITIVE_TEXT]Professional Army[ENDCOLOR][NEWLINE]+100% [ICON_PRODUCTION] Production towards [ICON_BUILDING_BARRACKS] Barracks, and +50% [ICON_PRODUCTION] Production towards [ICON_BUILDING_ARMORY] Armories and [ICON_BUILDING_MILITARY_ACADEMY] Military Academies. They each provide +1 [ICON_PRODUCTION] Production, +1 [ICON_CULTURE] Culture, and +1 [ICON_GOLD] Gold.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_PROTECTIONISM"> 
@@ -115871,7 +115944,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_REFORMATION_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Reformation[ENDCOLOR][NEWLINE]If you have founded a [ICON_RELIGION] Religion, gain a bonus [COLOR_POSITIVE_TEXT]Reformation[ENDCOLOR] belief. +15% [ICON_CULTURE] Border Growth from Culture.
+				[COLOR_POSITIVE_TEXT]Reformation[ENDCOLOR][NEWLINE]If you have founded a [ICON_RELIGION] Religion, gain a bonus [COLOR_POSITIVE_TEXT]Reformation[ENDCOLOR] belief. +15% [ICON_CULTURE] Border Growth.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_REFORMATION_TEXT"> 
@@ -115886,7 +115959,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_REPRESENTATION_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Representation[ENDCOLOR][NEWLINE]Each city you found will increase the [ICON_CULTURE] Culture cost of [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] by 33% less than normal. +1 [ICON_GOLD] Gold from [COLOR_POSITIVE_TEXT]Monuments[ENDCOLOR] and starts a [ICON_GOLDEN_AGE] Golden Age.
+				[COLOR_POSITIVE_TEXT]Representation[ENDCOLOR][NEWLINE]Each city you found will increase the [ICON_CULTURE] Culture cost of [COLOR_POSITIVE_TEXT]Policies[ENDCOLOR] by 33% less than normal. +1 [ICON_GOLD] Gold from [ICON_BUILDING_MONUMENT] Monuments and starts a [ICON_GOLDEN_AGE] Golden Age.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_REPUBLIC"> 
@@ -116101,7 +116174,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_THEOCRACY_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Theocracy[ENDCOLOR][NEWLINE]+1 [ICON_GOLD] Gold from each [COLOR_POSITIVE_TEXT]Shrine[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Temple[ENDCOLOR].[NEWLINE][COLOR_POSITIVE_TEXT]Holy Sites[ENDCOLOR] provide +3 [ICON_GOLD] Gold.[NEWLINE]The [COLOR_POSITIVE_TEXT]Grand Temple[ENDCOLOR] boosts [ICON_GOLD] Gold output in its city by 33%.
+				[COLOR_POSITIVE_TEXT]Theocracy[ENDCOLOR][NEWLINE]+1 [ICON_GOLD] Gold from each [ICON_BUILDING_SHRINE] Shrine and [ICON_BUILDING_TEMPLE] Temple.[NEWLINE][COLOR_POSITIVE_TEXT]Holy Sites[ENDCOLOR] provide +3 [ICON_GOLD] Gold.[NEWLINE]The [ICON_BUILDING_GRAND_TEMPLE] Grand Temple boosts [ICON_GOLD] Gold output in its city by 33%.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_THEOCRACY_TEXT"> 
@@ -116151,7 +116224,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_TRADE_UNIONS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Mercenary Army[ENDCOLOR][NEWLINE]Allows the purchasing of [COLOR_YELLOW]Landsknechts[ENDCOLOR] at [COLOR_CYAN]Civil Service[ENDCOLOR] and [COLOR_YELLOW]Foreign Legions[ENDCOLOR] at [COLOR_CYAN]Replaceable Parts[ENDCOLOR].
+				[COLOR_POSITIVE_TEXT]Mercenary Army[ENDCOLOR][NEWLINE]Allows the purchasing of [ICON_UNIT_GERMAN_LANDSKNECHT] [COLOR_YELLOW]Landsknechts[ENDCOLOR] at [ICON_TECH_CIVIL_SERVICE] [COLOR_CYAN]Civil Service[ENDCOLOR] and [ICON_UNIT_FRENCH_FOREIGNLEGION] [COLOR_YELLOW]Foreign Legions[ENDCOLOR] at [ICON_TECH_REPLACEABLE_PARTS] [COLOR_CYAN]Replaceable Parts[ENDCOLOR].
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_TRADITION"> 
@@ -116176,7 +116249,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_TREASURE_FLEETS_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Treasure Fleets[ENDCOLOR][NEWLINE]+1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production, and +1 [ICON_GOLD] Gold from [COLOR_POSITIVE_TEXT]Coast[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Ocean[ENDCOLOR] tiles without [COLOR_POSITIVE_TEXT]Sea[ENDCOLOR] Resources or Improvements.
+				[COLOR_POSITIVE_TEXT]Treasure Fleets[ENDCOLOR][NEWLINE]+1 [ICON_FOOD] Food and +1 [ICON_PRODUCTION] Production from [COLOR_POSITIVE_TEXT]Coast[ENDCOLOR] and [COLOR_POSITIVE_TEXT]Ocean[ENDCOLOR] tiles without Resources or Improvements. +1 [ICON_PRODUCTION] Production from [COLOR_POSITIVE_TEXT]Lake[ENDCOLOR] tiles without Resources or Improvements
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_TREASURE_FLEETS_TEXT"> 
@@ -116311,7 +116384,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_WARRIOR_CODE_HELP"> 
 			<Text>
-				[COLOR_POSITIVE_TEXT]Warrior Code[ENDCOLOR][NEWLINE]4 units are maintenance free, and receive 2 [COLOR_POSITIVE_TEXT]Warriors[ENDCOLOR] immediately. Gain [ICON_GOLD] Gold for each enemy unit killed.
+				[COLOR_POSITIVE_TEXT]Warrior Code[ENDCOLOR][NEWLINE]4 units are maintenance free, and receive 2 [ICON_UNIT_WARRIOR] [COLOR_YELLOW]Warriors[ENDCOLOR] immediately. Gain [ICON_GOLD] Gold for each enemy unit killed.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_POLICY_WORKERS_FACULTIES"> 
@@ -136126,7 +136199,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_BALTIC"> 
 			<Text>
-				[ICON_PROPHET] Great Prophets may not be used to [ICON_MISSION_FOUND_RELIGION] [COLOR_WARNING_TEXT]Found or [ICON_MISSION_ENHANCE_RELIGION] Enhance[ENDCOLOR] a [ICON_RELIGION] Religion also cannot [COLOR_WARNING_TEXT]Create [ICON_BUILD_HOLY_SITE] Holy Sites[ENDCOLOR]. Instead they may Create Sacred Groves.  
+				Cost of the first [ICON_PROPHET] Great Prophet earned or bought with [ICON_PEACE] Faith is reduced by 50%. [ICON_PROPHET] Great Prophets may not be used to [ICON_MISSION_FOUND_RELIGION] [COLOR_WARNING_TEXT]Found or [ICON_MISSION_ENHANCE_RELIGION] Enhance[ENDCOLOR] a [ICON_RELIGION] Religion and may not [COLOR_WARNING_TEXT]Create [ICON_BUILD_HOLY_SITE] Holy Sites[ENDCOLOR]. Instead they may Create [COLOR_POSITIVE_TEXT]Sacred Groves[ENDCOLOR].  
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_TREASURY_RESOURCE_FOUND"> 
@@ -136331,7 +136404,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_EIGHT_BANNERS"> 
 			<Text>
-				All Mounted, Armored and Bomber Units receive the [ICON_PROMOTION_VOLLEY] Volley promotion (+50% [ICON_STRENGTH] Combat strength vs fortified units and cities) and cost no maintenance.
+				+50% [ICON_PRODUCTION] Production towards constructing [ICON_BUILDING_STABLE] Stables. All Mounted, Armored and Bomber Units receive the [ICON_PROMOTION_VOLLEY] Volley promotion (+50% [ICON_STRENGTH] Combat strength vs fortified units and cities) and cost no maintenance.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_EIGHT_BANNERS_SHORT"> 
@@ -136341,7 +136414,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_ENHANCED_CULTURE"> 
 			<Text>
-				+1 [ICON_CULTURE] Culture in the [ICON_CAPITAL] Capital, this increases by +15 [ICON_CULTURE] Culture upon discovering [ICON_TECH_ACOUSTICS] [COLOR_CYAN]Acoustics[ENDCOLOR]. [ICON_BUILDING_MUSEUM] [COLOR_GREEN]Museum[ENDCOLOR] and [COLOR_GREEN]World Wonder[ENDCOLOR] theming bonuses are doubled in the [ICON_CAPITAL] Capital.
+				+1 [ICON_CULTURE] Culture in the [ICON_CAPITAL] Capital. +2 [ICON_CULTURE] Culture from [COLOR_POSITIVE_TEXT]World Wonders[ENDCOLOR]. [ICON_BUILDING_MUSEUM] [COLOR_GREEN]Museum[ENDCOLOR] and [COLOR_GREEN]World Wonder[ENDCOLOR] theming bonuses are doubled in the [ICON_CAPITAL] Capital.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_ENHANCED_CULTURE_SHORT"> 
@@ -136621,7 +136694,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_LAND_TRADE_GOLD2"> 
 			<Text>
-				+1 [ICON_CULTURE] Culture and +1 [ICON_GOLD] from [COLOR_POSITIVE_TEXT]Luxury Buildings[ENDCOLOR]. Other [COLOR_POSITIVE_TEXT]Buildings[ENDCOLOR] that improve [COLOR_POSITIVE_TEXT]Luxury Resources[ENDCOLOR] also receive this bonus if the city has the appriopiate [COLOR_POSITIVE_TEXT]Luxury Resource[ENDCOLOR] nearby. [ICON_RES_OIL] Oil Resources are doubled.
+				[COLOR_POSITIVE_TEXT]Luxury Resources[ENDCOLOR] are improved twice as fast. +2 [ICON_CULTURE] Culture and +2 [ICON_GOLD] from [COLOR_POSITIVE_TEXT]Breweries[ENDCOLOR], [COLOR_POSITIVE_TEXT]Censer Makers[ENDCOLOR], [COLOR_POSITIVE_TEXT]Gem Cutters[ENDCOLOR], [COLOR_POSITIVE_TEXT]Grocers[ENDCOLOR], [COLOR_POSITIVE_TEXT]Mints[ENDCOLOR], and [COLOR_POSITIVE_TEXT]Textile Mills[ENDCOLOR]. [ICON_RES_OIL] Oil Resources are doubled.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_LAND_TRADE_GOLD2_SHORT"> 
@@ -136806,7 +136879,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_TIBET"> 
 			<Text>
-				The [ICON_CAPITAL] Capital and Cities founded by [COLOR_GREEN]Dalai Lama[ENDCOLOR] receive +2 [ICON_FOOD] Food, +2 [ICON_PRODUCTION] Production, +2 [ICON_GOLD] Gold, +2 [ICON_RESEARCH] Science, +2 [ICON_CULTURE] Culture, and +2 [ICON_PEACE] Faith upon the discovery of [ICON_TECH_DRAMA] [COLOR_CYAN]Drama and Poetry[ENDCOLOR]. Receive +1 of those yields for every Era you advance to after the Classical Era.
+				The [ICON_CAPITAL] Capital and the first City founded by a [COLOR_GREEN]Dalai Lama[ENDCOLOR] receive +2 [ICON_FOOD] Food, +2 [ICON_PRODUCTION] Production, +2 [ICON_GOLD] Gold, +2 [ICON_RESEARCH] Science, +2 [ICON_CULTURE] Culture, and +2 [ICON_PEACE] Faith upon the discovery of [ICON_TECH_DRAMA] [COLOR_CYAN]Drama and Poetry[ENDCOLOR]. Receive +1 of those yields for every Era you advance to after the Classical Era.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_TIBET_SHORT"> 
@@ -137086,7 +137159,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_VATICAN"> 
 			<Text>
-				Owned [ICON_OCCUPIED] Occupied Cities that follow your [ICON_RELIGION] Religion instantly receive a Courthouse. +2 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture from every Great Person Tile Improvement. Receive 2 free World Congress Delegates.
+				All units earn [ICON_PEACE] Faith from kills. Owned [ICON_OCCUPIED] Occupied Cities that follow your [ICON_RELIGION] Religion instantly receive a Courthouse. +2 [ICON_FOOD] Food, +1 [ICON_GOLD] Gold and +1 [ICON_CULTURE] Culture from every Great Person Tile Improvement.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_TRAIT_VATICAN_SHORT"> 
@@ -142392,7 +142465,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_HANGING_GARDEN_HELP"> 
 			<Text>
-				Requires Tradition. Provides a free Garden in the city in which it is built.
+				Requires Tradition. Provides a free [ICON_BUILDING_GARDEN] Garden in the city in which it is built.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_HIMEJICASTLE_DESC"> 
@@ -142422,7 +142495,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_HUBBLE_HELP"> 
 			<Text>
-				Provides a free Recycling Center in the city in which it is built. +200% [ICON_PRODUCTION] Production when building Spaceship Parts.
+				Provides a free Recycling Center in the city in which it is built. +100% [ICON_PRODUCTION] Production when building Spaceship Parts.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_HUBBLE_QUOTE"> 
@@ -143352,7 +143425,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_STATUE_ZEUS_HELP"> 
 			<Text>
-				All units gain +15% [ICON_STRENGTH] combat strength when attacking cities. +10% [ICON_PRODUCTION] Production towards all military units in this city.
+				Requires [COLOR_POSITIVE_TEXT]Honor[ENDCOLOR]. All units gain +15% [ICON_STRENGTH] combat strength when attacking cities. +10% [ICON_PRODUCTION] Production towards all military units in this city.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_STATUE_ZEUS_QUOTE"> 
@@ -143422,7 +143495,7 @@ The ship has weather'd every rack; the prize we sought is won."
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_TEMPLE_ARTEMIS_HELP"> 
 			<Text>
-				Requires Honor. +15% [ICON_PRODUCTION] Production and +15 XP when building ranged units. Provides +3 [ICON_PRODUCTION] Production, [ICON_GOLD] Gold and [ICON_CULTURE] Culture in the city.
+				+15% [ICON_FOOD] Growth in the City. +15% [ICON_PRODUCTION] Production and +15 XP when building [COLOR_POSITIVE_TEXT]Land Ranged[ENDCOLOR] units. [ICON_BUILD_CAMP] Camps worked by the City provide +1 [ICON_PEACE] Faith.
 			</Text>
 		</Replace>
 		<Replace Tag="TXT_KEY_WONDER_TEMPLE_ARTEMIS_QUOTE"> 

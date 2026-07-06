@@ -33,6 +33,9 @@ CvTraitEntry::CvTraitEntry() :
 	m_iPopulationUnhappinessModifier(0),
 	m_iCityStateBonusModifier(0),
 	m_iCityStateFriendshipModifier(0),
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	m_iFirstProphetCostMod(0),
+#endif
 	m_iCityStateCombatModifier(0),
 	m_iLandBarbarianConversionPercent(0),
 	m_iLandBarbarianConversionExtraUnits(0),
@@ -212,6 +215,9 @@ CvTraitEntry::CvTraitEntry() :
 #ifdef AUI_WARNING_FIXES
 	m_piMovesChangeUnitCombats(NULL),
 	m_piMaintenanceModifierUnitCombats(NULL),
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+	m_paiBuildingClassProductionModifiers(NULL),
+#endif
 	m_iWorkerSpeedModifier(0),
 	m_iAfraidMinorPerTurnInfluence(0),
 	m_iLandTradeRouteRangeBonus(0),
@@ -299,6 +305,9 @@ CvTraitEntry::~CvTraitEntry()
 	SAFE_DELETE_ARRAY(m_piResourceQuantityModifiers);
 	SAFE_DELETE_ARRAY(m_piMovesChangeUnitCombats);
 	SAFE_DELETE_ARRAY(m_piMaintenanceModifierUnitCombats);
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+	SAFE_DELETE_ARRAY(m_paiBuildingClassProductionModifiers);
+#endif
 #endif
 }
 
@@ -379,6 +388,13 @@ int CvTraitEntry::GetCityStateFriendshipModifier() const
 {
 	return m_iCityStateFriendshipModifier;
 }
+
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+int CvTraitEntry::GetFirstProphetCostMod() const
+{
+	return m_iFirstProphetCostMod;
+}
+#endif
 
 /// Accessor:: percent boost in value of city state bonuses
 int CvTraitEntry::GetCityStateCombatModifier() const
@@ -1154,6 +1170,15 @@ int CvTraitEntry::GetYieldModifier(int i) const
 	return m_paiYieldModifier ? m_paiYieldModifier[i] : -1;
 }
 
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+int CvTraitEntry::GetBuildingClassProductionModifier(int i) const
+{
+	CvAssertMsg(i < GC.getNumBuildingClassInfos(), "Index out of bounds");
+	CvAssertMsg(i > -1, "Index out of bounds");
+	return m_paiBuildingClassProductionModifiers ? m_paiBuildingClassProductionModifiers[i] : 0;
+}
+#endif
+
 /// Accessor:: Additional quantity of strategic resources
 int CvTraitEntry::GetStrategicResourceQuantityModifier(int i) const
 {
@@ -1536,6 +1561,9 @@ bool CvTraitEntry::CacheResults(Database::Results& kResults, CvDatabaseUtility& 
 	m_iPopulationUnhappinessModifier    	= kResults.GetInt("PopulationUnhappinessModifier");
 	m_iCityStateBonusModifier               = kResults.GetInt("CityStateBonusModifier");
 	m_iCityStateFriendshipModifier          = kResults.GetInt("CityStateFriendshipModifier");
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	m_iFirstProphetCostMod					= kResults.GetInt("FirstProphetCostMod");
+#endif
 	m_iCityStateCombatModifier				= kResults.GetInt("CityStateCombatModifier");
 	m_iLandBarbarianConversionPercent       = kResults.GetInt("LandBarbarianConversionPercent");
 	m_iLandBarbarianConversionExtraUnits    = kResults.GetInt("LandBarbarianConversionExtraUnits");
@@ -2206,6 +2234,9 @@ inner join BuildingClasses on BuildingClasses.Type = BuildingClassType inner joi
 		std::multimap<int,int>(m_FreePromotionUnitCombats).swap(m_FreePromotionUnitCombats);
 
 		kUtility.PopulateArrayByValue(m_piResourceQuantityModifiers, "Resources", "Trait_ResourceQuantityModifiers", "ResourceType", "TraitType", szTraitType, "ResourceQuantityModifier");
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+		kUtility.PopulateArrayByValue(m_paiBuildingClassProductionModifiers, "BuildingClasses", "Trait_BuildingClassProductionModifiers", "BuildingClassType", "TraitType", szTraitType, "ProductionModifier");
+#endif
 	}
 
 	//Populate m_MovesChangeUnitCombats
@@ -2728,6 +2759,9 @@ void CvPlayerTraits::InitPlayerTraits()
 			m_iPopulationUnhappinessModifier += trait->GetPopulationUnhappinessModifier();
 			m_iCityStateBonusModifier += trait->GetCityStateBonusModifier();
 			m_iCityStateFriendshipModifier += trait->GetCityStateFriendshipModifier();
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+			m_iFirstProphetCostMod += trait->GetFirstProphetCostMod();
+#endif
 			m_iCityStateCombatModifier += trait->GetCityStateCombatModifier();
 			m_iLandBarbarianConversionPercent += trait->GetLandBarbarianConversionPercent();
 			m_iLandBarbarianConversionExtraUnits += trait->GetLandBarbarianConversionExtraUnits();
@@ -3296,6 +3330,9 @@ void CvPlayerTraits::Reset()
 	m_iPopulationUnhappinessModifier = 0;
 	m_iCityStateBonusModifier = 0;
 	m_iCityStateFriendshipModifier = 0;
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	m_iFirstProphetCostMod = 0;
+#endif
 	m_iCityStateCombatModifier = 0;
 	m_iLandBarbarianConversionPercent = 0;
 	m_iLandBarbarianConversionExtraUnits = 0;
@@ -4040,6 +4077,28 @@ int CvPlayerTraits::GetBuildingClassGlobalHappiness(BuildingClassTypes eBuilding
 
 	return m_aiBuildingClassGlobalHappiness[(int)eBuildingClass];
 }
+#if defined(LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS)
+int CvPlayerTraits::GetBuildingClassProductionModifier(BuildingClassTypes eBuildingClass) const
+{
+	if (eBuildingClass == NO_BUILDINGCLASS)
+		return 0;
+	CvAssertMsg(eBuildingClass < GC.getNumBuildingClassInfos(), "Invalid eBuildingClass parameter in call to CvPlayerTraits::GetBuildingClassProductionModifier()");
+
+	int rtnValue = 0;
+#ifdef AUI_WARNING_FIXES
+	for (uint i = 0; i < (uint)GC.getNumTraitInfos(); i++)
+#else
+	for (int i = 0; i < GC.getNumTraitInfos(); i++)
+#endif
+	{
+		if (HasTrait((TraitTypes)i))
+		{
+			rtnValue += GC.getTraitInfo((TraitTypes)i)->GetBuildingClassProductionModifier((int)eBuildingClass);
+		}
+	}
+	return rtnValue;
+}
+#endif
 ///Get Yield Change from Trait for a specific building class
 int CvPlayerTraits::GetBuildingClassYieldChange(BuildingClassTypes eBuildingClass, YieldTypes eYieldType)
 {
@@ -5344,6 +5403,9 @@ void CvPlayerTraits::Read(FDataStream& kStream)
 	{
 		m_aUniqueLuxuryAreas.clear();
 	}
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	kStream >> m_iFirstProphetCostMod;
+#endif
 }
 
 /// Serialization write
@@ -5624,6 +5686,9 @@ void CvPlayerTraits::Write(FDataStream& kStream)
 	{
 		kStream << m_aUniqueLuxuryAreas[iI];
 	}
+#ifdef LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+	kStream << m_iFirstProphetCostMod;
+#endif
 }
 
 // PRIVATE METHODS

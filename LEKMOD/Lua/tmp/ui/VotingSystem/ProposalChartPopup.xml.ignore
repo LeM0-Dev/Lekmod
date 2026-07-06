@@ -80,6 +80,7 @@
 	    <Stack ID="ProposalPropertiesLabelStack" Anchor="L.T" Offset="6,8" Padding="12" StackGrowth="Bottom">
 	      <Label ID="ProposalName" Offset="0,0" Anchor="L,T"/>
 	      <Label ID="ProposalStartedBy" Offset="0,0" Anchor="L,T"/>
+	      <Label ID="PendingVotersLabel" Offset="0,0" Anchor="L,T" />
 	      <Image Offset="-6,0" Anchor="L,T" Texture="bar300x2.dds" Size="300.1"/>
 		  <Label Offset="0,0" Anchor="L,T" String="TXT_KEY_MP_PROPOSAL_SCREEN_EXPIRATION_TURN"/>
 		  <Label Offset="0,0" Anchor="L,T" String="TXT_KEY_MP_PROPOSAL_SCREEN_MAX_VOTERS"/>
@@ -95,6 +96,8 @@
 		  </GridButton>
 	    </Stack>
 	    <Stack ID="ProposalDetailsStack" Anchor="L,T" Offset="225,32" Padding="12" StackGrowth="Bottom">
+		  <Box Offset="0,0" Size="1,27" Color="255,255,255,0"/>
+		  <!-- Keep right-side numeric rows aligned after adding PendingVotersLabel on the left stack -->
 		  <Box Offset="0,0" Size="1,27" Color="255,255,255,0"/>
 		  <Box Offset="0,0" Size="44,13" Color="0.0.0.0">
 		    <Label ID="Expiration" Offset="0,0" Anchor="R,T"/>

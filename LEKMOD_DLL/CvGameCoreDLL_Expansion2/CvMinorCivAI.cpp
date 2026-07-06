@@ -16,6 +16,7 @@
 #include "CvDllInterfaces.h"
 #include "CvDllPlot.h"
 #include "cvStopWatch.h"
+#include "CvReligionClasses.h"
 
 // must be included after all other headers
 #include "LintFree.h"
@@ -5515,8 +5516,26 @@ int CvMinorCivAI::GetFriendshipChangePerTurnTimes100(PlayerTypes ePlayer)
 	// Modifier to rate based on traits and religion
 	int iTraitMod = kPlayer.GetPlayerTraits()->GetCityStateFriendshipModifier();
 	int iReligionMod = 0;
+#ifdef LEKMOD_BELIEF_CITY_STATE_FOLLOWING_RELIGION_INFLUENCE
+	int iBeliefDecayMod = 0;
+	int iBeliefRecoveryMod = 0;
+#endif
 	if (IsSameReligionAsMajor(ePlayer))
+	{
 		iReligionMod += /*50*/ GC.getMINOR_FRIENDSHIP_RATE_MOD_SHARED_RELIGION();
+#ifdef LEKMOD_BELIEF_CITY_STATE_FOLLOWING_RELIGION_INFLUENCE
+		const ReligionTypes eFounderReligion = GC.getGame().GetGameReligions()->GetReligionCreatedByPlayer(ePlayer);
+		if (eFounderReligion != NO_RELIGION)
+		{
+			const CvReligion* pReligion = GC.getGame().GetGameReligions()->GetReligion(eFounderReligion, ePlayer);
+			if (pReligion)
+			{
+				iBeliefDecayMod = pReligion->m_Beliefs.GetCityStateFollowingReligionDecayMod();
+				iBeliefRecoveryMod = pReligion->m_Beliefs.GetCityStateFollowingReligionRecoveryMod();
+			}
+		}
+#endif
+	}
 
 	// Relation to anchor point?
 	int iBaseFriendship = GetBaseFriendshipWithMajor(ePlayer);
@@ -5542,7 +5561,9 @@ int CvMinorCivAI::GetFriendshipChangePerTurnTimes100(PlayerTypes ePlayer)
 		iDecayMod += GET_PLAYER(ePlayer).GetMinorFriendshipDecayMod();
 		iDecayMod += (-1) * (iTraitMod / 2);
 		iDecayMod += (-1) * (iReligionMod / 2);
-		
+#ifdef LEKMOD_BELIEF_CITY_STATE_FOLLOWING_RELIGION_INFLUENCE
+		iDecayMod += (-1) * (iBeliefDecayMod / 2);
+#endif
 		if (iDecayMod < 0)
 			iDecayMod = 0;
 
@@ -5557,6 +5578,9 @@ int CvMinorCivAI::GetFriendshipChangePerTurnTimes100(PlayerTypes ePlayer)
 		int iRecoveryMod = 100;
 		iRecoveryMod += iTraitMod;
 		iRecoveryMod += iReligionMod;
+#ifdef LEKMOD_BELIEF_CITY_STATE_FOLLOWING_RELIGION_INFLUENCE
+		iRecoveryMod += iBeliefRecoveryMod;
+#endif
 		
 		if (iRecoveryMod < 0)
 			iRecoveryMod = 0;
@@ -5843,6 +5867,17 @@ void CvMinorCivAI::DoUpdateAlliesResourceBonus(PlayerTypes eNewAlly, PlayerTypes
 			if(eNewAlly != NO_PLAYER)
 			{
 				iResourceQuantity = GetPlayer()->getNumResourceTotal(eResource);
+#ifdef LEKMOD_CS_BUILDING_STRATEGIC_NO_ALLY_SHARE
+				if(eUsage == RESOURCEUSAGE_STRATEGIC)
+				{
+					const int iFromBuildings = GetPlayer()->getNumMinorStrategicResourceFromBuildings(eResource);
+					iResourceQuantity -= iFromBuildings;
+					if(iResourceQuantity < 0)
+					{
+						iResourceQuantity = 0;
+					}
+				}
+#endif
 
 				if(iResourceQuantity > 0)
 				{
@@ -8966,7 +9001,7 @@ CvString CvMinorCivAI::GetMajorBullyUnitDetails(PlayerTypes ePlayer)
 	CvString sFactors = "";
 	int iScore = CalculateBullyMetric(ePlayer, /*bForUnit*/true, &sFactors);
 	bool bCanBully = CanMajorBullyUnit(ePlayer, iScore);
-	UnitTypes eUnitType = (UnitTypes) GC.getInfoTypeForString("UNIT_WORKER"); //antonjs: todo: XML/function
+	UnitTypes eUnitType = static_cast<UnitTypes>(GET_PLAYER(ePlayer).getCivilizationInfo().getCivilizationUnits(GC.getInfoTypeForString("UNITCLASS_WORKER"))); //antonjs: todo: XML/function
 	CvUnitEntry* pUnitInfo = GC.getUnitInfo(eUnitType);
 	CvAssert(pUnitInfo);
 	if (!pUnitInfo)
@@ -9024,6 +9059,17 @@ void CvMinorCivAI::DoMajorBullyGold(PlayerTypes eBully, int iGold)
 			iInfluenceChange = GC.getMINOR_FRIENDSHIP_DROP_BULLY_GOLD_SUCCESS();
 			bShouldRemoveQuests = true;
 		}
+#if defined(LEKMOD_POLICY_MINOR_BULLY_TRIBUTE)
+		{
+			const int iLekmodTributeRewardTimes100 = GET_PLAYER(eBully).GetPlayerPolicies()->GetMinorBullyInfluenceReward();
+			const bool bLekmodTributeNoPenalty = GET_PLAYER(eBully).GetPlayerPolicies()->IsMinorBullyNoPenalty();
+			if (bLekmodTributeNoPenalty && iInfluenceChange < 0)
+				iInfluenceChange = 0;
+			iInfluenceChange += iLekmodTributeRewardTimes100;
+			if (bLekmodTributeNoPenalty)
+				bShouldRemoveQuests = false;
+		}
+#endif
 		DoBulliedByMajorReaction(eBully, iInfluenceChange, bShouldRemoveQuests);
 #else
 		DoBulliedByMajorReaction(eBully, GC.getMINOR_FRIENDSHIP_DROP_BULLY_GOLD_SUCCESS());
@@ -9048,7 +9094,7 @@ void CvMinorCivAI::DoMajorBullyUnit(PlayerTypes eBully, UnitTypes eUnitType)
 	int iBullyMetric = CalculateBullyMetric(eBully, /*bForUnit*/true);
 	bool bSuccess = CanMajorBullyUnit(eBully, iBullyMetric);
 	int iOldFriendshipTimes100 = GetEffectiveFriendshipWithMajorTimes100(eBully);
-
+	UnitTypes bullyUnit = NO_UNIT;
 	if(bSuccess)
 	{
 		if(eUnitType == NO_UNIT)
@@ -9067,8 +9113,8 @@ void CvMinorCivAI::DoMajorBullyUnit(PlayerTypes eBully, UnitTypes eUnitType)
 
 		int iX = pCapital->getX();
 		int iY = pCapital->getY();
-
-		CvUnit* pNewUnit = GET_PLAYER(eBully).initUnit(eUnitType, iX, iY);
+		bullyUnit = static_cast<UnitTypes>(GET_PLAYER(eBully).getCivilizationInfo().getCivilizationUnits(GC.getUnitInfo(eUnitType)->GetUnitClassType()));
+		CvUnit* pNewUnit = GET_PLAYER(eBully).initUnit(bullyUnit, iX, iY);
 		if (pNewUnit->jumpToNearestValidPlot())
 		{
 			pNewUnit->finishMoves(); // The given unit cannot move this turn
@@ -9077,7 +9123,20 @@ void CvMinorCivAI::DoMajorBullyUnit(PlayerTypes eBully, UnitTypes eUnitType)
 				GetPlayer()->getCapitalCity()->addProductionExperience(pNewUnit);
 
 #ifdef NQ_MINOR_FRIENDSHIP_GAIN_BULLY_GOLD_SUCCESS_FROM_POLICIES
-			DoBulliedByMajorReaction(eBully, GC.getMINOR_FRIENDSHIP_DROP_BULLY_WORKER_SUCCESS(), true);
+			{
+				int iWorkerInfluenceTimes100 = GC.getMINOR_FRIENDSHIP_DROP_BULLY_WORKER_SUCCESS();
+				bool bWorkerRemoveQuests = true;
+#if defined(LEKMOD_POLICY_MINOR_BULLY_TRIBUTE)
+				const int iLekmodTributeRewardTimes100 = GET_PLAYER(eBully).GetPlayerPolicies()->GetMinorBullyInfluenceReward();
+				const bool bLekmodTributeNoPenalty = GET_PLAYER(eBully).GetPlayerPolicies()->IsMinorBullyNoPenalty();
+				if (bLekmodTributeNoPenalty && iWorkerInfluenceTimes100 < 0)
+					iWorkerInfluenceTimes100 = 0;
+				iWorkerInfluenceTimes100 += iLekmodTributeRewardTimes100;
+				if (bLekmodTributeNoPenalty)
+					bWorkerRemoveQuests = false;
+#endif
+				DoBulliedByMajorReaction(eBully, iWorkerInfluenceTimes100, bWorkerRemoveQuests);
+			}
 #else
 			DoBulliedByMajorReaction(eBully, GC.getMINOR_FRIENDSHIP_DROP_BULLY_WORKER_SUCCESS());
 #endif
@@ -9090,7 +9149,7 @@ void CvMinorCivAI::DoMajorBullyUnit(PlayerTypes eBully, UnitTypes eUnitType)
 	}
 
 	// Logging
-	GET_PLAYER(eBully).GetDiplomacyAI()->LogMinorCivBullyUnit(GetPlayer()->GetID(), iOldFriendshipTimes100, GetEffectiveFriendshipWithMajorTimes100(eBully), eUnitType, bSuccess, iBullyMetric);
+	GET_PLAYER(eBully).GetDiplomacyAI()->LogMinorCivBullyUnit(GetPlayer()->GetID(), iOldFriendshipTimes100, GetEffectiveFriendshipWithMajorTimes100(eBully), bullyUnit, bSuccess, iBullyMetric);
 
 	GC.GetEngineUserInterface()->setDirty(GameData_DIRTY_BIT, true);
 }
@@ -10154,8 +10213,19 @@ int CvMinorCivAI::GetNumResourcesMajorLacks(PlayerTypes eMajor)
 		if(pkResourceInfo == NULL || pkResourceInfo->getResourceUsage() == RESOURCEUSAGE_BONUS)
 			continue;
 
-		// We must have it
-		if(GetPlayer()->getNumResourceTotal(eResource, /*bIncludeImport*/ false) == 0)
+		// We must have it (city-state building-granted strategics do not count as "something we can offer")
+		int iMinorHas = GetPlayer()->getNumResourceTotal(eResource, /*bIncludeImport*/ false);
+#ifdef LEKMOD_CS_BUILDING_STRATEGIC_NO_ALLY_SHARE
+		if(pkResourceInfo->getResourceUsage() == RESOURCEUSAGE_STRATEGIC)
+		{
+			iMinorHas -= GetPlayer()->getNumMinorStrategicResourceFromBuildings(eResource);
+			if(iMinorHas < 0)
+			{
+				iMinorHas = 0;
+			}
+		}
+#endif
+		if(iMinorHas == 0)
 			continue;
 
 		// They must not have it
@@ -10478,6 +10548,20 @@ pair<CvString, CvString> CvMinorCivAI::GetStatusChangeNotificationStrings(Player
 			{
 				eResource = (ResourceTypes) iResourceLoop;
 				iResourceQuantity = GetPlayer()->getNumResourceTotal(eResource);
+#ifdef LEKMOD_CS_BUILDING_STRATEGIC_NO_ALLY_SHARE
+				{
+					const CvResourceInfo* pkResInfoQty = GC.getResourceInfo(eResource);
+					if(pkResInfoQty != NULL && pkResInfoQty->getResourceUsage() == RESOURCEUSAGE_STRATEGIC)
+					{
+						const int iFromBuildings = GetPlayer()->getNumMinorStrategicResourceFromBuildings(eResource);
+						iResourceQuantity -= iFromBuildings;
+						if(iResourceQuantity < 0)
+						{
+							iResourceQuantity = 0;
+						}
+					}
+				}
+#endif
 
 				if(iResourceQuantity > 0)
 				{

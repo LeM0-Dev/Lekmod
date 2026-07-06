@@ -890,6 +890,14 @@
 
 //--------------------------------------------------------------------------------
 
+// City-state strategic resources granted by buildings (e.g. Caravansary, Recycling Center) are not
+// shared with allied majors and cannot be offered in trade by the city-state.
+#define LEKMOD_CS_BUILDING_STRATEGIC_NO_ALLY_SHARE
+
+// Track whether a major/minor war was started by the major declaring on the CS (for Lua city-state peace timer).
+#define LEKMOD_CITY_STATE_PEACE_LOCK_FROM_DECLARATION
+// Must match PEACE_LOCK_TURNS in CityStateDiploPopup.lua.ignore; also used to block TRADE_ITEM_THIRD_PARTY_PEACE during that window.
+#define LEKMOD_CITY_STATE_MANUAL_DOW_PEACE_LOCK_TURNS 8
 
 // Fixed an issue with unique faith units not working correctly
 #define LEK_UNIQUE_FAITH_UNIT_FIX
@@ -922,6 +930,8 @@
 #define LEKMOD_100_EVASIION_FIX
 // Unlocks ideology if all your cities have a factory or otherwise a building that unlocks ideology, else the specified number entered (default 3)
 #define LEKMOD_UNLOCK_IDEO_ALL_CITIES
+// Halves base public opinion unhappiness first, then applies IdeologyPressureUnhappinessModifier per owned policy (and trait) as successive % factors, not one summed %. Does not change pressure icons, dissatisfaction tiers, or revolt/WC logic. See CvPlayerCulture::ComputePublicOpinionUnhappiness.
+#define LEKMOD_IDEO_PRESSURE_CHANGE
 // Adds a promotion that enables units to have a movement penalty (amount specified in xml) when attacking cities
 #define LEKMOD_MOVE_PENALTY_CITY_COMBAT
 // Building tourism from TechEnhancedTourism can now apply multiple times if the same building exists multiple times in the city
@@ -936,6 +946,8 @@
 #define LEKMOD_FREE_BUILDING_FIX
 // Added a new tag to the buildings table in xml "gold cost". This overrides the gold cost of a building regardless of hurry cost modifiers but will be discounted by other effects.
 #define LEKMOD_BUILDING_GOLD_COST
+// Beliefs_BuildingPurchaseFaithGold table + BELIEF_LEKMOD_NATWONDER_FAITH_PURCHASE (CvBeliefClasses — CvReligionBeliefs::LoadBuildingPurchaseFaithGoldTable)
+#define LEKMOD_BELIEF_BUILDING_PURCHASE
 // Uncouples an assumption that belief buildings cannot have production costs
 #define LEKMOD_BELIEF_BUILDING_PRODUCTION_COST
 // New buildingentry table that awards a certain yield whenever a great person is expended (mausoelum effect)
@@ -948,10 +960,18 @@
 #define LEKMOD_NO_FREE_TEAM_WONDERS
 // Combat bonus against different ideology
 #define LEKMOD_DIFFERENT_IDEO_COMBAT_BONUS
+// Combat bonus from tourism influence % vs enemy major (Tourism_InfluenceCombatMod table)
+#define LEKMOD_TOURISM_COMBAT_MOD
 // Trait Table that overrides build times for certain build actions
 #define LEKMOD_BUILD_TIME_OVERRIDE
 // Global move change from policies
 #define LEKMOD_POLICIES_GLOBAL_MOVE_CHANGE
+// Policy_TerrainYieldChanges (Unimproved, NoResource, ExcludeLakes) / Policy_FeatureYieldChanges; CvPlot::calculateNatureYield
+#define LEKMOD_POLICY_TERRAIN_FEATURE_YIELDS
+// Policies.MinorBullyInfluenceReward (same integer scale as MINOR_FRIENDSHIP_DROP_BULLY_*) / MinorBullyNoPenalty — gold & worker tribute (requires NQ bully reaction 3-arg path)
+#define LEKMOD_POLICY_MINOR_BULLY_TRIBUTE
+// Policy_GreatPersonImprovement_Adjacency_YieldBonus (per adjacent GP-created improvement; CvPlot::calculateImprovementYieldChange)
+#define LEKMOD_POLICY_GREATPERSON_IMPROVEMENT_ADJACENCY_YIELD
 // No Combat Randomness Game Option
 #define LEKMOD_NO_COMBAT_RANDOMNESS
 // Additional plot influence modifiers
@@ -962,7 +982,10 @@
 #define LEKMOD_TRAIT_CIVILIAN_EMBARK_ONE_MOVE
 // Yields from converting cities and/or citizens to a religion
 #define LEKMOD_PROMO_YIELD_FROM_CONVERSION
-
+// Per-player, per-city, per-promotion, per-yield cap for majority conversion yields (UnitPromotions_YieldsFromFollowerConversion.OnlyOnce)
+#define LEKMOD_PROMO_CONVERSION_MAJORITY_ONLY_ONCE
+/// Clear forced-work when a tile becomes unworkable or changes working city; verify before manual plot clicks (stuck manual reassignment)
+#define LEKMOD_CITIZENS_FIX_CLEAR_STALE_FORCED_WHEN_UNWORKING
 
 /// ###############################
 /// Lekmod: New Lua Events and Methods
@@ -1077,6 +1100,14 @@ TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_TRAIT_VOTES
 */
 // Changes made for the new version of Lekmod, unrelated to the above
 #define LEKMOD_v34 
+// Building table integer for modifying excess food growth rate.
+#define LEKMOD_BUILDING_EXCESS_GROWTH
+// Building table integer for additional military unit production modifier.
+#define LEKMOD_BUILDING_MILITARY_PRODUCTION_MOD
+// Adds a dedicated DLL/Lua check for disabled luxury trades when target already has the luxury.
+#define LEKMOD_LUXURY_DUPLICATE_TRADE_TOOLTIP
+// Exposes pending incoming deal sender list (oldest first) for End Turn UI prompting.
+#define LEKMOD_PENDING_DEAL_TURN_PROMPT
 // Allows the Collection of Golden Age Points during a Golden Age via game option.
 #define GAMEOPTION_GOLDENAGE_ALT
 // DLL code the Huey lake Req
@@ -1131,6 +1162,12 @@ TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_TRAIT_VOTES
 #define LEKMOD_TRAIT_BAN_UNIT_MISSIONS
 // Add more flexibility to City Yield changes from Traits
 #define LEKMOD_CITY_YIELDS_TRAITS
+#ifdef LEKMOD_CITY_YIELDS_TRAITS
+// Non-capital cities founded with the trait's YieldSettleUnit: max that receive Trait_CityEraYieldChange at once (earlier getGameTurnFounded() first, then lower City ID; 0 = unlimited)
+#ifndef LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX
+#define LEKMOD_YIELD_SETTLE_UNIT_NON_CAP_MAX 1
+#endif
+#endif
 // Refactor Submarine Attack logic
 #define LEKMOD_SUBMARINE_ATTACK_CHANGES
 // Export the WLTKD count down for UI purposes.
@@ -1143,6 +1180,16 @@ TXT_KEY_LEAGUE_OVERVIEW_MEMBER_DETAILS_TRAIT_VOTES
 #define RELIGION_PRESSURE_LUA
 // Extend the functionality of Religious Tolerance
 #define LEKMOD_RELIGIOUS_TOLERANCE_EXTENDED
+// National Visitor Center / landmark tourism: count the same culture sources as CvCity uses for wonders and natural-wonder tiles (per-wonder policy culture, beliefs, traits, tech/era boosts, etc.)
+#define LEKMOD_LANDMARKS_TOURISM_SOURCE_CULTURE_FIX
+// Belief columns CityStateFollowingReligionDecayMod / RecoveryMod: Greece-style CS influence decay & recovery when CS follows your religion (founder only)
+#define LEKMOD_BELIEF_CITY_STATE_FOLLOWING_RELIGION_INFLUENCE
+/// Trait column FirstProphetCostMod (%): discount on faith cost for the very first Great Prophet (XML -50 = half cost); any prior spawn/purchase that increments prophet count ends it.
+#define LEKMOD_TRAIT_FIRST_PROPHET_COST_MOD
+/// Trait_BuildingClassProductionModifiers table (mirrors Policy_BuildingClassProductionModifiers; % production speed per building class)
+#define LEKMOD_TRAIT_BUILDING_CLASS_PRODUCTION_MODIFIERS
+/// Unit table xml tag MoveAfterPurchase now works for faith-bought units (same as gold purchases) instead of always zeroing moves
+#define LEKMOD_FAITH_MOVE_AFTER_PURCHASE
 // Change the religious pressure when losing population
 #define LEKMOD_RELIGIOUS_PRESSURE_POP_LOSS
 // Make mountains more yieldable

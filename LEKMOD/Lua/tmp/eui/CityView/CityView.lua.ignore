@@ -810,8 +810,11 @@ local function SetupBuildingList( city, buildings, buildingIM )
 			isProducing = isNotResistance
 			thisBuildingAndYieldTypes.YieldType = (GameInfo.Yields[yieldID] or {}).Type or -1
 			-- Yield changes from the building
+			-- Match EUI GetHelpTextForBuilding: PlayerBuildingClass (empire) + Policy + Trait + Religion (+ League)
 			buildingYieldRate = Game.GetBuildingYieldChange( buildingID, yieldID )
 						+ (gk_mode and cityOwner:GetPlayerBuildingClassYieldChange( buildingClassID, yieldID )
+						+ cityOwner:GetPolicyBuildingClassYieldChange( buildingClassID, yieldID )
+						+ cityOwner:GetTraitBuildingClassYieldChange( buildingClassID, yieldID )
 						+ city:GetReligionBuildingClassYieldChange( buildingClassID, yieldID ) or 0)
 						+ (bnw_mode and city:GetLeagueBuildingClassYieldChange( buildingClassID, yieldID ) or 0)
 			-- Yield modifiers from the building
@@ -842,7 +845,7 @@ local function SetupBuildingList( city, buildings, buildingIM )
 				local foodPerPop = GameDefines.FOOD_CONSUMPTION_PER_POPULATION
 				local foodConsumed = city:FoodConsumption()
 				buildingYieldRate = buildingYieldRate + (foodConsumed < foodPerPop * population and foodPerPop * numSpecialistsInBuilding / 2 or 0)
-				buildingYieldModifier = buildingYieldModifier + (tonumber(building.FoodKept) or 0)
+				buildingYieldModifier = buildingYieldModifier + (tonumber(building.FoodKept) or 0) + (tonumber(building.ExcessGrowth) or 0)
 				cityYieldRate = city:FoodDifferenceTimes100() / 100 -- cityYieldRate - foodConsumed 
 				cityYieldRateModifier = cityYieldRateModifier + city:GetMaxFoodKeptPercent()
 				isProducing = true
