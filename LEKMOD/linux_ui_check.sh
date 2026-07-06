@@ -365,7 +365,6 @@ cp "$PATCH/Lua/tmp/ui/DiscussionDialog.lua.ignore" "$PATCH/Lua/UI/DiscussionDial
 cp "$PATCH/Lua/tmp/ui/EndGameMenu.lua.ignore"      "$PATCH/Lua/UI/EndGameMenu.lua"
 cp "$PATCH/Lua/tmp/ui/Highlights.xml.ignore"       "$PATCH/Lua/UI/Highlights.xml"
 cp "$PATCH/Lua/tmp/ui/InGame.lua.ignore"           "$PATCH/Lua/UI/InGame.lua"
-cp "$PATCH/Lua/tmp/ui/mountain.lua.ignore"         "$PATCH/Lua/UI/mountain.lua"
 cp "$PATCH/Lua/tmp/ui/prophetreplace.lua.ignore"   "$PATCH/Lua/UI/prophetreplace.lua"
 ###########################
 # --- YieldIconManager ---
