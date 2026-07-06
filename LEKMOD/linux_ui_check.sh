@@ -76,7 +76,7 @@ echo "[LEKMOD] Patching CityView + ProductionPopup..."
 
 SEARCH_TEXT="-- coded by bc1 from 1.0.3.276 brave new world code"
 
-if grep -F "$SEARCH_TEXT" "$EUIFOLDER/CityView/CityView.lua" >/dev/null 2>&1; then
+if grep -F -- "$SEARCH_TEXT" "$EUIFOLDER/CityView/CityView.lua" >/dev/null 2>&1; then
     echo "  -> Detected EUI CityView; applying EUI patches"
     cp "$PATCH/Lua/tmp/eui/CityView/CityView.lua.ignore"       "$PATCH/Lua/UI/CityView.lua"
     cp "$PATCH/Lua/tmp/eui/CityView/CityView.xml.ignore"       "$PATCH/Lua/UI/CityView.xml"
