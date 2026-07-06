@@ -33,7 +33,7 @@ SEARCH_TEXT='CityBannerProductionBox = function( city )'
 echo "[LEKMOD] Patching CityBannerManager..."
 if [ -f "$EUIFOLDER/CityBanners/CityBannerManager.lua" ]; then
     # If file exists, check if it contains the key text
-    if grep -q "$SEARCH_TEXT" "$EUIFOLDER/CityBanners/CityBannerManager.lua"; then
+    if grep -q -- "$SEARCH_TEXT" "$EUIFOLDER/CityBanners/CityBannerManager.lua"; then
         echo "  -> Detected EUI CityBannerManager variant 1"
         # Copy variant 1
         cp "$PATCH/Lua/tmp/eui/CityBanners/CityBannerManager_1.lua.ignore" \
